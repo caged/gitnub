@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/rubycocoa/!svn/ver/1901/trunk/src/template/ProjectBuilder/Application/Cocoa-Ruby%20Application
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/rubycocoa/!svn/ver/1901/trunk/src/template/ProjectBuilder/Application/Cocoa-Ruby%20Application/main.m
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/rubycocoa/!svn/ver/1847/trunk/src/template/ProjectBuilder/Application/Cocoa-Ruby%20Application/Rakefile
+END
+Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/rubycocoa/!svn/ver/1680/trunk/src/template/ProjectBuilder/Application/Cocoa-Ruby%20Application/Info.plist
+END
+rb_main.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svnroot/rubycocoa/!svn/ver/1680/trunk/src/template/ProjectBuilder/Application/Cocoa-Ruby%20Application/rb_main.rb
+END

@@ -1,0 +1,32 @@
+_buf = ''; _buf << %Q`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Logs</title>
+    <link rel="stylesheet" href="application.css" type="text/css" charset="utf-8" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="toolbar">
+        Branch: 
+        <select name="test" class="select">\n`
+           @branches.each do |branch| 
+ _buf << %Q`            <option>#{  branch.name }</option>\n`
+           end 
+ _buf << %Q`        </select>
+      </div>
+      <h1>Commits</h1>
+      <ol id="commits">\n`
+         @repo.commits('master', 100).each_with_index do |commit, i| 
+ _buf << %Q`        <li#{ %( class="shade") if i % 2 == 0 }>
+          <p class="message">#{ commit.message }</p>
+          <span class="meta">#{ commit } by <span class="author">#{ commit.committer }</span></span>
+          <span class="date">#{ commit.committed_date.strftime("%A, %B %d, %I:%M %p") }</span>
+        </li>\n`
+         end 
+ _buf << %Q`      </ol>
+    </div>
+  </body>
+</html>`;
+_buf.to_s
