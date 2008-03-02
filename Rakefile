@@ -7,7 +7,7 @@ require 'rake/testtask'
 require 'pathname'
 
 # Application own Settings
-APPNAME               = "«PROJECTNAME»"
+APPNAME               = "GitNub"
 TARGET                = "#{APPNAME}.app"
 #APPVERSION           = "rev#{`svn info`[/Revision: (\d+)/, 1]}"
 APPVERSION            = Time.now.strftime("%Y-%m-%d")
@@ -18,6 +18,10 @@ RELEASE_CONFIGURATION = 'Release'
 
 # Tasks
 task :default => [:run]
+
+rake :launch
+  sh %{open "build/Release/#{APPNAME}.app"}
+end
 
 desc "Build the default and run it."
 task :run => [:build] do

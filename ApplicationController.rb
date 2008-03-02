@@ -17,6 +17,7 @@ class ApplicationController < OSX::NSObject
   ib_outlet :main_view
   attr_reader :repo
   def awakeFromNib
+    @main_view.drawsBackground = false
     @repo = Grit::Repo.new("/Users/Caged/dev/clients/digisynd/code/client.rails")
     render 'log', {:repo => @repo, :branches => @repo.branches }
   end

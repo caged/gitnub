@@ -59,11 +59,6 @@ table {
   text-align: left;
 }
 
-h1 {
-  padding: 9px;
-  color: #fff;
-}
-
 #toolbar {
   background: #ccc url(bg.png) repeat-x;
   height: 24px;
@@ -81,6 +76,10 @@ h1 {
 /* @end */
 
 /* @group commits */
+
+#commits {
+  margin-top: 35px;
+}
 
 #commits li {
   padding: 6px 9px;

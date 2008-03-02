@@ -21,7 +21,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.apple.rubycocoa.GitNubApp</string>
+	<string>com.alternateidea.rubycocoa.GitNubApp</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 </dict>

@@ -16,16 +16,17 @@
           <% end %>
         </select>
       </div>
-      <h1>Commits</h1>
-      <ol id="commits">
-        <% @repo.commits('master', 100).each_with_index do |commit, i| %>
-        <li<%= %( class="shade") if i % 2 == 0 %>>
-          <p class="message"><%= commit.message %></p>
-          <span class="meta"><%= commit %> by <span class="author"><%= commit.committer %></span></span>
-          <span class="date"><%= commit.committed_date.strftime("%A, %B %d, %I:%M %p") %></span>
-        </li>
-        <% end %>
-      </ol>
+      <div id="commits">
+        <ol>
+          <% @repo.commits('master', 100).each_with_index do |commit, i| %>
+          <li<%= %( class="shade") if i % 2 == 0 %>>
+            <p class="message"><%= commit.message %></p>
+            <span class="meta"><%= commit %> by <span class="author"><%= commit.committer %></span></span>
+            <span class="date"><%= commit.committed_date.strftime("%a, %b %d, %I:%M %p") %></span>
+          </li>
+          <% end %>
+        </ol>
+      </div>
     </div>
   </body>
 </html>
