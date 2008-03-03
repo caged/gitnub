@@ -7,6 +7,7 @@
 #
 
 require 'osx/cocoa'
+require 'md5'
 
 class CommitsController < OSX::NSObject
   attr_reader :commits, :commit
@@ -38,11 +39,11 @@ class CommitsController < OSX::NSObject
   end
   
   def secondaryTextForCell_data(cell, data)
-    return %(by #{data.committer.name} <#{data.committer.email}> on #{data.committed_date.strftime("%A, %b %d, %I:%m %p")})
+    return %(by #{data.committer.name} on #{data.committed_date.strftime("%A, %b %d, %I:%m %p")})
   end
   
   def iconForCell_data(icon, data)
-    NSImage.imageNamed('bubble.png')
+    NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
   end
   
   def dataElementForCell(cell)
