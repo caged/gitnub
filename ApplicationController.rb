@@ -13,8 +13,7 @@ require 'grit'
 include OSX
 OSX.ns_import 'ImageTextCell'
 
-class ApplicationController < OSX::NSObject
-  attr_reader :repo
+class ApplicationController < OSX::NSObject  
   ib_outlet :commits_table, :commits_controller
   def awakeFromNib
     column = @commits_table.tableColumns[0]

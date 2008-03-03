@@ -10,14 +10,22 @@ require 'osx/cocoa'
 require 'md5'
 
 class CommitsController < OSX::NSObject
-  attr_reader :commits, :commit
+  attr_reader :commits 
+  attr_reader :commit
+  attr_reader :branches
+  
   ib_outlet :commits_table
-  ib_outlet :app_controller
+  ib_outlet :branch_select
   
   def awakeFromNib  
-    @repo = Grit::Repo.new("/Users/Caged/dev/clients/digisynd/code/client.rails")
-    @commits = @repo.commits('master', 100)
+    @repo = Grit::Repo.new("/Users/Caged/dev/onceuponatime/xtt")
+    @commits = @repo.commits('master', 50)
     @commits_table.reloadData
+    
+    @branch_select.removeAllItems
+    @repo.branches.each do |branch|
+      @branch_select.addItemWithTitle(branch.name)
+    end
   end
   
   # DataSource Methods
