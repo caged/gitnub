@@ -19,7 +19,7 @@ RELEASE_CONFIGURATION = 'Release'
 # Tasks
 task :default => [:run]
 
-rake :launch
+task :launch do
   sh %{open "build/Release/#{APPNAME}.app"}
 end
 

@@ -37,25 +37,9 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	286F10BC0D7A4E3D0055A0D1 /* log.html.erb */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1074, 683}}";
-			sepNavSelRange = "{4, 0}";
-			sepNavVisRange = "{0, 4}";
-			sepNavWindowFrame = "{{15, 67}, {1133, 811}}";
-		};
-	};
-	286F10C20D7A4EB40055A0D1 /* application.css */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1074, 683}}";
-			sepNavSelRange = "{27, 0}";
-			sepNavVisRange = "{0, 28}";
-			sepNavWindowFrame = "{{15, 67}, {1133, 811}}";
-		};
-	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeArchitecture = i386;
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeExecutable = 2804BC800D7A465B00A0FAA7 /* GitNub */;
 		activeTarget = 4DDCA7030ACC9A6100E082CE /* GitNub */;
 		addToTargets = (
@@ -110,8 +94,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 226132801;
-			PBXWorkspaceStateSaveDate = 226132801;
+			PBXPerProjectTemplateStateSaveDate = 226216114;
+			PBXWorkspaceStateSaveDate = 226216114;
 		};
 		sourceControlManager = 2804BC860D7A467A00A0FAA7 /* Source Control */;
 		userBuildSettings = {

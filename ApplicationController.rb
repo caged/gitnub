@@ -9,22 +9,17 @@
 require 'osx/cocoa'
 require 'rubygems'
 require 'grit'
-require 'erubis'
 
 include OSX
+OSX.ns_import 'ImageTextCell'
 
 class ApplicationController < OSX::NSObject
-  ib_outlet :main_view
   attr_reader :repo
+  ib_outlet :commits_table, :commits_controller
   def awakeFromNib
-    @main_view.drawsBackground = false
-    @repo = Grit::Repo.new("/Users/Caged/dev/clients/digisynd/code/client.rails")
-    render 'log', {:repo => @repo, :branches => @repo.branches }
-  end
-  
-  def render(file, context)
-    log_template = File.join(NSBundle.mainBundle.bundlePath, "Contents", "Resources", "#{file}.html.erb")
-    eruby = Erubis::FastEruby.load_file(log_template)
-    @main_view.mainFrame.loadHTMLString_baseURL(eruby.evaluate(context), NSURL.fileURLWithPath(File.join(NSBundle.mainBundle.bundlePath, "Contents", "Resources")))
+    column = @commits_table.tableColumns[0]
+    cell = ImageTextCell.alloc.init
+    column.dataCell = cell
+    cell.dataDelegate = @commits_controller
   end
 end
