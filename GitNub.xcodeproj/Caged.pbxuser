@@ -37,7 +37,7 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	288853020D7CE09200862D67 /* README_FIRST */ = {
+	288853040D7CE2E500862D67 /* LICENSE */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1074, 687}}";
 			sepNavSelRange = "{4, 0}";
