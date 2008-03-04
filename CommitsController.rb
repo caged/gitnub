@@ -12,22 +12,44 @@ require 'md5'
 class CommitsController < OSX::NSObject
   ib_outlet :commits_table
   ib_outlet :branch_select
-  ib_outlet :paging_button
+  ib_outlet :paging_segment
   
   def awakeFromNib  
     @repo_location = ENV['PWD'].nil? ? '' : ENV['PWD']
-    begin
-      @repo = Grit::Repo.new(@repo_location)
-    rescue Grit::InvalidGitRepositoryError
-      return
+    @current_commit_offset = 0
+    @offset = 50
+    
+    if(fetch_git_repository)
+      fetch_commits_for :master, @offset
+      setup_branches_menu
+      setup_paging_control
+      @commits_table.reloadData
     end
-      
-    @commits = @repo.commits('master', 50)
+  end
+  
+  ib_action :page_commits
+  def page_commits(segment)
+    tag = segment.cell.tagForSegment(segment.selectedSegment)
+    case tag
+      when 0 then @current_commit_offset -= @offset
+      when 1 then @current_commit_offset = 0
+      when 2 then @current_commit_offset += @offset
+    end
+    
+    @current_commit_offset = 0 if @current_commit_offset == -(@offset)
+    fetch_commits_for(:master, @offset, @current_commit_offset)
     @commits_table.reloadData
     
-    @branch_select.removeAllItems
-    @repo.branches.each do |branch|
-      @branch_select.addItemWithTitle(branch.name)
+    
+    if @commits.size == 0 || @current_commit_offset == 0
+      @paging_segment.setEnabled_forSegment(false, 0)
+      @paging_segment.setEnabled_forSegment(true, 2) unless @commits.size == 0
+    elsif ((@current_commit_offset >= @offset) && (@commits.size % @offset == 0))
+      @paging_segment.setEnabled_forSegment(true, 0)
+      @paging_segment.setEnabled_forSegment(true, 2)
+    elsif @commits.size % @offset != 0
+      @paging_segment.setEnabled_forSegment(true, 0)
+      @paging_segment.setEnabled_forSegment(false, 2)
     end
   end
   
@@ -49,18 +71,43 @@ class CommitsController < OSX::NSObject
   
   # ImageTextCell data methods
   def primaryTextForCell_data(cell, data)
-    return data.message.to_s
+    data.message.to_s
   end
   
   def secondaryTextForCell_data(cell, data)
-    return %(by #{data.committer.name} on #{data.committed_date.strftime("%A, %b %d, %I:%m %p")})
+    %(by #{data.committer.name} on #{data.committed_date.strftime("%A, %b %d, %I:%m %p")})
   end
   
   def iconForCell_data(icon, data)
-    return NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
+    NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
   end
   
   def dataElementForCell(cell)
-    return @commit
+    @commit
+  end
+  
+  private
+  
+  def fetch_git_repository
+    begin
+      @repo = Grit::Repo.new(@repo_location)
+    rescue Grit::InvalidGitRepositoryError
+      return false
+    end
+  end
+  
+  def fetch_commits_for(branch, quanity, offset = 0)
+    @commits = @repo.commits(branch, quanity, offset)
+  end
+  
+  def setup_branches_menu
+    @branch_select.removeAllItems
+    @repo.branches.each do |branch|
+      @branch_select.addItemWithTitle(branch.name)
+    end
+  end
+  
+  def setup_paging_control
+    @paging_segment.setEnabled_forSegment(false, 2) if @commits.size < @offset
   end
 end
