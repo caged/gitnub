@@ -14,8 +14,18 @@ include OSX
 OSX.ns_import 'ImageTextCell'
 
 class ApplicationController < OSX::NSObject  
-  ib_outlet :commits_table, :commits_controller
+  ib_outlet :commits_table, :commits_controller, :window
+
+  # def applicationDidFinishLaunching(notification)
+  #   puts "PINFO: #{NSProcessInfo.processInfo.arguments}"
+  # end
+  
+  def applicationShouldTerminateAfterLastWindowClosed(notification)
+    return true
+  end
+  
   def awakeFromNib
+    @window.delegate = self
     column = @commits_table.tableColumns[0]
     cell = ImageTextCell.alloc.init
     column.dataCell = cell

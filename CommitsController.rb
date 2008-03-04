@@ -10,15 +10,18 @@ require 'osx/cocoa'
 require 'md5'
 
 class CommitsController < OSX::NSObject
-  attr_reader :commits 
-  attr_reader :commit
-  attr_reader :branches
-  
   ib_outlet :commits_table
   ib_outlet :branch_select
+  ib_outlet :app_controller
   
   def awakeFromNib  
-    @repo = Grit::Repo.new("/Users/Caged/dev/onceuponatime/xtt")
+    @repo_location = ENV['PWD'].nil? ? '' : ENV['PWD']
+    begin
+      @repo = Grit::Repo.new(@repo_location)
+    rescue Grit::InvalidGitRepositoryError
+      return
+    end
+      
     @commits = @repo.commits('master', 50)
     @commits_table.reloadData
     
@@ -28,20 +31,23 @@ class CommitsController < OSX::NSObject
     end
   end
   
-  # DataSource Methods
   def tableViewSelectionDidChange(notification)
     
   end
   
+  # DataSource Methods
   def numberOfRowsInTableView(table_view)
     @commits ? @commits.size : 0
   end
   
+  # There is something fishy with ImageTextCell and this method so 
+  # we set the commit object to be used in dataElementForCell and return nil
   def tableView_objectValueForTableColumn_row(table_view, table_column, row)
     @commit = @commits[row]
     return nil
   end
   
+  # ImageTextCell data methods
   def primaryTextForCell_data(cell, data)
     return data.message.to_s
   end
@@ -51,7 +57,7 @@ class CommitsController < OSX::NSObject
   end
   
   def iconForCell_data(icon, data)
-    NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
+    return NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
   end
   
   def dataElementForCell(cell)
