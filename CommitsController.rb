@@ -12,7 +12,7 @@ require 'md5'
 class CommitsController < OSX::NSObject
   ib_outlet :commits_table
   ib_outlet :branch_select
-  ib_outlet :app_controller
+  ib_outlet :paging_button
   
   def awakeFromNib  
     @repo_location = ENV['PWD'].nil? ? '' : ENV['PWD']

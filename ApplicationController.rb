@@ -6,8 +6,8 @@
 #  Copyright (c) 2008 Active Reload, LLC. All rights reserved.
 #
 
-require 'osx/cocoa'
 require 'rubygems'
+require 'osx/cocoa'
 require 'grit'
 
 include OSX
@@ -15,10 +15,10 @@ OSX.ns_import 'ImageTextCell'
 
 class ApplicationController < OSX::NSObject  
   ib_outlet :commits_table, :commits_controller, :window
-
-  # def applicationDidFinishLaunching(notification)
-  #   puts "PINFO: #{NSProcessInfo.processInfo.arguments}"
-  # end
+  
+  def applicationDidFinishLaunching(sender)
+    @window.makeKeyAndOrderFront(self)  
+  end
   
   def applicationShouldTerminateAfterLastWindowClosed(notification)
     return true

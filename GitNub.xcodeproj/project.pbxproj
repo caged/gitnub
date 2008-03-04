@@ -40,7 +40,6 @@
 		286F10970D7A47DB0055A0D1 /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
 		286F109D0D7A49380055A0D1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		288853040D7CE2E500862D67 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		288853080D7CE98200862D67 /* gitnub-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gitnub-icon.png"; sourceTree = "<group>"; };
 		2888530C0D7CEA5200862D67 /* gitnub-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "gitnub-icon.icns"; sourceTree = "<group>"; };
 		28D2BF1E0D7B3E25003BCF14 /* CommitsController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = CommitsController.rb; sourceTree = "<group>"; };
 		28D2BF590D7B4F88003BCF14 /* ImageTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTextCell.h; sourceTree = "<group>"; };
@@ -144,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				2888530C0D7CEA5200862D67 /* gitnub-icon.icns */,
-				288853080D7CE98200862D67 /* gitnub-icon.png */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 			);

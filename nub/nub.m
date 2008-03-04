@@ -9,7 +9,7 @@ int main (int argc, const char * argv[]) {
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:@"/Applications/GitNub.app/Contents/MacOS/GitNub"];
     [task launch];
-    [task waitUntilExit];
+    [task terminate];
     
     [pool drain];
     return 0;
