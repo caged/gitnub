@@ -99,6 +99,15 @@ h1 {
   border: 1px solid #ddd;
 }
 
+.diff h3 {
+  background: #ddd;
+  color: #333;
+  padding: 6px;
+  border-bottom: 1px solid #ccc;
+  -webkit-border-top-right-radius: 8px;
+  -webkit-border-top-left-radius: 8px;
+}
+
 pre {
   padding: 3px;
 }

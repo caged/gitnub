@@ -67,13 +67,18 @@ class CommitsController < OSX::NSObject
     diff_list = doc.getElementById('diffs')
     diff_list.setInnerHTML("")
     file_list.setInnerHTML("")
-    active_commit.diffs.each do |diff|
+    active_commit.diffs.each_with_index do |diff, i|
       li = doc.createElement('li')
-      li.setInnerHTML(diff.b_path)
+      li.setAttribute__('id', "item-#{i}")
+      li.setInnerHTML(%(<a href="#diff-#{i}" class="">#{diff.b_path}</a>))
       file_list.appendChild(li)
       diff_div = doc.createElement('div')
       diff_div.setAttribute__('class', 'diff')
-      diff_div.setInnerHTML("<pre><code>#{CGI.escapeHTML(diff.diff)}</pre></code>")
+      diff_div.setAttribute__('id', "diff-#{i}")
+      diff_div.setInnerHTML("
+        <h3>#{File.basename(diff.b_path)}</h3>
+        <pre><code>#{CGI.escapeHTML(diff.diff)}</pre></code>
+      ")
       diff_list.appendChild(diff_div)
     end
   end
