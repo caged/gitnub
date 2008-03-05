@@ -1,0 +1,112 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  padding: 0;
+  font: normal 12px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* @group structure */
+
+#content {
+  text-align: left;
+}
+
+#main {
+  padding: 18px;
+}
+
+/* @end */
+
+/* @group details */
+h1 {
+  border-bottom: 1px solid #eee;
+  font-size: 150%;
+  padding: 9px;
+  margin: 9px;
+  line-height: 130%;
+}
+
+#hash {
+  font-size: 62%;
+  color: #888;
+  font-weight: normal;
+  display: block;
+}
+
+#files {
+  margin-bottom: 27px;
+}
+
+#files li {
+  display: block;
+  padding: 3px;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+#diffs div {
+  margin-bottom: 27px;
+  overflow: auto;
+  background-color: #f7f7f7;
+  -webkit-border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+pre {
+  padding: 3px;
+}
+
+pre code {
+  display: block;
+  padding: 9px;
+}
+
+
+/* @end */

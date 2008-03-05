@@ -8,22 +8,26 @@
 
 require 'osx/cocoa'
 require 'md5'
+require 'cgi'
 
 class CommitsController < OSX::NSObject
   ib_outlet :commits_table
   ib_outlet :branch_select
   ib_outlet :paging_segment
+  ib_outlet :commit_details
   
   def awakeFromNib  
     @repo_location = ENV['PWD'].nil? ? '' : ENV['PWD']
     @current_commit_offset = 0
     @offset = 50
+    @active_commit = nil
     
     if(fetch_git_repository)
       fetch_commits_for :master, @offset
       setup_branches_menu
       setup_paging_control
       @commits_table.reloadData
+      setup_commit_detail_view
     end
   end
   
@@ -54,7 +58,24 @@ class CommitsController < OSX::NSObject
   end
   
   def tableViewSelectionDidChange(notification)
+    diffs = []
+    doc = @commit_details.mainFrameDocument
+    set_html("message", active_commit.message)
+    set_html("hash", active_commit.id)
     
+    file_list = doc.getElementById('files')
+    diff_list = doc.getElementById('diffs')
+    diff_list.setInnerHTML("")
+    file_list.setInnerHTML("")
+    active_commit.diffs.each do |diff|
+      li = doc.createElement('li')
+      li.setInnerHTML(diff.b_path)
+      file_list.appendChild(li)
+      diff_div = doc.createElement('div')
+      diff_div.setAttribute__('class', 'diff')
+      diff_div.setInnerHTML("<pre><code>#{CGI.escapeHTML(diff.diff)}</pre></code>")
+      diff_list.appendChild(diff_div)
+    end
   end
   
   # DataSource Methods
@@ -88,6 +109,10 @@ class CommitsController < OSX::NSObject
   
   private
   
+  def active_commit
+    @commits[@commits_table.selectedRow]
+  end
+  
   def fetch_git_repository
     begin
       @repo = Grit::Repo.new(@repo_location)
@@ -109,5 +134,14 @@ class CommitsController < OSX::NSObject
   
   def setup_paging_control
     @paging_segment.setEnabled_forSegment(false, 2) if @commits.size < @offset
+  end
+  
+  def setup_commit_detail_view
+    commit_detail = File.join(NSBundle.mainBundle.bundlePath, "Contents", "Resources", "commit.html")
+    @commit_details.mainFrame.loadRequest(NSURLRequest.requestWithURL(NSURL.fileURLWithPath(commit_detail)))
+  end
+  
+  def set_html(element, html)
+    @commit_details.mainFrameDocument.getElementById(element).setInnerHTML(html)
   end
 end

@@ -72,13 +72,13 @@
 
 	NSDictionary* primaryTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys: primaryColor, NSForegroundColorAttributeName,
 		[NSFont systemFontOfSize:12], NSFontAttributeName, nil];	
-	[primaryText drawAtPoint:NSMakePoint(cellFrame.origin.x+cellFrame.size.height+18, cellFrame.origin.y) withAttributes:primaryTextAttributes];
+	[primaryText drawAtPoint:NSMakePoint(cellFrame.origin.x+cellFrame.size.height+9, cellFrame.origin.y) withAttributes:primaryTextAttributes];
 	
 	NSColor* secondaryColor = [self isHighlighted] ? [NSColor alternateSelectedControlTextColor] : [NSColor disabledControlTextColor];
 	NSString* secondaryText = [[self dataDelegate] secondaryTextForCell:self data: data];
 	NSDictionary* secondaryTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys: secondaryColor, NSForegroundColorAttributeName,
 		[NSFont systemFontOfSize:10], NSFontAttributeName, nil];	
-	[secondaryText drawAtPoint:NSMakePoint(cellFrame.origin.x+cellFrame.size.height+18, cellFrame.origin.y+cellFrame.size.height/2) 
+	[secondaryText drawAtPoint:NSMakePoint(cellFrame.origin.x+cellFrame.size.height+9, cellFrame.origin.y+cellFrame.size.height/2.2) 
 				withAttributes:secondaryTextAttributes];
 	
 	
@@ -96,7 +96,7 @@
 	NSImageInterpolation interpolation = [[NSGraphicsContext currentContext] imageInterpolation];
 	[[NSGraphicsContext currentContext] setImageInterpolation: NSImageInterpolationHigh];	
 	
-	[icon drawInRect:NSMakeRect(cellFrame.origin.x+9,yOffset+3,cellFrame.size.height-6, cellFrame.size.height-6)
+	[icon drawInRect:NSMakeRect(cellFrame.origin.x+3,yOffset+3,cellFrame.size.height-6, cellFrame.size.height-6)
 			fromRect:NSMakeRect(0,0,[icon size].width, [icon size].height)
 		   operation:NSCompositeSourceOver
 			fraction:1.0];
