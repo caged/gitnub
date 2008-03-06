@@ -14,7 +14,6 @@
 		288853C90D7E06A600862D67 /* commit.html in Resources */ = {isa = PBXBuildFile; fileRef = 288853C80D7E06A600862D67 /* commit.html */; };
 		288853CD0D7E074B00862D67 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 288853CC0D7E074B00862D67 /* style.css */; };
 		288854910D7E352C00862D67 /* grit in Resources */ = {isa = PBXBuildFile; fileRef = 288854540D7E352C00862D67 /* grit */; };
-		288854BC0D7E6E3500862D67 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 288854BB0D7E6E3500862D67 /* info.png */; };
 		28B4C0E70D7F8DDA006F2675 /* infoicn.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B4C0E60D7F8DDA006F2675 /* infoicn.png */; };
 		28D2BF1F0D7B3E25003BCF14 /* CommitsController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 28D2BF1E0D7B3E25003BCF14 /* CommitsController.rb */; };
 		28D2BF5B0D7B4F88003BCF14 /* ImageTextCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D2BF590D7B4F88003BCF14 /* ImageTextCell.h */; };
@@ -52,7 +51,6 @@
 		288853C80D7E06A600862D67 /* commit.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = commit.html; sourceTree = "<group>"; };
 		288853CC0D7E074B00862D67 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		288854540D7E352C00862D67 /* grit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = grit; sourceTree = "<group>"; };
-		288854BB0D7E6E3500862D67 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		28B4C0E60D7F8DDA006F2675 /* infoicn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoicn.png; sourceTree = "<group>"; };
 		28D2BF1E0D7B3E25003BCF14 /* CommitsController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = CommitsController.rb; sourceTree = "<group>"; };
 		28D2BF590D7B4F88003BCF14 /* ImageTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTextCell.h; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 				28D8D8410D7FF9C00039F98A /* added.png */,
 				28D8D8420D7FF9C00039F98A /* delete.png */,
 				28B4C0E60D7F8DDA006F2675 /* infoicn.png */,
-				288854BB0D7E6E3500862D67 /* info.png */,
 				288853CC0D7E074B00862D67 /* style.css */,
 				288853C80D7E06A600862D67 /* commit.html */,
 				2888530C0D7CEA5200862D67 /* gitnub-icon.icns */,
@@ -265,7 +262,6 @@
 				288853C90D7E06A600862D67 /* commit.html in Resources */,
 				288853CD0D7E074B00862D67 /* style.css in Resources */,
 				288854910D7E352C00862D67 /* grit in Resources */,
-				288854BC0D7E6E3500862D67 /* info.png in Resources */,
 				28B4C0E70D7F8DDA006F2675 /* infoicn.png in Resources */,
 				28D8D8430D7FF9C00039F98A /* added.png in Resources */,
 				28D8D8440D7FF9C00039F98A /* delete.png in Resources */,
