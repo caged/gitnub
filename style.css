@@ -72,6 +72,7 @@ h1 {
   padding: 9px;
   margin: 9px;
   line-height: 130%;
+  color: #222;
 }
 
 #hash {
@@ -84,7 +85,7 @@ h1 {
 #date {
   font-family: "Apple Garamond", Times, Georgia, serif;
   font-size: 150%;
-  color: #ccc;
+  color: #aaa;
   font-style: italic;
   text-align: center;
   padding: 6px;
