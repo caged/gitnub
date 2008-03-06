@@ -81,6 +81,18 @@ h1 {
   display: block;
 }
 
+#date {
+  font-family: "Apple Garamond", Times, Georgia, serif;
+  font-size: 150%;
+  color: #ccc;
+  font-style: italic;
+  text-align: center;
+  padding: 6px;
+  font-weight: normal;
+  border-bottom: 1px solid #eee;
+  margin: 0 9px;
+}
+
 #files {
   margin-bottom: 27px;
 }
@@ -89,6 +101,21 @@ h1 {
   display: block;
   padding: 3px;
   border-bottom: 1px solid #f7f7f7;
+}
+
+#files li a {
+  color: #888;
+  display: block;
+  padding-left: 22px;
+  background: url(common.png) 0 50% no-repeat;
+}
+
+#files li.add a {
+  background: url(added.png) 0 50% no-repeat;
+}
+
+#files li.delete a {
+  background: url(delete.png) 0 50% no-repeat;
 }
 
 #diffs div {
