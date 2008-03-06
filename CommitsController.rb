@@ -21,6 +21,7 @@ class CommitsController < OSX::NSObject
     @current_commit_offset = 0
     @offset = 50
     @active_commit = nil
+    @icons = {}
     
     if(fetch_git_repository)
       fetch_commits_for :master, @offset
@@ -97,7 +98,7 @@ class CommitsController < OSX::NSObject
   
   # ImageTextCell data methods
   def primaryTextForCell_data(cell, data)
-    data.message.to_s
+    data.message.gsub(/\n/, ' ').to_s
   end
   
   def secondaryTextForCell_data(cell, data)
@@ -105,12 +106,28 @@ class CommitsController < OSX::NSObject
   end
   
   def iconForCell_data(icon, data)
-    NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
+    gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36")
+    NSImage.alloc.initWithContentsOfURL(gravatar)
   end
   
   def dataElementForCell(cell)
     @commit
   end
+  
+  # def connection_didRecieveResponse(connection, response)
+  #   @image_data.length = 0
+  # end
+  # 
+  # def connection_didReceiveData(connection, data)
+  #   @image_data.appendData(data)
+  # end
+  # 
+  # def connectionDidFinishLoading(connection)
+  #   
+  #   @commits_table.reloadData
+  #   @connection.release
+  #   @image_data.release
+  # end
   
   private
   

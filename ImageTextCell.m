@@ -69,9 +69,14 @@
 	
 	NSColor* primaryColor   = [self isHighlighted] ? [NSColor alternateSelectedControlTextColor] : (elementDisabled? [NSColor disabledControlTextColor] : [NSColor textColor]);
 	NSString* primaryText   = [[self dataDelegate] primaryTextForCell:self data: data];
+    NSMutableParagraphStyle* style = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+    [style setLineBreakMode:NSLineBreakByTruncatingTail];
 
-	NSDictionary* primaryTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys: primaryColor, NSForegroundColorAttributeName,
-		[NSFont systemFontOfSize:12], NSFontAttributeName, nil];	
+	NSDictionary* primaryTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys: 
+	    primaryColor, NSForegroundColorAttributeName,
+		[NSFont systemFontOfSize:12], NSFontAttributeName, 
+		style, NSParagraphStyleAttributeName, 
+		nil];	
 	[primaryText drawAtPoint:NSMakePoint(cellFrame.origin.x+cellFrame.size.height+9, cellFrame.origin.y) withAttributes:primaryTextAttributes];
 	
 	NSColor* secondaryColor = [self isHighlighted] ? [NSColor alternateSelectedControlTextColor] : [NSColor disabledControlTextColor];
