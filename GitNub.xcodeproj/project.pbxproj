@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285BB47C0D8306C60027980C /* mime-types in Resources */ = {isa = PBXBuildFile; fileRef = 285BB4690D8306C60027980C /* mime-types */; };
+		285BB4810D8308400027980C /* committer.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB4800D8308400027980C /* committer.png */; };
 		286F10980D7A47DB0055A0D1 /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 286F10970D7A47DB0055A0D1 /* ApplicationController.rb */; };
 		286F109E0D7A49380055A0D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286F109D0D7A49380055A0D1 /* WebKit.framework */; };
 		288853050D7CE2E500862D67 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 288853040D7CE2E500862D67 /* LICENSE */; };
@@ -22,6 +24,8 @@
 		28D8D8430D7FF9C00039F98A /* added.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D8D8410D7FF9C00039F98A /* added.png */; };
 		28D8D8440D7FF9C00039F98A /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D8D8420D7FF9C00039F98A /* delete.png */; };
 		28D8D8490D7FFBC60039F98A /* common.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D8D8480D7FFBC60039F98A /* common.png */; };
+		28D8D8AE0D80C4FC0039F98A /* InfoWindowController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 28D8D8AD0D80C4FC0039F98A /* InfoWindowController.rb */; };
+		28D8D8C20D80C5960039F98A /* Info.nib in Resources */ = {isa = PBXBuildFile; fileRef = 28D8D8C10D80C5960039F98A /* Info.nib */; };
 		4DDCA7060ACC9A6100E082CE /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E25803AEB7C803A81C6F /* rb_main.rb */; };
@@ -44,6 +48,8 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		284B71470D7CDE340075DA6C /* nub.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nub.xcodeproj; path = nub/nub.xcodeproj; sourceTree = "<group>"; };
+		285BB4690D8306C60027980C /* mime-types */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "mime-types"; sourceTree = "<group>"; };
+		285BB4800D8308400027980C /* committer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = committer.png; sourceTree = "<group>"; };
 		286F10970D7A47DB0055A0D1 /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
 		286F109D0D7A49380055A0D1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		288853040D7CE2E500862D67 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -59,6 +65,8 @@
 		28D8D8410D7FF9C00039F98A /* added.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = added.png; sourceTree = "<group>"; };
 		28D8D8420D7FF9C00039F98A /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		28D8D8480D7FFBC60039F98A /* common.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common.png; sourceTree = "<group>"; };
+		28D8D8AD0D80C4FC0039F98A /* InfoWindowController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = InfoWindowController.rb; sourceTree = "<group>"; };
+		28D8D8C10D80C5960039F98A /* Info.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = Info.nib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -147,7 +155,9 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				285BB4690D8306C60027980C /* mime-types */,
 				288854540D7E352C00862D67 /* grit */,
+				28D8D8AD0D80C4FC0039F98A /* InfoWindowController.rb */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				E8F5E25803AEB7C803A81C6F /* rb_main.rb */,
 			);
@@ -157,6 +167,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				285BB4800D8308400027980C /* committer.png */,
 				28D8D8480D7FFBC60039F98A /* common.png */,
 				28D8D8410D7FF9C00039F98A /* added.png */,
 				28D8D8420D7FF9C00039F98A /* delete.png */,
@@ -166,6 +177,7 @@
 				2888530C0D7CEA5200862D67 /* gitnub-icon.icns */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				28D8D8C10D80C5960039F98A /* Info.nib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -266,6 +278,10 @@
 				28D8D8430D7FF9C00039F98A /* added.png in Resources */,
 				28D8D8440D7FF9C00039F98A /* delete.png in Resources */,
 				28D8D8490D7FFBC60039F98A /* common.png in Resources */,
+				28D8D8AE0D80C4FC0039F98A /* InfoWindowController.rb in Resources */,
+				28D8D8C20D80C5960039F98A /* Info.nib in Resources */,
+				285BB47C0D8306C60027980C /* mime-types in Resources */,
+				285BB4810D8308400027980C /* committer.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

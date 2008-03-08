@@ -17,7 +17,6 @@ class CommitsController < OSX::NSObject
   ib_outlet :commit_details
   
   def awakeFromNib  
-    @repo_location = ENV['PWD'].nil? ? '' : ENV['PWD']
     @current_commit_offset = 0
     @offset = 50
     @active_commit = nil
@@ -75,6 +74,7 @@ class CommitsController < OSX::NSObject
     diff_list = doc.getElementById('diffs')
     diff_list.setInnerHTML("")
     file_list.setInnerHTML("")
+    
     active_commit.diffs.each_with_index do |diff, i|
       li = doc.createElement('li')
       li.setAttribute__('id', "item-#{i}")
@@ -82,13 +82,27 @@ class CommitsController < OSX::NSObject
       li.setAttribute__('class', 'delete') if diff.deleted_file
       li.setInnerHTML(%(<a href="#diff-#{i}" class="">#{diff.b_path}</a>))
       file_list.appendChild(li)
+      
       unless diff.deleted_file
         diff_div = doc.createElement('div')
         diff_div.setAttribute__('class', 'diff')
         diff_div.setAttribute__('id', "diff-#{i}")
+        
+        colored_diff = []
+        html = CGI.escapeHTML(diff.diff)
+        html.each_line do |line|
+          if line =~ /^\+{1}/
+            colored_diff << %(<div class="addline">#{line}</div>)
+          elsif line =~ /^\-{1}/
+            colored_diff << %(<div class="removeline">#{line}</div>)
+          else
+            colored_diff << line
+          end
+        end
+        
         diff_div.setInnerHTML(%(
           <h3>#{File.basename(diff.b_path)}</h3>
-          <pre><code>#{CGI.escapeHTML(diff.diff)}</pre></code>
+          <pre><code class="diffcode">#{colored_diff}</pre></code>
         ))
         diff_list.appendChild(diff_div)
       end
@@ -118,27 +132,14 @@ class CommitsController < OSX::NSObject
   
   def iconForCell_data(icon, data)
     gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36")
-    NSImage.alloc.initWithContentsOfURL(gravatar)
+    @icons[MD5.hexdigest(data.committer.email)] ||= NSImage.alloc.initWithContentsOfURL(gravatar)
+    #NSImage.imageNamed('committer')
   end
   
   def dataElementForCell(cell)
     @commit
   end
   
-  # def connection_didRecieveResponse(connection, response)
-  #   @image_data.length = 0
-  # end
-  # 
-  # def connection_didReceiveData(connection, data)
-  #   @image_data.appendData(data)
-  # end
-  # 
-  # def connectionDidFinishLoading(connection)
-  #   
-  #   @commits_table.reloadData
-  #   @connection.release
-  #   @image_data.release
-  # end
   
   private
   
@@ -148,7 +149,7 @@ class CommitsController < OSX::NSObject
   
   def fetch_git_repository
     begin
-      @repo = Grit::Repo.new(@repo_location)
+      @repo = Grit::Repo.new(REPOSITORY_LOCATION)
     rescue Grit::InvalidGitRepositoryError
       return false
     end

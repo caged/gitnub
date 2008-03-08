@@ -272,8 +272,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>4</integer>
-									<integer>0</integer>
+									<integer>10</integer>
+									<integer>9</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -296,7 +296,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>24 203 746 431 0 0 1440 878 </string>
+						<string>149 327 746 431 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -333,7 +333,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {538, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>24 203 746 431 0 0 1440 878 </string>
+								<string>149 327 746 431 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -355,7 +355,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {538, 385}}</string>
 								<key>RubberWindowFrame</key>
-								<string>24 203 746 431 0 0 1440 878 </string>
+								<string>149 327 746 431 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -379,9 +379,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>28D8D82D0D7FF39C0039F98A</string>
+				<string>285BB4C50D831FFD0027980C</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>28D8D82E0D7FF39C0039F98A</string>
+				<string>285BB4C60D831FFD0027980C</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -515,10 +515,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>286F10A50D7A49D20055A0D1</string>
 		<string>/Users/Caged/dev/git/gitnub/GitNub.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>24 203 746 431 0 0 1440 878 </string>
+	<string>149 327 746 431 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -595,7 +596,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>286F10A50D7A49D20055A0D1</string>
-				<string>28B4C0F10D7FF268006F2675</string>
+				<string>285BB4C70D831FFD0027980C</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

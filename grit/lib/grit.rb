@@ -7,7 +7,7 @@ require 'fileutils'
 
 # third party
 require 'rubygems'
-require 'mime/types'
+#require 'mime/types'
 
 # internal requires
 require 'grit/lazy'

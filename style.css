@@ -119,12 +119,12 @@ h1 {
   background: url(delete.png) 0 50% no-repeat;
 }
 
-#diffs div {
+#diffs .diff {
   margin-bottom: 27px;
-  overflow: auto;
   background-color: #f7f7f7;
   -webkit-border-radius: 8px;
   border: 1px solid #ddd;
+  width: 100%;
 }
 
 .diff h3 {
@@ -137,12 +137,28 @@ h1 {
 }
 
 pre {
-  padding: 3px;
+  overflow-y: auto;
+  background-color: #fff !important;
+  border: 1px solid #eee;
+  margin: 3px;
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
 }
 
 pre code {
-  display: block;
+  display: table-cell;
   padding: 9px;
+  width: 100%;
+}
+
+.addline {
+  background-color: #DFD;
+  color: #080;
+}
+
+.removeline {
+  background-color: #FEE;
+  color: #B00;
 }
 
 
