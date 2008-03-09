@@ -26,7 +26,7 @@ class ApplicationController < OSX::NSObject
   ib_outlet :info_button
   
   def applicationDidFinishLaunching(sender)
-    @window.makeKeyAndOrderFront(self)  
+    @window.makeKeyAndOrderFront(self)
   end
   
   def applicationShouldTerminateAfterLastWindowClosed(notification)

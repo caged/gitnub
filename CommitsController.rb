@@ -44,10 +44,7 @@ class CommitsController < OSX::NSObject
     fetch_commits_for(:master, @offset, @current_commit_offset)
     @commits_table.reloadData
     
-    if tag == 1
-      @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSetWithIndex(0), false)
-    end 
-    
+    select_latest_commit  
     
     if @commits.size == 0 || @current_commit_offset == 0
       @paging_segment.setEnabled_forSegment(false, 0)
@@ -63,6 +60,8 @@ class CommitsController < OSX::NSObject
   
   def tableViewSelectionDidChange(notification)
     update_main_document
+    scrollView = @commit_details.mainFrame.frameView.documentView.enclosingScrollView
+    scrollView.documentView.scrollPoint([0,0])
   end
   
   # DataSource Methods
@@ -96,46 +95,12 @@ class CommitsController < OSX::NSObject
     @commit
   end
   
-  
-  private
-  
-  def active_commit
-    @commits[@commits_table.selectedRow]
+  def webView_didFinishLoadForFrame(view, frame)
+    select_latest_commit
   end
   
-  def fetch_git_repository
-    begin
-      @repo = Grit::Repo.new(REPOSITORY_LOCATION)
-    rescue Grit::InvalidGitRepositoryError
-      return false
-    end
-  end
-  
-  def fetch_commits_for(branch, quanity, offset = 0)
-    @commits = @repo.commits(branch, quanity, offset)
-  end
-  
-  def setup_branches_menu
-    @branch_select.removeAllItems
-    @repo.branches.each do |branch|
-      @branch_select.addItemWithTitle(branch.name)
-    end
-  end
-  
-  def setup_paging_control
-    if @commits.size < @offset
-      @paging_segment.setEnabled_forSegment(false, 2)
-      @paging_segment.setEnabled_forSegment(false, 1)
-    end
-  end
-  
-  def setup_commit_detail_view
-    commit_detail = File.join(NSBundle.mainBundle.bundlePath, "Contents", "Resources", "commit.html")
-    @commit_details.mainFrame.loadRequest(NSURLRequest.requestWithURL(NSURL.fileURLWithPath(commit_detail)))
-  end
-  
-  def set_html(element, html)
-    @commit_details.mainFrame.DOMDocument.getElementById(element).setInnerHTML(html)
+  def select_latest_commit
+    @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSetWithIndex(0), false)
   end
   
   def update_main_document
@@ -190,5 +155,47 @@ class CommitsController < OSX::NSObject
         diff_list.appendChild(diff_div)
       end
     end
+  end
+  
+  
+  private
+  
+  def active_commit
+    @commits[@commits_table.selectedRow]
+  end
+  
+  def fetch_git_repository
+    begin
+      @repo = Grit::Repo.new(REPOSITORY_LOCATION)
+    rescue Grit::InvalidGitRepositoryError
+      return false
+    end
+  end
+  
+  def fetch_commits_for(branch, quanity, offset = 0)
+    @commits = @repo.commits(branch, quanity, offset)
+  end
+  
+  def setup_branches_menu
+    @branch_select.removeAllItems
+    @repo.branches.each do |branch|
+      @branch_select.addItemWithTitle(branch.name)
+    end
+  end
+  
+  def setup_paging_control
+    if @commits.size < @offset
+      @paging_segment.setEnabled_forSegment(false, 2)
+      @paging_segment.setEnabled_forSegment(false, 1)
+    end
+  end
+  
+  def setup_commit_detail_view
+    commit_detail = File.join(NSBundle.mainBundle.bundlePath, "Contents", "Resources", "commit.html")
+    @commit_details.mainFrame.loadRequest(NSURLRequest.requestWithURL(NSURL.fileURLWithPath(commit_detail)))
+  end
+  
+  def set_html(element, html)
+    @commit_details.mainFrame.DOMDocument.getElementById(element).setInnerHTML(html)
   end
 end

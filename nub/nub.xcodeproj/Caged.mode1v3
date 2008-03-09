@@ -294,7 +294,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>613 343 690 397 0 0 1440 878 </string>
+						<string>758 333 690 397 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -331,7 +331,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {482, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>613 343 690 397 0 0 1440 878 </string>
+								<string>758 333 690 397 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -353,7 +353,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {482, 351}}</string>
 								<key>RubberWindowFrame</key>
-								<string>613 343 690 397 0 0 1440 878 </string>
+								<string>758 333 690 397 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -377,9 +377,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>288853500D7D34CF00862D67</string>
+				<string>285BB5020D8491BD0027980C</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>288853510D7D34CF00862D67</string>
+				<string>285BB5030D8491BD0027980C</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -513,13 +513,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>284B71500D7CDF640075DA6C</string>
 		<string>/Users/Caged/dev/git/gitnub/nub/nub.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>613 343 690 397 0 0 1440 878 </string>
+	<string>758 333 690 397 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -596,7 +594,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>284B71500D7CDF640075DA6C</string>
-				<string>288853520D7D34CF00862D67</string>
+				<string>285BB5040D8491BD0027980C</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
