@@ -44,6 +44,10 @@ class CommitsController < OSX::NSObject
     fetch_commits_for(:master, @offset, @current_commit_offset)
     @commits_table.reloadData
     
+    if tag == 1
+      @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSetWithIndex(0), false)
+    end 
+    
     
     if @commits.size == 0 || @current_commit_offset == 0
       @paging_segment.setEnabled_forSegment(false, 0)
@@ -58,55 +62,7 @@ class CommitsController < OSX::NSObject
   end
   
   def tableViewSelectionDidChange(notification)
-    diffs = []
-    doc = @commit_details.mainFrame.DOMDocument
-    set_html("message", active_commit.message)
-    set_html("hash", active_commit.id)
-    
-    if Time.now.day == active_commit.committed_date.day
-      cdate = active_commit.committed_date.strftime("Today %I:%m %p")
-    else
-      cdate = active_commit.committed_date.strftime("%A, %B %d %I:%m %p")
-    end
-    set_html("date", cdate)
-    
-    file_list = doc.getElementById('files')
-    diff_list = doc.getElementById('diffs')
-    diff_list.setInnerHTML("")
-    file_list.setInnerHTML("")
-    
-    active_commit.diffs.each_with_index do |diff, i|
-      li = doc.createElement('li')
-      li.setAttribute__('id', "item-#{i}")
-      li.setAttribute__('class', 'add') if diff.new_file
-      li.setAttribute__('class', 'delete') if diff.deleted_file
-      li.setInnerHTML(%(<a href="#diff-#{i}" class="">#{diff.b_path}</a>))
-      file_list.appendChild(li)
-      
-      unless diff.deleted_file
-        diff_div = doc.createElement('div')
-        diff_div.setAttribute__('class', 'diff')
-        diff_div.setAttribute__('id', "diff-#{i}")
-        
-        colored_diff = []
-        html = CGI.escapeHTML(diff.diff)
-        html.each_line do |line|
-          if line =~ /^\+{1}/
-            colored_diff << %(<div class="addline">#{line}</div>)
-          elsif line =~ /^\-{1}/
-            colored_diff << %(<div class="removeline">#{line}</div>)
-          else
-            colored_diff << line
-          end
-        end
-        
-        diff_div.setInnerHTML(%(
-          <h3>#{File.basename(diff.b_path)}</h3>
-          <pre><code class="diffcode">#{colored_diff}</pre></code>
-        ))
-        diff_list.appendChild(diff_div)
-      end
-    end
+    update_main_document
   end
   
   # DataSource Methods
@@ -180,5 +136,59 @@ class CommitsController < OSX::NSObject
   
   def set_html(element, html)
     @commit_details.mainFrame.DOMDocument.getElementById(element).setInnerHTML(html)
+  end
+  
+  def update_main_document
+    diffs = []
+    doc = @commit_details.mainFrame.DOMDocument
+    set_html("message", active_commit.message)
+    set_html("hash", active_commit.id)
+
+    if Time.now.day == active_commit.committed_date.day
+      cdate = active_commit.committed_date.strftime("Today %I:%m %p")
+    else
+      cdate = active_commit.committed_date.strftime("%A, %B %d %I:%m %p")
+    end
+    set_html("date", cdate)
+
+    file_list = doc.getElementById('files')
+    diff_list = doc.getElementById('diffs')
+    diff_list.setInnerHTML("")
+    file_list.setInnerHTML("")
+
+    active_commit.diffs.each_with_index do |diff, i|
+      li = doc.createElement('li')
+      li.setAttribute__('id', "item-#{i}")
+      li.setAttribute__('class', 'add') if diff.new_file
+      li.setAttribute__('class', 'delete') if diff.deleted_file
+      li.setInnerHTML(%(<a href="#diff-#{i}" class="">#{diff.b_path}</a>))
+      file_list.appendChild(li)
+
+      unless diff.deleted_file
+        diff_div = doc.createElement('div')
+        diff_div.setAttribute__('class', 'diff')
+        diff_div.setAttribute__('id', "diff-#{i}")
+
+        colored_diff = []
+        html = CGI.escapeHTML(diff.diff)
+        html.each_line do |line|
+          if line =~ /^\+/
+            colored_diff << %(<div class="addline">#{line}</div>)
+          elsif line =~ /^\-/
+            colored_diff << %(<div class="removeline">#{line}</div>)
+          elsif line =~ /^@/
+            colored_diff << %(<div class="meta">#{line}</div>)
+          else
+            colored_diff << line
+          end
+        end
+
+        diff_div.setInnerHTML(%(
+          <h3>#{File.basename(diff.b_path)}</h3>
+          <pre><code class="diffcode">#{colored_diff}</pre></code>
+        ))
+        diff_list.appendChild(diff_div)
+      end
+    end
   end
 end
