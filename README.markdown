@@ -1,22 +1,24 @@
-# GitNub - A RubyCocoa app for getting quick information for a git repo.  Similar to GitK.
+## GitNub ## 
+A RubyCocoa app for getting quick information for a git repo.  Similar to GitK.
  
-* Requirements: Git(duh!), RubyCocoa, Leopard
+### Requirements ###
+* Git(duh!), RubyCocoa, Leopard
 
 
-# Quick Install 
+### Quick Install ### 
 1. Move GitNub.app to /Applications
 2. Move (or symlink) nub to /usr/local/bin
 
 
 
-# How to Use
+### How to Use ###
 In your shell, move to a git directory and invoke `nub`.  You always use this 
 helper to invoke the application, otherwise you get nothing.
 
 		$Caged@caged:~/dev/git/gitnub% nub
 
 		
-# Building from Source
+### Building from Source ###
 1. Open project in Xcode - press Build
 2. Doubleclick the nub subproject and repeat step 1.
 3. Move the build/Release/GitNub.app and nub/build/Release/nub to the proper locations 
