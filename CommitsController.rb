@@ -15,6 +15,7 @@ class CommitsController < OSX::NSObject
   ib_outlet :branch_select
   ib_outlet :paging_segment
   ib_outlet :commit_details
+  ib_outlet :application_controller
   
   def awakeFromNib  
     @current_commit_offset = 0
@@ -29,6 +30,20 @@ class CommitsController < OSX::NSObject
       setup_paging_control
       @commits_table.reloadData
     end
+  end
+  
+  ib_action :perform_utility_action
+  def perform_utility_action(segment)
+    tag = segment.cell.tagForSegment(segment.selectedSegment)
+    case tag
+      when 0 then refresh_commits(segment)
+      when 1 then @application_controller.show_info_panel(segment)
+    end
+  end
+  
+  ib_action :refresh_commits
+  def refresh_commits(sender)
+    refresh
   end
   
   ib_action :page_commits
@@ -154,6 +169,19 @@ class CommitsController < OSX::NSObject
         ))
         diff_list.appendChild(diff_div)
       end
+    end
+  end
+  
+  def refresh
+    current_commit = active_commit && active_commit.id
+    fetch_commits_for :master, @offset
+    
+    @commits_table.reloadData
+    
+    if current_commit
+      new_commit = @commits.find { |x| x.id == current_commit }
+      new_row = @commits.index(new_commit)
+      @commits_table.selectRow_byExtendingSelection(new_row, false)
     end
   end
   
