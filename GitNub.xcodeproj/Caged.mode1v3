@@ -269,16 +269,10 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
-								<string>080E96DDFE201D6D7F000001</string>
-								<string>1C37FBAC04509CD000000102</string>
-								<string>285BB54E0D849F220027980C</string>
-								<string>285BB54F0D849F220027980C</string>
-								<string>285BB5500D849F220027980C</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -302,7 +296,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>215 399 746 431 0 0 1440 878 </string>
+						<string>292 415 746 431 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -339,7 +333,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {538, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>215 399 746 431 0 0 1440 878 </string>
+								<string>292 415 746 431 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -359,7 +353,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {538, 385}}</string>
 								<key>RubberWindowFrame</key>
-								<string>215 399 746 431 0 0 1440 878 </string>
+								<string>292 415 746 431 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -525,7 +519,7 @@
 		<string>/Users/Caged/dev/git/gitnub/GitNub.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>215 399 746 431 0 0 1440 878 </string>
+	<string>292 415 746 431 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
