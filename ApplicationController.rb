@@ -24,6 +24,7 @@ class ApplicationController < OSX::NSObject
   ib_outlet :main_canvas
   ib_outlet :main_view
   ib_outlet :info_button
+  ib_outlet :branch_field
   
   def applicationDidFinishLaunching(sender)
     @window.makeKeyAndOrderFront(self)
@@ -48,6 +49,8 @@ class ApplicationController < OSX::NSObject
     
     @main_view.setFrameSize(@main_canvas.frame.size)
     @main_canvas.addSubview(@main_view)
+    
+    @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
   end
   
   ib_action :show_info_panel
