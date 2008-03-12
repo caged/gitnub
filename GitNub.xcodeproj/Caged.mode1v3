@@ -294,7 +294,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>24 334 746 431 0 0 1440 878 </string>
+						<string>220 327 746 431 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -331,7 +331,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {538, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>24 334 746 431 0 0 1440 878 </string>
+								<string>220 327 746 431 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -353,7 +353,7 @@
 								<key>Frame</key>
 								<string>{{0, 5}, {538, 385}}</string>
 								<key>RubberWindowFrame</key>
-								<string>24 334 746 431 0 0 1440 878 </string>
+								<string>220 327 746 431 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -377,9 +377,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>288CB4160D8789900092B5CC</string>
+				<string>288CB4C00D878CC20092B5CC</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>288CB4170D8789900092B5CC</string>
+				<string>288CB4C10D878CC20092B5CC</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -513,10 +513,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>286F10A50D7A49D20055A0D1</string>
 		<string>/Users/Caged/dev/git/gitnub/GitNub.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>24 334 746 431 0 0 1440 878 </string>
+	<string>220 327 746 431 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -546,7 +547,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {500, 218}}</string>
 								<key>RubberWindowFrame</key>
-								<string>301 216 500 500 0 0 1920 1178 </string>
+								<string>199 139 500 500 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -570,7 +571,7 @@
 								<key>Frame</key>
 								<string>{{0, 223}, {500, 236}}</string>
 								<key>RubberWindowFrame</key>
-								<string>301 216 500 500 0 0 1920 1178 </string>
+								<string>199 139 500 500 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -593,14 +594,14 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>286F10A50D7A49D20055A0D1</string>
-				<string>28DA552C0D85135E00D39FBF</string>
+				<string>288CB4C40D878CF70092B5CC</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.buildV3</string>
 			<key>WindowString</key>
-			<string>301 216 500 500 0 0 1920 1178 </string>
+			<string>199 139 500 500 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>286F10A50D7A49D20055A0D1</string>
 			<key>WindowToolIsVisible</key>
