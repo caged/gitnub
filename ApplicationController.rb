@@ -12,7 +12,7 @@ require 'mime-types/lib/mime/types'
 require 'grit/lib/grit'
 require 'InfoWindowController'
 
-OSX.ns_import 'ImageTextCell'
+OSX.ns_import 'CommitSummaryCell'
 include OSX
 
 REPOSITORY_LOCATION = ENV['PWD'].nil? ? '' : ENV['PWD']
@@ -43,9 +43,8 @@ class ApplicationController < OSX::NSObject
     
     @window.delegate = self
     column = @commits_table.tableColumns[0]
-    cell = ImageTextCell.alloc.init
+    cell = CommitSummaryCell.alloc.init
     column.dataCell = cell
-    cell.dataDelegate = @commits_controller
     
     @main_view.setFrameSize(@main_canvas.frame.size)
     @main_canvas.addSubview(@main_view)

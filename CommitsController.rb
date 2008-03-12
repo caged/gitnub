@@ -87,28 +87,15 @@ class CommitsController < OSX::NSObject
     @commits ? @commits.size : 0
   end
   
-  # There is something fishy with ImageTextCell and this method so 
-  # we set the commit object to be used in dataElementForCell and return nil
   def tableView_objectValueForTableColumn_row(table_view, table_column, row)
-    @commit = @commits[row]
-    return nil
+    @commits[row].message.gsub(/\n/, ' ').to_s
   end
   
-  # ImageTextCell data methods
-  def primaryTextForCell_data(cell, data)
-    data.message.gsub(/\n/, ' ').to_s
-  end
-  
-  def secondaryTextForCell_data(cell, data)
-    %(by #{data.committer.name} on #{data.committed_date.strftime("%A, %b %d, %I:%M %p")})
-  end
-  
-  def iconForCell_data(icon, data)
-    @icons[data.committer.email]
-  end
-  
-  def dataElementForCell(cell)
-    @commit
+  objc_method :tableView_willDisplayCell_forTableColumn_row, 'v@:@@@i'
+  def tableView_willDisplayCell_forTableColumn_row(table_view, cell, table_column, row)
+    commit = @commits[row]
+    cell.subtitle = %(by #{commit.committer.name} on #{commit.committed_date.strftime("%A, %b %d, %I:%M %p")})
+    cell.gravatarImage = @icons[commit.committer.email]
   end
   
   def webView_didFinishLoadForFrame(view, frame)
