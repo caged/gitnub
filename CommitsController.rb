@@ -97,13 +97,16 @@ class CommitsController < OSX::NSObject
   end
   
   def secondaryTextForCell_data(cell, data)
-    %(by #{data.committer.name} on #{data.committed_date.strftime("%A, %b %d, %I:%m %p")})
+    %(by #{data.committer.name} on #{data.committed_date.strftime("%A, %b %d, %I:%M %p")})
   end
   
   def iconForCell_data(icon, data)
+    #request = NSURLRequest.requestWithURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
+    #connection = NSURLConnection.alloc.initWithRequest_delegate(request, self)
+    @image_data = NSMutableData.data
     gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36")
-    @icons[MD5.hexdigest(data.committer.email)] ||= NSImage.alloc.initWithContentsOfURL(gravatar)
-    #NSImage.imageNamed('committer')
+    NSImage.alloc.initWithContentsOfURL(gravatar)
+    #@icons[MD5.hexdigest(data.committer.email)] = NSImage.alloc.initWithData(@image_data)
   end
   
   def dataElementForCell(cell)
@@ -113,6 +116,18 @@ class CommitsController < OSX::NSObject
   def webView_didFinishLoadForFrame(view, frame)
     select_latest_commit
   end
+  
+  # def connection_didRecieveResponse(connection, response)
+  #   @image_data.length = 0
+  # end
+  # 
+  # def connection_didReceiveData(connection, data)
+  #   #@image_data.appendData(data)
+  # end
+  # 
+  # def connectionDidFinishLoading(connection)
+  #   puts @icons[MD5.hexdigest(data.committer.email)]
+  # end
   
   def select_latest_commit
     @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSetWithIndex(0), false)
@@ -127,7 +142,7 @@ class CommitsController < OSX::NSObject
     if Time.now.day == active_commit.committed_date.day
       cdate = active_commit.committed_date.strftime("Today %I:%m %p")
     else
-      cdate = active_commit.committed_date.strftime("%A, %B %d %I:%m %p")
+      cdate = active_commit.committed_date.strftime("%A, %B %d %I:%M %p")
     end
     set_html("date", cdate)
 
