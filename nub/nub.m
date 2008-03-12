@@ -1,15 +1,17 @@
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 int main (int argc, const char * argv[]) {
+    char buf[PATH_MAX];
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    
+
     // NSArray *myArgs = [[NSProcessInfo processInfo] arguments];
-    // NSLog(@"%@", myArgs);    
-    
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath:@"/Applications/GitNub.app/Contents/MacOS/GitNub"];
-    [task launch];
-    
+    // NSLog(@"%@", myArgs);
+
+    NSString *path=[[NSString alloc] initWithCString:getcwd(buf, sizeof(buf))];
+
+    [[NSWorkspace sharedWorkspace] openFile:path withApplication:@"GitNub"];
+
+    [path release];
     [pool drain];
     return 0;
 }
