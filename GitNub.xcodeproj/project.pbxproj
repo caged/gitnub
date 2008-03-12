@@ -25,9 +25,9 @@
 		288853C90D7E06A600862D67 /* commit.html in Resources */ = {isa = PBXBuildFile; fileRef = 288853C80D7E06A600862D67 /* commit.html */; };
 		288853CD0D7E074B00862D67 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 288853CC0D7E074B00862D67 /* style.css */; };
 		288854910D7E352C00862D67 /* grit in Resources */ = {isa = PBXBuildFile; fileRef = 288854540D7E352C00862D67 /* grit */; };
-		28D8D8C20D80C5960039F98A /* Info.nib in Resources */ = {isa = PBXBuildFile; fileRef = 28D8D8C10D80C5960039F98A /* Info.nib */; };
+		288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB4180D8789DD0092B5CC /* MainMenu.xib */; };
+		288CB41D0D878A1C0092B5CC /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB41C0D878A1C0092B5CC /* Info.xib */; };
 		28DA55180D84C3A600D39FBF /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DA55170D84C3A600D39FBF /* refresh.png */; };
-		4DDCA7060ACC9A6100E082CE /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E25803AEB7C803A81C6F /* rb_main.rb */; };
 		4DDCA70A0ACC9A6100E082CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -67,10 +67,10 @@
 		288853C80D7E06A600862D67 /* commit.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = commit.html; sourceTree = "<group>"; };
 		288853CC0D7E074B00862D67 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		288854540D7E352C00862D67 /* grit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = grit; sourceTree = "<group>"; };
-		28D8D8C10D80C5960039F98A /* Info.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = Info.nib; sourceTree = "<group>"; };
+		288CB4190D8789DD0092B5CC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		288CB41C0D878A1C0092B5CC /* Info.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
 		28DA55170D84C3A600D39FBF /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		4DDCA7110ACC9A6100E082CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +148,8 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				4DDCA7110ACC9A6100E082CE /* Info.plist */,
 				288853040D7CE2E500862D67 /* LICENSE */,
+				288CB4180D8789DD0092B5CC /* MainMenu.xib */,
+				288CB41C0D878A1C0092B5CC /* Info.xib */,
 			);
 			name = GitNub;
 			sourceTree = "<group>";
@@ -178,9 +180,7 @@
 				288853CC0D7E074B00862D67 /* style.css */,
 				288853C80D7E06A600862D67 /* commit.html */,
 				2888530C0D7CEA5200862D67 /* gitnub-icon.icns */,
-				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
-				28D8D8C10D80C5960039F98A /* Info.nib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -266,7 +266,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DDCA7060ACC9A6100E082CE /* MainMenu.nib in Resources */,
 				4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */,
 				4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */,
 				288853050D7CE2E500862D67 /* LICENSE in Resources */,
@@ -274,7 +273,6 @@
 				288853C90D7E06A600862D67 /* commit.html in Resources */,
 				288853CD0D7E074B00862D67 /* style.css in Resources */,
 				288854910D7E352C00862D67 /* grit in Resources */,
-				28D8D8C20D80C5960039F98A /* Info.nib in Resources */,
 				285BB47C0D8306C60027980C /* mime-types in Resources */,
 				285BB5320D849C890027980C /* TexturedWindow.rb in Resources */,
 				285BB53D0D849DD20027980C /* added.png in Resources */,
@@ -286,6 +284,8 @@
 				285BB5490D849EA60027980C /* CommitsController.rb in Resources */,
 				285BB54A0D849EA60027980C /* InfoWindowController.rb in Resources */,
 				28DA55180D84C3A600D39FBF /* refresh.png in Resources */,
+				288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */,
+				288CB41D0D878A1C0092B5CC /* Info.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,12 +312,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+		288CB4180D8789DD0092B5CC /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29B97319FDCFA39411CA2CEA /* English */,
+				288CB4190D8789DD0092B5CC /* English */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
