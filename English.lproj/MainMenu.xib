@@ -8,6 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="2"/>
 			<integer value="398"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -38,7 +39,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMinSize">{400, 300}</string>
 				<object class="NSView" key="NSWindowView" id="831824449">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -128,15 +129,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{721, 16}, {51, 17}}</string>
 							<reference key="NSSuperview" ref="831824449"/>
-							<bool key="NSViewIsLayerTreeHost">YES</bool>
-							<object class="NSShadow" key="NSViewShadow">
-								<double key="NSShadowHoriz">1.000000e+00</double>
-								<double key="NSShadowVert">-1.000000e+00</double>
-								<object class="NSColor" key="NSShadowColor" id="728987342">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC44MDAwMDAwMSAwLjgwMDAwMDAxIDAuODAwMDAwMDEAA</bytes>
-								</object>
-							</object>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="31210086">
 								<int key="NSCellFlags">67239488</int>
@@ -309,6 +301,7 @@
 											</object>
 											<string key="NSFrameSize">{298, 637}</string>
 											<reference key="NSSuperview" ref="1052727212"/>
+											<reference key="NSNextKeyView" ref="95565757"/>
 											<reference key="NSDocView" ref="95565757"/>
 											<reference key="NSBGColor" ref="1046813822"/>
 											<int key="NScvFlags">4</int>
@@ -335,6 +328,7 @@
 									</object>
 									<string key="NSFrameSize">{298, 637}</string>
 									<reference key="NSSuperview" ref="476771339"/>
+									<reference key="NSNextKeyView" ref="648361966"/>
 									<int key="NSsFlags">528</int>
 									<reference key="NSVScroller" ref="728533113"/>
 									<reference key="NSHScroller" ref="439200232"/>
@@ -396,6 +390,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{990, 682}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMinSize">{400, 322}</string>
@@ -590,6 +585,7 @@
 						</object>
 						<string key="NSFrameSize">{481, 404}</string>
 						<reference key="NSSuperview" ref="591982567"/>
+						<reference key="NSNextKeyView"/>
 						<string key="FrameName"/>
 						<string key="GroupName"/>
 						<object class="WebPreferences" key="Preferences">
@@ -796,6 +792,14 @@
 						<reference key="destination" ref="747516014"/>
 					</object>
 					<int key="connectionID">401</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">branch_field</string>
+						<reference key="source" ref="620275248"/>
+						<reference key="destination" ref="869639466"/>
+					</object>
+					<int key="connectionID">402</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1201,6 +1205,7 @@
 					<string>29.ImportedFromIB2</string>
 					<string>29.editorWindowContentRectSynchronizationRect</string>
 					<string>306.IBPluginDependency</string>
+					<string>306.IBViewIntegration.shadowBlurRadius</string>
 					<string>306.IBViewIntegration.shadowColor</string>
 					<string>306.IBViewIntegration.shadowOffsetHeight</string>
 					<string>306.IBViewIntegration.shadowOffsetWidth</string>
@@ -1256,9 +1261,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{39, 170}, {990, 682}}</string>
+					<string>{{370, 164}, {990, 682}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{39, 170}, {990, 682}}</string>
+					<string>{{370, 164}, {990, 682}}</string>
 					<reference ref="9"/>
 					<reference ref="9"/>
 					<string>{{146, 188}, {820, 596}}</string>
@@ -1298,7 +1303,11 @@
 					<reference ref="9"/>
 					<string>{{143, 807}, {92, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="728987342"/>
+					<real value="0.000000e+00"/>
+					<object class="NSColor">
+						<int key="NSColorSpace">1</int>
+						<bytes key="NSRGB">MC44MDAwMDAwMSAwLjgwMDAwMDAxIDAuODAwMDAwMDEAA</bytes>
+					</object>
 					<real value="-1.000000e+00"/>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1358,7 +1367,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">401</int>
+			<int key="maxID">402</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1374,6 +1383,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>branch_field</string>
 							<string>commits_controller</string>
 							<string>commits_table</string>
 							<string>info_button</string>
@@ -1383,6 +1393,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
