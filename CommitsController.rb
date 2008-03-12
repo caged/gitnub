@@ -21,7 +21,10 @@ class CommitsController < OSX::NSObject
     @current_commit_offset = 0
     @offset = 50
     @active_commit = nil
-    @icons = {}
+    @icons = Hash.new do |hash, email|
+        gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(email)}&size=36")
+        hash[email] = NSImage.alloc.initWithContentsOfURL(gravatar)
+    end
     
     if(fetch_git_repository)
       setup_commit_detail_view
@@ -101,12 +104,7 @@ class CommitsController < OSX::NSObject
   end
   
   def iconForCell_data(icon, data)
-    #request = NSURLRequest.requestWithURL(NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36"))
-    #connection = NSURLConnection.alloc.initWithRequest_delegate(request, self)
-    @image_data = NSMutableData.data
-    gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(data.committer.email)}&size=36")
-    NSImage.alloc.initWithContentsOfURL(gravatar)
-    #@icons[MD5.hexdigest(data.committer.email)] = NSImage.alloc.initWithData(@image_data)
+    @icons[data.committer.email]
   end
   
   def dataElementForCell(cell)
