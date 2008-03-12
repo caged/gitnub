@@ -3,3 +3,5 @@ build/*
 nub/build/*
 .svn
 .DS_Store
+*.pbxuser
+*.move1v3
