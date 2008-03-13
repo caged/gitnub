@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ABA3B1B0D89E53E004B6667 /* nub.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA3B1A0D89E53E004B6667 /* nub.sh */; };
 		285BB47C0D8306C60027980C /* mime-types in Resources */ = {isa = PBXBuildFile; fileRef = 285BB4690D8306C60027980C /* mime-types */; };
 		285BB5320D849C890027980C /* TexturedWindow.rb in Resources */ = {isa = PBXBuildFile; fileRef = 285BB52F0D849C890027980C /* TexturedWindow.rb */; };
 		285BB53D0D849DD20027980C /* added.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5380D849DD20027980C /* added.png */; };
@@ -35,16 +36,6 @@
 		DA8995E30D890D8A00CF2CDA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8995E20D890D8A00CF2CDA /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		284B714B0D7CDE340075DA6C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 284B71470D7CDE340075DA6C /* nub.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DD76FA10486AA7600D96B5E;
-			remoteInfo = nub;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		DA405D4F0D890F2900841A60 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -60,8 +51,8 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0ABA3B1A0D89E53E004B6667 /* nub.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = nub.sh; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		284B71470D7CDE340075DA6C /* nub.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nub.xcodeproj; path = nub/nub.xcodeproj; sourceTree = "<group>"; };
 		285BB4690D8306C60027980C /* mime-types */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "mime-types"; sourceTree = "<group>"; };
 		285BB52F0D849C890027980C /* TexturedWindow.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = TexturedWindow.rb; sourceTree = "<group>"; };
 		285BB5380D849DD20027980C /* added.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = added.png; sourceTree = "<group>"; };
@@ -145,18 +136,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		284B71480D7CDE340075DA6C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				284B714C0D7CDE340075DA6C /* nub */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		29B97314FDCFA39411CA2CEA /* GitNub */ = {
 			isa = PBXGroup;
 			children = (
-				284B71470D7CDE340075DA6C /* nub.xcodeproj */,
+				0ABA3B1A0D89E53E004B6667 /* nub.sh */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -251,28 +234,12 @@
 			hasScannedForEncodings = 0;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* GitNub */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 284B71480D7CDE340075DA6C /* Products */;
-					ProjectRef = 284B71470D7CDE340075DA6C /* nub.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				4DDCA7030ACC9A6100E082CE /* GitNub */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		284B714C0D7CDE340075DA6C /* nub */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = nub;
-			remoteRef = 284B714B0D7CDE340075DA6C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4DDCA7050ACC9A6100E082CE /* Resources */ = {
@@ -297,6 +264,7 @@
 				285BB54A0D849EA60027980C /* InfoWindowController.rb in Resources */,
 				288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */,
 				288CB41D0D878A1C0092B5CC /* Info.xib in Resources */,
+				0ABA3B1B0D89E53E004B6667 /* nub.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
