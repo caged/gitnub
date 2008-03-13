@@ -121,7 +121,7 @@ class CommitsController < OSX::NSObject
   def update_main_document
     diffs = []
     doc = @commit_details.mainFrame.DOMDocument
-    set_html("message", active_commit.message)
+    set_html("message", active_commit.message.gsub("\n", "<br />"))
     set_html("hash", active_commit.id)
 
     if Time.now.day == active_commit.committed_date.day
