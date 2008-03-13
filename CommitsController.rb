@@ -94,8 +94,8 @@ class CommitsController < OSX::NSObject
   objc_method :tableView_willDisplayCell_forTableColumn_row, 'v@:@@@i'
   def tableView_willDisplayCell_forTableColumn_row(table_view, cell, table_column, row)
     commit = @commits[row]
-    cell.subtitle = %(by #{commit.committer.name} on #{commit.committed_date.strftime("%A, %b %d, %I:%M %p")})
-    cell.gravatarImage = @icons[commit.committer.email]
+    cell.subtitle = %(by #{commit.author.name} on #{commit.authored_date.strftime("%A, %b %d, %I:%M %p")})
+    cell.gravatarImage = @icons[commit.author.email]
   end
   
   def webView_didFinishLoadForFrame(view, frame)
@@ -112,12 +112,12 @@ class CommitsController < OSX::NSObject
     set_html("message", active_commit.message.gsub("\n", "<br />"))
     set_html("hash", active_commit.id)
 
-    if Time.now.day == active_commit.committed_date.day
-      cdate = active_commit.committed_date.strftime("Today %I:%M %p")
+    if Time.now.day == active_commit.authored_date.day
+      cdate = active_commit.authored_date.strftime("Today, %I:%M %p")
     else
-      cdate = active_commit.committed_date.strftime("%A, %B %d %I:%M %p")
+      cdate = active_commit.authored_date.strftime("%A, %B %d %I:%M %p")
     end
-    set_html("date", cdate)
+    set_html("date", "#{cdate} by #{active_commit.author.name}")
 
     file_list = doc.getElementById('files')
     diff_list = doc.getElementById('diffs')
