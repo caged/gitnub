@@ -101,19 +101,7 @@ class CommitsController < OSX::NSObject
   def webView_didFinishLoadForFrame(view, frame)
     select_latest_commit
   end
-  
-  # def connection_didRecieveResponse(connection, response)
-  #   @image_data.length = 0
-  # end
-  # 
-  # def connection_didReceiveData(connection, data)
-  #   #@image_data.appendData(data)
-  # end
-  # 
-  # def connectionDidFinishLoading(connection)
-  #   puts @icons[MD5.hexdigest(data.committer.email)]
-  # end
-  
+
   def select_latest_commit
     @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSetWithIndex(0), false)
   end
