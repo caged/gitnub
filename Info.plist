@@ -27,6 +27,6 @@
 	<key>SUFeedURL</key>
 	<string>http://s3.amazonaws.com/gitnub/appcast.xml</string>
 	<key>SUScheduledCheckInterval</key>
-	<integer>200</integer>
+	<integer>86400</integer>
 </dict>
 </plist>
