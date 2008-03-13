@@ -125,7 +125,7 @@ class CommitsController < OSX::NSObject
     set_html("hash", active_commit.id)
 
     if Time.now.day == active_commit.committed_date.day
-      cdate = active_commit.committed_date.strftime("Today %I:%m %p")
+      cdate = active_commit.committed_date.strftime("Today %I:%M %p")
     else
       cdate = active_commit.committed_date.strftime("%A, %B %d %I:%M %p")
     end
