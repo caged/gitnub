@@ -33,7 +33,7 @@ task :build => "xcode:build:#{DEFAULT_TARGET}:#{DEFAULT_CONFIGURATION}"
 
 desc 'Deep clean of everything'
 task :clean do
-  puts %x{ xcodebuild -alltargets clean }
+  puts %x{ xcodebuild -alltargets clean OBJROOT=build/ SYMROOT=build/ }
 end
 
 desc "Add files to Xcode project"
@@ -123,7 +123,7 @@ namespace :xcode do
      targets.each do |target|
        desc "#{action} #{target}"
        task "#{target}" do |t|
-         puts %x{ xcodebuild -target '#{target}' #{action} }
+         puts %x{ xcodebuild -target '#{target}' #{action} OBJROOT=build/ SYMROOT=build/ }
        end
 
        # alias the task above using a massaged name
@@ -135,7 +135,7 @@ namespace :xcode do
          configs.each do |config|
            desc "#{action} #{target} #{config}"
            task "#{config}" do |t|
-             puts %x{ xcodebuild -target '#{target}' -configuration '#{config}' #{action} }
+             puts %x{ xcodebuild -target '#{target}' -configuration '#{config}' #{action} SYMROOT=build/ OBJROOT=build/ }
            end
          end
        end
