@@ -13,7 +13,6 @@
 		285BB53E0D849DD20027980C /* committer.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5390D849DD20027980C /* committer.png */; };
 		285BB53F0D849DD20027980C /* common.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB53A0D849DD20027980C /* common.png */; };
 		285BB5400D849DD20027980C /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB53B0D849DD20027980C /* delete.png */; };
-		285BB5410D849DD20027980C /* infoicn.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB53C0D849DD20027980C /* infoicn.png */; };
 		285BB5480D849EA60027980C /* ApplicationController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5450D849EA60027980C /* ApplicationController.rb */; };
 		285BB5490D849EA60027980C /* CommitsController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5460D849EA60027980C /* CommitsController.rb */; };
 		285BB54A0D849EA60027980C /* InfoWindowController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5470D849EA60027980C /* InfoWindowController.rb */; };
@@ -25,7 +24,6 @@
 		288854910D7E352C00862D67 /* grit in Resources */ = {isa = PBXBuildFile; fileRef = 288854540D7E352C00862D67 /* grit */; };
 		288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB4180D8789DD0092B5CC /* MainMenu.xib */; };
 		288CB41D0D878A1C0092B5CC /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB41C0D878A1C0092B5CC /* Info.xib */; };
-		28DA55180D84C3A600D39FBF /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DA55170D84C3A600D39FBF /* refresh.png */; };
 		4D922CA80D8889DB002A5539 /* CommitSummaryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D922CA60D8889DB002A5539 /* CommitSummaryCell.h */; };
 		4D922CA90D8889DB002A5539 /* CommitSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D922CA70D8889DB002A5539 /* CommitSummaryCell.m */; };
 		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -55,7 +53,6 @@
 		285BB5390D849DD20027980C /* committer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = committer.png; sourceTree = "<group>"; };
 		285BB53A0D849DD20027980C /* common.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common.png; sourceTree = "<group>"; };
 		285BB53B0D849DD20027980C /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
-		285BB53C0D849DD20027980C /* infoicn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infoicn.png; sourceTree = "<group>"; };
 		285BB5450D849EA60027980C /* ApplicationController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ApplicationController.rb; sourceTree = "<group>"; };
 		285BB5460D849EA60027980C /* CommitsController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = CommitsController.rb; sourceTree = "<group>"; };
 		285BB5470D849EA60027980C /* InfoWindowController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = InfoWindowController.rb; sourceTree = "<group>"; };
@@ -67,7 +64,6 @@
 		288854540D7E352C00862D67 /* grit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = grit; sourceTree = "<group>"; };
 		288CB4190D8789DD0092B5CC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		288CB41C0D878A1C0092B5CC /* Info.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
-		28DA55170D84C3A600D39FBF /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -171,12 +167,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				28DA55170D84C3A600D39FBF /* refresh.png */,
 				285BB5380D849DD20027980C /* added.png */,
 				285BB5390D849DD20027980C /* committer.png */,
 				285BB53A0D849DD20027980C /* common.png */,
 				285BB53B0D849DD20027980C /* delete.png */,
-				285BB53C0D849DD20027980C /* infoicn.png */,
 				288853CC0D7E074B00862D67 /* style.css */,
 				288853C80D7E06A600862D67 /* commit.html */,
 				2888530C0D7CEA5200862D67 /* gitnub-icon.icns */,
@@ -279,11 +273,9 @@
 				285BB53E0D849DD20027980C /* committer.png in Resources */,
 				285BB53F0D849DD20027980C /* common.png in Resources */,
 				285BB5400D849DD20027980C /* delete.png in Resources */,
-				285BB5410D849DD20027980C /* infoicn.png in Resources */,
 				285BB5480D849EA60027980C /* ApplicationController.rb in Resources */,
 				285BB5490D849EA60027980C /* CommitsController.rb in Resources */,
 				285BB54A0D849EA60027980C /* InfoWindowController.rb in Resources */,
-				28DA55180D84C3A600D39FBF /* refresh.png in Resources */,
 				288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */,
 				288CB41D0D878A1C0092B5CC /* Info.xib in Resources */,
 			);
