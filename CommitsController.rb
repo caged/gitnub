@@ -22,8 +22,8 @@ class CommitsController < OSX::NSObject
     @offset = 50
     @active_commit = nil
     @icons = Hash.new do |hash, email|
-        gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(email)}&size=36")
-        hash[email] = NSImage.alloc.initWithContentsOfURL(gravatar)
+      gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(email)}&size=36")
+      hash[email] = NSImage.alloc.initWithContentsOfURL(gravatar)
     end
     
     if(fetch_git_repository)
@@ -94,7 +94,7 @@ class CommitsController < OSX::NSObject
   objc_method :tableView_willDisplayCell_forTableColumn_row, 'v@:@@@i'
   def tableView_willDisplayCell_forTableColumn_row(table_view, cell, table_column, row)
     commit = @commits[row]
-    cell.subtitle = %(by #{commit.author.name} on #{commit.authored_date.strftime("%A, %b %d, %I:%M %p")})
+    cell.subtitle = %(by #{commit.author.name} on #{commit.authored_date.to_system_time})
     cell.gravatarImage = @icons[commit.author.email]
   end
   
@@ -113,9 +113,9 @@ class CommitsController < OSX::NSObject
     set_html("hash", active_commit.id)
 
     if Time.now.day == active_commit.authored_date.day
-      cdate = active_commit.authored_date.strftime("Today, %I:%M %p")
+      cdate = active_commit.authored_date.to_system_time(:time)
     else
-      cdate = active_commit.authored_date.strftime("%A, %B %d %I:%M %p")
+      cdate = active_commit.authored_date.to_system_time
     end
     set_html("date", "#{cdate} by #{active_commit.author.name}")
 
