@@ -23,7 +23,7 @@ class CommitsController < OSX::NSObject
     @active_commit = nil
 	  @branch = :master
     @icons = Hash.new do |hash, email|
-      gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(email)}&size=36")
+      gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(email.downcase)}&size=36")
       hash[email] = NSImage.alloc.initWithContentsOfURL(gravatar)
     end
     
