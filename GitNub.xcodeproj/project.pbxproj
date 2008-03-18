@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ABA3B1B0D89E53E004B6667 /* nub.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA3B1A0D89E53E004B6667 /* nub.sh */; };
+		283254680D8B792500D99366 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 283254650D8B792500D99366 /* lib */; };
 		285BB47C0D8306C60027980C /* mime-types in Resources */ = {isa = PBXBuildFile; fileRef = 285BB4690D8306C60027980C /* mime-types */; };
 		285BB5320D849C890027980C /* TexturedWindow.rb in Resources */ = {isa = PBXBuildFile; fileRef = 285BB52F0D849C890027980C /* TexturedWindow.rb */; };
 		285BB53D0D849DD20027980C /* added.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5380D849DD20027980C /* added.png */; };
@@ -53,6 +54,7 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0ABA3B1A0D89E53E004B6667 /* nub.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = nub.sh; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		283254650D8B792500D99366 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
 		285BB4690D8306C60027980C /* mime-types */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "mime-types"; sourceTree = "<group>"; };
 		285BB52F0D849C890027980C /* TexturedWindow.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = TexturedWindow.rb; sourceTree = "<group>"; };
 		285BB5380D849DD20027980C /* added.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = added.png; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				283254650D8B792500D99366 /* lib */,
 				285BB52F0D849C890027980C /* TexturedWindow.rb */,
 				285BB4690D8306C60027980C /* mime-types */,
 				288854540D7E352C00862D67 /* grit */,
@@ -265,6 +268,7 @@
 				288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */,
 				288CB41D0D878A1C0092B5CC /* Info.xib in Resources */,
 				0ABA3B1B0D89E53E004B6667 /* nub.sh in Resources */,
+				283254680D8B792500D99366 /* lib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

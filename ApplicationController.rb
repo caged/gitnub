@@ -10,6 +10,7 @@ require 'rubygems'
 require 'osx/cocoa'
 require 'mime-types/lib/mime/types'
 require 'grit/lib/grit'
+require 'lib/time_extensions'
 require 'InfoWindowController'
 
 OSX.ns_import 'CommitSummaryCell'
