@@ -1,2 +1,2 @@
 #!/bin/sh
-open -a GitNub .
+open -b com.alternateidea.rubycocoa.GitNubApp .
