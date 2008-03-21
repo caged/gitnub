@@ -1,6 +1,5 @@
 pkg/*
 build/*
-nub/build/*
 .svn
 .DS_Store
 *.pbxuser
