@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.02">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9C2028</string>
+		<string key="IBDocument.SystemVersion">9C7010</string>
 		<string key="IBDocument.InterfaceBuilderVersion">644</string>
 		<string key="IBDocument.AppKitVersion">949.26</string>
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
@@ -32,7 +32,7 @@
 			<object class="NSWindowTemplate" id="469667931">
 				<int key="NSWindowStyleMask">4111</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{368, -103}, {990, 682}}</string>
+				<string key="NSWindowRect">{{499, -103}, {990, 682}}</string>
 				<int key="NSWTFlags">813170688</int>
 				<string key="NSWindowTitle">GitNub</string>
 				<string key="NSWindowClass">TexturedWindow</string>
@@ -327,31 +327,10 @@
 								<int key="NSArrowPosition">2</int>
 							</object>
 						</object>
-						<object class="NSTextField" id="869639466">
-							<reference key="NSNextResponder" ref="831824449"/>
-							<int key="NSvFlags">289</int>
-							<string key="NSFrame">{{710, 16}, {51, 17}}</string>
-							<reference key="NSSuperview" ref="831824449"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="31210086">
-								<int key="NSCellFlags">67239488</int>
-								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">Branch:</string>
-								<reference key="NSSupport" ref="98627494"/>
-								<reference key="NSControlView" ref="869639466"/>
-								<object class="NSColor" key="NSBackgroundColor">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">controlColor</string>
-									<reference key="NSColor" ref="510149783"/>
-								</object>
-								<reference key="NSTextColor" ref="394328784"/>
-							</object>
-						</object>
 						<object class="NSSegmentedControl" id="1072506144">
 							<reference key="NSNextResponder" ref="831824449"/>
 							<int key="NSvFlags">289</int>
-							<string key="NSFrame">{{894, 13}, {76, 25}}</string>
+							<string key="NSFrame">{{894, 12}, {76, 25}}</string>
 							<reference key="NSSuperview" ref="831824449"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSegmentedCell" key="NSCell" id="544428244">
@@ -388,13 +367,35 @@
 								<int key="NSSegmentStyle">2</int>
 							</object>
 						</object>
+						<object class="NSTextField" id="869639466">
+							<reference key="NSNextResponder" ref="831824449"/>
+							<int key="NSvFlags">289</int>
+							<string key="NSFrame">{{710, 17}, {51, 17}}</string>
+							<reference key="NSSuperview" ref="831824449"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSTextFieldCell" key="NSCell" id="31210086">
+								<int key="NSCellFlags">67239488</int>
+								<int key="NSCellFlags2">272630784</int>
+								<string key="NSContents">Branch:</string>
+								<reference key="NSSupport" ref="98627494"/>
+								<reference key="NSControlView" ref="869639466"/>
+								<object class="NSColor" key="NSBackgroundColor">
+									<int key="NSColorSpace">6</int>
+									<string key="NSCatalogName">System</string>
+									<string key="NSColorName">controlColor</string>
+									<reference key="NSColor" ref="510149783"/>
+								</object>
+								<reference key="NSTextColor" ref="394328784"/>
+							</object>
+						</object>
 					</object>
 					<string key="NSFrameSize">{990, 682}</string>
 					<reference key="NSSuperview"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1600, 1002}}</string>
 				<string key="NSMinSize">{400, 322}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
+				<string key="NSFrameAutosaveName">MainMenu</string>
 			</object>
 			<object class="NSMenu" id="613528524">
 				<string key="NSTitle">MainMenu</string>
@@ -879,8 +880,8 @@
 							<reference ref="421922180"/>
 							<reference ref="476771339"/>
 							<reference ref="60591724"/>
-							<reference ref="869639466"/>
 							<reference ref="1072506144"/>
+							<reference ref="869639466"/>
 						</object>
 						<reference key="parent" ref="469667931"/>
 					</object>
@@ -1317,9 +1318,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{113, 46}, {990, 682}}</string>
+					<string>{{13, 203}, {990, 682}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{113, 46}, {990, 682}}</string>
+					<string>{{13, 203}, {990, 682}}</string>
 					<reference ref="9"/>
 					<reference ref="9"/>
 					<string>{{146, 174}, {990, 682}}</string>
