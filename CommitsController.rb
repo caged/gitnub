@@ -21,6 +21,7 @@ class CommitsController < OSX::NSObject
     @current_commit_offset = 0
     @offset = 50
     @active_commit = nil
+	  @branch = :master
     @icons = Hash.new do |hash, email|
       gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(email)}&size=36")
       hash[email] = NSImage.alloc.initWithContentsOfURL(gravatar)
@@ -28,7 +29,7 @@ class CommitsController < OSX::NSObject
     
     if(fetch_git_repository)
       setup_commit_detail_view
-      fetch_commits_for :master, @offset
+      fetch_commits_for @branch, @offset
       setup_branches_menu
       setup_paging_control
       @commits_table.reloadData
@@ -59,7 +60,7 @@ class CommitsController < OSX::NSObject
     end
     
     @current_commit_offset = 0 if @current_commit_offset == -(@offset)
-    fetch_commits_for(:master, @offset, @current_commit_offset)
+    fetch_commits_for(@branch, @offset, @current_commit_offset)
     @commits_table.reloadData
     
     select_latest_commit  
@@ -162,7 +163,8 @@ class CommitsController < OSX::NSObject
   
   def refresh
     current_commit = active_commit && active_commit.id
-    fetch_commits_for :master, @offset
+	@branch = @branch_select.titleOfSelectedItem
+	fetch_commits_for @branch, @offset
     
     @commits_table.reloadData
     
@@ -197,6 +199,7 @@ class CommitsController < OSX::NSObject
     @repo.branches.each do |branch|
       @branch_select.addItemWithTitle(branch.name)
     end
+    @branch_select.selectItemWithTitle(@branch)
   end
   
   def setup_paging_control
