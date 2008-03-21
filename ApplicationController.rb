@@ -7,6 +7,7 @@
 #
 $VERBOSE = nil
 require 'rubygems'
+require 'pathname'
 require 'osx/cocoa'
 require 'mime-types/lib/mime/types'
 require 'grit/lib/grit'
@@ -16,7 +17,10 @@ require 'InfoWindowController'
 OSX.ns_import 'CommitSummaryCell'
 include OSX
 
-REPOSITORY_LOCATION = ENV['PWD'].nil? ? '' : ENV['PWD']
+# we use ENV['PWD'] instead of Dir.getwd if it exists so
+# `open GitNub` will work, since that launches us at / but leaves ENV['PWD'] intact
+pwd = Pathname.new(ENV['PWD'].nil? ? Dir.getwd : ENV['PWD'])
+REPOSITORY_LOCATION = pwd + `cd #{pwd} && git rev-parse --git-dir 2>/dev/null`.chomp
 
 class ApplicationController < OSX::NSObject 
   ib_outlet :commits_table
