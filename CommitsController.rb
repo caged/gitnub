@@ -119,13 +119,11 @@ class CommitsController < OSX::NSObject
   def imageLoadForURL_didFinishLoading(url, image)
     email = @icon_url_map[url]
     @icons[email] = image
-    # indices = NSMutableIndexSet.indexSet
-    # @commits.each_with_index do |commit, idx|
-    #   if commit.author.email == email
-    #     indices.addIndex(idx)
-    #   end
-    # end
-    @commits_table.setNeedsDisplay(true)
+    @commits_table.rowsInRect(@commits_table.enclosingScrollView.documentVisibleRect).to_range.each do |i|
+      if @commits[i].author.email == email
+        @commits_table.setNeedsDisplayInRect(@commits_table.rectOfRow(i))
+      end
+    end
   end
   
   def imageLoadForURL_didFailWithError(url, error)
