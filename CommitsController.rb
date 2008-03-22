@@ -133,10 +133,16 @@ class CommitsController < OSX::NSObject
   end
 
   def select_latest_commit
+    indices = @commits_table.selectedRowIndexes
+    if indices.isEqualToIndexSet(NSIndexSet.indexSetWithIndex(0))
+      @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSet, false)
+    end
     @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSetWithIndex(0), false)
+    @commits_table.scrollRowToVisible(0)
   end
   
   def update_main_document
+    return unless active_commit
     diffs = []
     doc = @commit_details.mainFrame.DOMDocument
     title, message = active_commit.message.split("\n", 2)
