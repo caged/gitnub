@@ -199,8 +199,8 @@ class CommitsController < OSX::NSObject
   
   def refresh
     current_commit = active_commit && active_commit.id
-	@branch = @branch_select.titleOfSelectedItem
-	fetch_commits_for @branch, @offset
+	  @branch = @branch_select.titleOfSelectedItem
+	  fetch_commits_for @branch, @offset
     
     @commits_table.reloadData
     
