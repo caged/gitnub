@@ -232,7 +232,7 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "gitnub" */;
+			buildConfigurationList = 4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "GitNub" */;
 			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 0;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* GitNub */;
@@ -367,7 +367,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "gitnub" */ = {
+		4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "GitNub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D7A7B580ABF745500C2D4C0 /* Debug */,

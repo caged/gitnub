@@ -72,19 +72,19 @@ table {
 }
 
 h1 {
-  margin: 9px 0;
+  margin: 9px 0 3px 0;
   font-size: 150%;
   line-height: 130%;
   color: #222;
 }
 
 #message {
-  margin-top: 1em;
   margin-bottom: 9px;
+  color: #555;
 }
 
 #hash {
-  font-size: 93%;
+  font-size: 92%;
   color: #888;
   font-weight: normal;
   margin-bottom: 9px;
