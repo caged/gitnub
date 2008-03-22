@@ -9,7 +9,6 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -39,7 +38,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMinSize">{400, 300}</string>
 				<object class="NSView" key="NSWindowView" id="831824449">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -203,7 +202,6 @@
 											</object>
 											<string key="NSFrameSize">{298, 637}</string>
 											<reference key="NSSuperview" ref="1052727212"/>
-											<reference key="NSNextKeyView" ref="95565757"/>
 											<reference key="NSDocView" ref="95565757"/>
 											<reference key="NSBGColor" ref="1046813822"/>
 											<int key="NScvFlags">4</int>
@@ -230,7 +228,6 @@
 									</object>
 									<string key="NSFrameSize">{298, 637}</string>
 									<reference key="NSSuperview" ref="476771339"/>
-									<reference key="NSNextKeyView" ref="648361966"/>
 									<int key="NSsFlags">528</int>
 									<reference key="NSVScroller" ref="728533113"/>
 									<reference key="NSHScroller" ref="439200232"/>
@@ -390,7 +387,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{990, 682}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1600, 1002}}</string>
 				<string key="NSMinSize">{400, 322}</string>
@@ -595,7 +591,6 @@
 						</object>
 						<string key="NSFrameSize">{481, 404}</string>
 						<reference key="NSSuperview" ref="591982567"/>
-						<reference key="NSNextKeyView"/>
 						<string key="FrameName"/>
 						<string key="GroupName"/>
 						<object class="WebPreferences" key="Preferences">
@@ -837,6 +832,14 @@
 						<reference key="destination" ref="60591724"/>
 					</object>
 					<int key="connectionID">429</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">UIDelegate</string>
+						<reference key="source" ref="543514666"/>
+						<reference key="destination" ref="53201312"/>
+					</object>
+					<int key="connectionID">430</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1372,7 +1375,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{96, 438}, {481, 404}}</string>
+					<string>{{126, 330}, {481, 404}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{261, 325}, {481, 404}}</string>
 					<object class="NSDictionary">
@@ -1430,7 +1433,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">429</int>
+			<int key="maxID">430</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1580,7 +1583,7 @@
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../GitNub.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../gitnub.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>

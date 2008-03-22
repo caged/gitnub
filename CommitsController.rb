@@ -102,6 +102,10 @@ class CommitsController < OSX::NSObject
   def webView_didFinishLoadForFrame(view, frame)
     select_latest_commit
   end
+  
+  def webView_contextMenuItemsForElement_defaultMenuItems(view, element, defaultMenuItems)
+    nil
+  end
 
   def select_latest_commit
     @commits_table.selectRowIndexes_byExtendingSelection(NSIndexSet.indexSetWithIndex(0), false)
