@@ -113,7 +113,12 @@ class CommitsController < OSX::NSObject
   end
   
   def webView_contextMenuItemsForElement_defaultMenuItems(view, element, defaultMenuItems)
-    nil
+    defaultMenuItems.select do |item|
+      # WebMenuItemTagCopy = 8
+      # WebMenuItemTagCut = 13
+      # WebMenuItemTagPaste = 14
+      [8, 13, 14].include? item.tag
+    end
   end
   
   def imageLoadForURL_didFinishLoading(url, image)
