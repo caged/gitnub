@@ -10,6 +10,11 @@ require 'osx/cocoa'
 require 'md5'
 require 'cgi'
 
+def gravatar_url(email, size=36)
+  hash = MD5.hexdigest(email.downcase)
+  NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{hash}&size=#{size}")
+end
+
 class CommitsController < OSX::NSObject
   ib_outlet :commits_table
   ib_outlet :branch_select
@@ -21,10 +26,14 @@ class CommitsController < OSX::NSObject
     @current_commit_offset = 0
     @offset = 50
     @active_commit = nil
-	  @branch = :master
+    @branch = :master
+    @icon_queue = NSOperationQueue.alloc.init
+    @icon_url_map = {}
     @icons = Hash.new do |hash, email|
-      gravatar = NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{MD5.hexdigest(email.downcase)}&size=36")
-      hash[email] = NSImage.alloc.initWithContentsOfURL(gravatar)
+      url = gravatar_url(email)
+      @icon_url_map[url] = email
+      @icon_queue.addOperation(ImageLoadOperation.alloc.initWithURL_delegate(url, self))
+      hash[email] = NSImage.imageNamed(NSImageNameUser)
     end
     
     if(fetch_git_repository)
@@ -105,6 +114,22 @@ class CommitsController < OSX::NSObject
   
   def webView_contextMenuItemsForElement_defaultMenuItems(view, element, defaultMenuItems)
     nil
+  end
+  
+  def imageLoadForURL_didFinishLoading(url, image)
+    email = @icon_url_map[url]
+    @icons[email] = image
+    # indices = NSMutableIndexSet.indexSet
+    # @commits.each_with_index do |commit, idx|
+    #   if commit.author.email == email
+    #     indices.addIndex(idx)
+    #   end
+    # end
+    @commits_table.setNeedsDisplay(true)
+  end
+  
+  def imageLoadForURL_didFailWithError(url, error)
+    STDERR.puts "Async image load failed for URL: #{url}\n#{error}"
   end
 
   def select_latest_commit

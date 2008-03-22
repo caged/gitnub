@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4023590D949E0E00659E01 /* ImageLoadOperation.rb in Resources */ = {isa = PBXBuildFile; fileRef = 0A4023580D949E0E00659E01 /* ImageLoadOperation.rb */; };
 		0ABA3B1B0D89E53E004B6667 /* nub in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA3B1A0D89E53E004B6667 /* nub */; };
 		283254680D8B792500D99366 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 283254650D8B792500D99366 /* lib */; };
 		285BB47C0D8306C60027980C /* mime-types in Resources */ = {isa = PBXBuildFile; fileRef = 285BB4690D8306C60027980C /* mime-types */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A4023580D949E0E00659E01 /* ImageLoadOperation.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ImageLoadOperation.rb; sourceTree = "<group>"; };
 		0ABA3B1A0D89E53E004B6667 /* nub */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = nub; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		283254650D8B792500D99366 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				285BB5450D849EA60027980C /* ApplicationController.rb */,
 				285BB5460D849EA60027980C /* CommitsController.rb */,
+				0A4023580D949E0E00659E01 /* ImageLoadOperation.rb */,
 				285BB5470D849EA60027980C /* InfoWindowController.rb */,
 				4D922CA60D8889DB002A5539 /* CommitSummaryCell.h */,
 				4D922CA70D8889DB002A5539 /* CommitSummaryCell.m */,
@@ -232,7 +235,7 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "gitnub" */;
+			buildConfigurationList = 4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "GitNub" */;
 			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 0;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* GitNub */;
@@ -269,6 +272,7 @@
 				288CB41D0D878A1C0092B5CC /* Info.xib in Resources */,
 				0ABA3B1B0D89E53E004B6667 /* nub in Resources */,
 				283254680D8B792500D99366 /* lib in Resources */,
+				0A4023590D949E0E00659E01 /* ImageLoadOperation.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +371,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "gitnub" */ = {
+		4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "GitNub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D7A7B580ABF745500C2D4C0 /* Debug */,
