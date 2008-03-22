@@ -66,20 +66,28 @@ table {
 /* @end */
 
 /* @group details */
-h1 {
-  border-bottom: 1px solid #eee;
-  font-size: 150%;
+#metadata {
   padding: 9px;
-  margin: 9px;
+  margin: 0 9px;
+}
+
+h1 {
+  margin: 9px 0;
+  font-size: 150%;
   line-height: 130%;
   color: #222;
 }
 
+#message {
+  margin-top: 1em;
+  margin-bottom: 9px;
+}
+
 #hash {
-  font-size: 62%;
+  font-size: 93%;
   color: #888;
   font-weight: normal;
-  display: block;
+  margin-bottom: 9px;
 }
 
 #date {
@@ -90,6 +98,7 @@ h1 {
   text-align: center;
   padding: 6px;
   font-weight: normal;
+  border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   margin: 0 9px;
 }
