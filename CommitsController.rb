@@ -110,7 +110,14 @@ class CommitsController < OSX::NSObject
   def update_main_document
     diffs = []
     doc = @commit_details.mainFrame.DOMDocument
-    set_html("message", active_commit.message.gsub("\n", "<br />"))
+    title, message = active_commit.message.split("\n", 2)
+    set_html("title", title.strip.gsub("\n", "<br />"))
+    if message
+      set_html("message", message.strip.gsub("\n", "<br />"))
+      show_element("message")
+    else
+      hide_element("message")
+    end
     set_html("hash", active_commit.id)
 
     if Time.now.day == active_commit.authored_date.day
@@ -216,5 +223,15 @@ class CommitsController < OSX::NSObject
   
   def set_html(element, html)
     @commit_details.mainFrame.DOMDocument.getElementById(element).setInnerHTML(html)
+  end
+  
+  def show_element(element)
+    element = @commit_details.mainFrame.DOMDocument.getElementById(element)
+    element.style.removeProperty("display")
+  end
+  
+  def hide_element(element)
+    element = @commit_details.mainFrame.DOMDocument.getElementById(element)
+    element.style.setProperty_value_priority("display", "none", nil)
   end
 end
