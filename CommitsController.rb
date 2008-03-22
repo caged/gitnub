@@ -98,7 +98,7 @@ class CommitsController < OSX::NSObject
   end
   
   def tableView_objectValueForTableColumn_row(table_view, table_column, row)
-    @commits[row].message.split(/\n/).first.to_s
+    @commits[row].message.split(/\n/, 2).first.to_s
   end
   
   objc_method :tableView_willDisplayCell_forTableColumn_row, 'v@:@@@i'

@@ -110,4 +110,21 @@
     [subtitleCell drawInteriorWithFrame:[self subtitleRectForBounds:cellFrame] inView:view];
     [gravatarCell drawInteriorWithFrame:[self gravatarRectForBounds:cellFrame] inView:view];
 }
+
+- (void)drawWithExpansionFrame:(NSRect)cellFrame inView:(NSView *)view {
+	// oddly, the title cell seems to end up with an attributed string when selected
+	// so lets fix that
+	NSColor *titleColor = [titleCell textColor];
+	NSColor *subtitleColor = [subtitleCell textColor];
+	NSAttributedString *titleAttStr = [titleCell attributedStringValue];
+	if (titleAttStr)
+		[titleCell setStringValue:[titleAttStr string]];
+	[titleCell setTextColor:[NSColor blackColor]];
+	[subtitleCell setTextColor:[NSColor blackColor]];
+	[self drawWithFrame:cellFrame inView:view];
+	if (titleAttStr)
+		[titleCell setAttributedStringValue:titleAttStr];
+	[titleCell setTextColor:titleColor];
+	[subtitleCell setTextColor:subtitleColor];
+}
 @end
