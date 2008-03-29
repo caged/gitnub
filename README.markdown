@@ -22,3 +22,9 @@ helper to invoke the application, otherwise you get nothing.
 1. Open project in Xcode - press Build
 3. Move the build/Release/GitNub.app and `nub` to the proper locations 
    specified in the Quick Install directions.
+   
+### Major Contributors
+* Justin Palmer - Maintainer
+* Benjamin Stiglitz 
+* Kevin Ballard
+* Dustin Sallings
