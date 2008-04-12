@@ -40,13 +40,8 @@ class ApplicationController < OSX::NSObject
     return true
   end
   
-  def awakeFromNib    
-    begin
-      @repo = Grit::Repo.new(REPOSITORY_LOCATION)
-    rescue Grit::InvalidGitRepositoryError
-      return false
-    end
-
+  def awakeFromNib
+    repo
     @window.delegate = self
     column = @commits_table.tableColumns[0]
     cell = CommitSummaryCell.alloc.init
@@ -56,6 +51,14 @@ class ApplicationController < OSX::NSObject
     @main_canvas.addSubview(@main_view)
     
     @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
+  end
+  
+  def repo
+    begin
+      @repo ||= Grit::Repo.new(REPOSITORY_LOCATION)
+    rescue Grit::InvalidGitRepositoryError
+      return false
+    end
   end
   
   ib_action :show_info_panel
@@ -68,8 +71,15 @@ class ApplicationController < OSX::NSObject
   
   ib_action :swap_tab
   def swap_tab(segment)
-    tags = %w(commits network)
-    tag = segment.cell.tagForSegment(segment.selectedSegment)
-    @tab_panel.selectTabViewItemWithIdentifier(tags[tag])
+    tag = %w(commits network)[segment.cell.tagForSegment(segment.selectedSegment)]
+    @tab_panel.selectTabViewItemWithIdentifier(tag)
   end
+  
+  # def tabView_didSelectTabViewItem(tab_view, tab_view_item)
+  #   item = tab_view_item.identifier
+  #   if item == "network"
+  #     @controller ||= VisualizationController.alloc.init_with_repo(@repo)
+  #     tab_view_item.setView(@controller.view)
+  #   end
+  # end
 end

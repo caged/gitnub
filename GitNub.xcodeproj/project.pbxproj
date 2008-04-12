@@ -21,6 +21,7 @@
 		285BB54A0D849EA60027980C /* InfoWindowController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5470D849EA60027980C /* InfoWindowController.rb */; };
 		286F109E0D7A49380055A0D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286F109D0D7A49380055A0D1 /* WebKit.framework */; };
 		28851B3E0DB0571A00FA9C7D /* network.png in Resources */ = {isa = PBXBuildFile; fileRef = 28851B3D0DB0571A00FA9C7D /* network.png */; };
+		28851B970DB147AA00FA9C7D /* VisualizationView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 28851B960DB147AA00FA9C7D /* VisualizationView.rb */; };
 		288853050D7CE2E500862D67 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 288853040D7CE2E500862D67 /* LICENSE */; };
 		2888530D0D7CEA5200862D67 /* gitnub-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2888530C0D7CEA5200862D67 /* gitnub-icon.icns */; };
 		288853C90D7E06A600862D67 /* commit.html in Resources */ = {isa = PBXBuildFile; fileRef = 288853C80D7E06A600862D67 /* commit.html */; };
@@ -69,6 +70,7 @@
 		285BB5470D849EA60027980C /* InfoWindowController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = InfoWindowController.rb; sourceTree = "<group>"; };
 		286F109D0D7A49380055A0D1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		28851B3D0DB0571A00FA9C7D /* network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = network.png; sourceTree = "<group>"; };
+		28851B960DB147AA00FA9C7D /* VisualizationView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = VisualizationView.rb; sourceTree = "<group>"; };
 		288853040D7CE2E500862D67 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		2888530C0D7CEA5200862D67 /* gitnub-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "gitnub-icon.icns"; sourceTree = "<group>"; };
 		288853C80D7E06A600862D67 /* commit.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = commit.html; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				28851B960DB147AA00FA9C7D /* VisualizationView.rb */,
 				283254650D8B792500D99366 /* lib */,
 				285BB52F0D849C890027980C /* TexturedWindow.rb */,
 				285BB4690D8306C60027980C /* mime-types */,
@@ -277,6 +280,7 @@
 				283254680D8B792500D99366 /* lib in Resources */,
 				0A4023590D949E0E00659E01 /* ImageLoadOperation.rb in Resources */,
 				28851B3E0DB0571A00FA9C7D /* network.png in Resources */,
+				28851B970DB147AA00FA9C7D /* VisualizationView.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

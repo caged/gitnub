@@ -12,6 +12,7 @@ class InfoWindowController < OSX::NSWindowController
   ib_outlet :push_url
   ib_outlet :clone_url
   ib_outlet :commits_count
+  
   def init_with_repository(repository)
     @repo = repository
     initWithWindowNibName("Info")
