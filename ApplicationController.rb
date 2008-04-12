@@ -28,8 +28,9 @@ class ApplicationController < OSX::NSObject
   ib_outlet :window
   ib_outlet :main_canvas
   ib_outlet :main_view
-  ib_outlet :info_button
   ib_outlet :branch_field
+  ib_outlet :tab_panel
+  ib_outlet :extras_segment
   
   def applicationDidFinishLaunching(sender)
     @window.makeKeyAndOrderFront(self)
@@ -45,7 +46,7 @@ class ApplicationController < OSX::NSObject
     rescue Grit::InvalidGitRepositoryError
       return false
     end
-    
+
     @window.delegate = self
     column = @commits_table.tableColumns[0]
     cell = CommitSummaryCell.alloc.init
@@ -63,5 +64,12 @@ class ApplicationController < OSX::NSObject
       @info_controller = InfoWindowController.alloc.init_with_repository(@repo)
     end
     @info_controller.showWindow(self)
+  end
+  
+  ib_action :swap_tab
+  def swap_tab(segment)
+    tags = %w(commits network)
+    tag = segment.cell.tagForSegment(segment.selectedSegment)
+    @tab_panel.selectTabViewItemWithIdentifier(tags[tag])
   end
 end
