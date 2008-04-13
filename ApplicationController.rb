@@ -48,7 +48,7 @@ class ApplicationController < OSX::NSObject
     column.dataCell = cell
     
     @main_view.setFrameSize(@main_canvas.frame.size)
-    @main_canvas.addSubview(@main_view)
+    @main_canvas.addSubview(@main_view)    
     
     @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
   end
@@ -74,12 +74,4 @@ class ApplicationController < OSX::NSObject
     tag = %w(commits network)[segment.cell.tagForSegment(segment.selectedSegment)]
     @tab_panel.selectTabViewItemWithIdentifier(tag)
   end
-  
-  # def tabView_didSelectTabViewItem(tab_view, tab_view_item)
-  #   item = tab_view_item.identifier
-  #   if item == "network"
-  #     @controller ||= VisualizationController.alloc.init_with_repo(@repo)
-  #     tab_view_item.setView(@controller.view)
-  #   end
-  # end
 end

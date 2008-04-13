@@ -26,6 +26,8 @@ class VisualizationView <  OSX::NSView
   end
   
   def drawRect(rect)
+    points = []
+    context = NSGraphicsContext.currentContext
     NSColor.darkGrayColor.set
     NSRectFill(self.bounds)
     
@@ -34,16 +36,13 @@ class VisualizationView <  OSX::NSView
     
     path.moveToPoint([100, 100])
     @repo.commits.each_with_index do |commit, index|
-      index += 1
-      path.lineToPoint([index * 25, 100])
-      npath = NSBezierPath.bezierPathWithOvalInRect(NSMakeRect(index * 25, 97.5, 5, 5))
-      npath.lineWidth = 4
-      NSColor.whiteColor.set
-      npath.stroke
-      NSColor.blackColor.set
-      npath.fill
+      point = [((index + 1) * 25), 100]
+      #path.lineToPoint([25 * index, 100])
+      path.appendBezierPathWithOvalInRect(NSMakeRect(point[0] + 75, point[1], 10, 10))
     end
-
+    
+    NSColor.blackColor.set
+    path.fill
     
     NSColor.whiteColor.set
     path.stroke
