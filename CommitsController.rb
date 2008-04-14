@@ -29,7 +29,8 @@ class CommitsController < OSX::NSObject
     @branch = :master
     @icon_queue = NSOperationQueue.alloc.init
     @icon_url_map = {}
-    @standardimage = NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString('http://www.gravatar.com/avatar.php?gravatar_id=60c7cd44e236c918cb682e2asdfs7f4f&size=36')).TIFFRepresentation
+	@standard_url = gravatar_url('standardimage')
+	@icon_queue.addOperation(ImageLoadOperation.alloc.initWithURL_delegate(@standard_url, self))
     @icons = Hash.new do |hash, email|
       url = gravatar_url(email)
       @icon_url_map[url] = email
@@ -123,6 +124,12 @@ class CommitsController < OSX::NSObject
   end
   
   def imageLoadForURL_didFinishLoading(url, image)
+  
+	if url.absoluteString.isEqualToString(@standard_url.absoluteString)
+		@standardimage = image
+		return
+	end
+	
     return if checkImage(image)
     email = @icon_url_map[url]
     @icons[email] = image
