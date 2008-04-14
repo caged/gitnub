@@ -29,6 +29,7 @@ class CommitsController < OSX::NSObject
     @branch = :master
     @icon_queue = NSOperationQueue.alloc.init
     @icon_url_map = {}
+    @standardimage = NSImage.alloc.initWithContentsOfURL(NSURL.URLWithString('http://www.gravatar.com/avatar.php?gravatar_id=60c7cd44e236c918cb682e2asdfs7f4f&size=36')).TIFFRepresentation
     @icons = Hash.new do |hash, email|
       url = gravatar_url(email)
       @icon_url_map[url] = email
@@ -122,6 +123,7 @@ class CommitsController < OSX::NSObject
   end
   
   def imageLoadForURL_didFinishLoading(url, image)
+    return if checkImage(image)
     email = @icon_url_map[url]
     @icons[email] = image
     @commits_table.rowsInRect(@commits_table.enclosingScrollView.documentVisibleRect).to_range.each do |i|
@@ -131,6 +133,10 @@ class CommitsController < OSX::NSObject
     end
   end
   
+  def checkImage(image)
+    image.TIFFRepresentation.isEqualToData(@standardimage)
+  end
+
   def imageLoadForURL_didFailWithError(url, error)
     STDERR.puts "Async image load failed for URL: #{url}\n#{error}"
   end
