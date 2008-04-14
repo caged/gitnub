@@ -5,16 +5,16 @@
 #  Created by Justin Palmer on 3/2/08.
 #  Copyright (c) 2008 Active Reload, LLC. All rights reserved.
 #
-
+ 
 require 'osx/cocoa'
 require 'md5'
 require 'cgi'
-
+ 
 def gravatar_url(email, size=36)
   hash = MD5.hexdigest(email.downcase)
   NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{hash}&size=#{size}")
 end
-
+ 
 class CommitsController < OSX::NSObject
   ib_outlet :commits_table
   ib_outlet :branch_select
@@ -29,8 +29,6 @@ class CommitsController < OSX::NSObject
     @branch = :master
     @icon_queue = NSOperationQueue.alloc.init
     @icon_url_map = {}
-	@standard_url = gravatar_url('standardimage')
-	@icon_queue.addOperation(ImageLoadOperation.alloc.initWithURL_delegate(@standard_url, self))
     @icons = Hash.new do |hash, email|
       url = gravatar_url(email)
       @icon_url_map[url] = email
@@ -124,13 +122,6 @@ class CommitsController < OSX::NSObject
   end
   
   def imageLoadForURL_didFinishLoading(url, image)
-  
-	if url.absoluteString.isEqualToString(@standard_url.absoluteString)
-		@standardimage = image
-		return
-	end
-	
-    return if checkImage(image)
     email = @icon_url_map[url]
     @icons[email] = image
     @commits_table.rowsInRect(@commits_table.enclosingScrollView.documentVisibleRect).to_range.each do |i|
@@ -140,14 +131,10 @@ class CommitsController < OSX::NSObject
     end
   end
   
-  def checkImage(image)
-    image.TIFFRepresentation.isEqualToData(@standardimage)
-  end
-
   def imageLoadForURL_didFailWithError(url, error)
     STDERR.puts "Async image load failed for URL: #{url}\n#{error}"
   end
-
+ 
   def select_latest_commit
     indices = @commits_table.selectedRowIndexes
     if indices.isEqualToIndexSet(NSIndexSet.indexSetWithIndex(0))
@@ -170,19 +157,19 @@ class CommitsController < OSX::NSObject
       hide_element("message")
     end
     set_html("hash", active_commit.id)
-
+ 
     if Time.now.day == active_commit.authored_date.day
       cdate = active_commit.authored_date.to_system_time(:time)
     else
       cdate = active_commit.authored_date.to_system_time
     end
     set_html("date", "#{cdate} by #{active_commit.author.name}")
-
+ 
     file_list = doc.getElementById('files')
     diff_list = doc.getElementById('diffs')
     diff_list.setInnerHTML("")
     file_list.setInnerHTML("")
-
+ 
     active_commit.diffs.each_with_index do |diff, i|
       li = doc.createElement('li')
       li.setAttribute__('id', "item-#{i}")
@@ -190,12 +177,12 @@ class CommitsController < OSX::NSObject
       li.setAttribute__('class', 'delete') if diff.deleted_file
       li.setInnerHTML(%(<a href="#diff-#{i}" class="">#{diff.b_path}</a>))
       file_list.appendChild(li)
-
+ 
       unless diff.deleted_file or diff.diff.nil?
         diff_div = doc.createElement('div')
         diff_div.setAttribute__('class', 'diff')
         diff_div.setAttribute__('id', "diff-#{i}")
-
+ 
         colored_diff = []
         html = CGI.escapeHTML(diff.diff)
         html.each_line do |line|
@@ -209,7 +196,7 @@ class CommitsController < OSX::NSObject
             colored_diff << line
           end
         end
-
+ 
         diff_div.setInnerHTML(%(
           <h3>#{File.basename(diff.b_path)}</h3>
           <pre><code class="diffcode">#{colored_diff}</pre></code>
@@ -221,8 +208,8 @@ class CommitsController < OSX::NSObject
   
   def refresh
     current_commit = active_commit && active_commit.id
-	  @branch = @branch_select.titleOfSelectedItem
-	  fetch_commits_for @branch, @offset
+    @branch = @branch_select.titleOfSelectedItem
+    fetch_commits_for @branch, @offset
     
     @commits_table.reloadData
     
