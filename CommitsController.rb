@@ -213,12 +213,7 @@ class CommitsController < OSX::NSObject
     fetch_commits_for @branch, @offset
     
     @commits_table.reloadData
-    
-    if current_commit
-      new_commit = @commits.find { |x| x.id == current_commit }
-      new_row = @commits.index(new_commit)
-      @commits_table.selectRow_byExtendingSelection(new_row, false)
-    end
+    select_latest_commit
   end
   
   
