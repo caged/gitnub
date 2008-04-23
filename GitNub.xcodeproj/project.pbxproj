@@ -56,7 +56,6 @@
 		0ABA3B1A0D89E53E004B6667 /* nub */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = nub; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		283254650D8B792500D99366 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
-		285BB4690D8306C60027980C /* mime-types */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "mime-types"; sourceTree = "<group>"; };
 		285BB52F0D849C890027980C /* TexturedWindow.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = TexturedWindow.rb; sourceTree = "<group>"; };
 		285BB5380D849DD20027980C /* added.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = added.png; sourceTree = "<group>"; };
 		285BB5390D849DD20027980C /* committer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = committer.png; sourceTree = "<group>"; };
@@ -71,7 +70,6 @@
 		2888530C0D7CEA5200862D67 /* gitnub-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "gitnub-icon.icns"; sourceTree = "<group>"; };
 		288853C80D7E06A600862D67 /* commit.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = commit.html; sourceTree = "<group>"; };
 		288853CC0D7E074B00862D67 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
-		288854540D7E352C00862D67 /* grit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = grit; sourceTree = "<group>"; };
 		288CB4190D8789DD0092B5CC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		288CB41C0D878A1C0092B5CC /* Info.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -164,8 +162,6 @@
 				28851B960DB147AA00FA9C7D /* VisualizationView.rb */,
 				283254650D8B792500D99366 /* lib */,
 				285BB52F0D849C890027980C /* TexturedWindow.rb */,
-				285BB4690D8306C60027980C /* mime-types */,
-				288854540D7E352C00862D67 /* grit */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				E8F5E25803AEB7C803A81C6F /* rb_main.rb */,
 			);

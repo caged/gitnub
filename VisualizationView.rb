@@ -36,9 +36,9 @@ class VisualizationView <  OSX::NSView
     
     path.moveToPoint([100, 100])
     @repo.commits(:master, 50, 0).each_with_index do |commit, index|
-      point = [((index + 1) * 25), 100]
-      #path.lineToPoint([25 * index, 100])
-      path.appendBezierPathWithOvalInRect(NSMakeRect(point[0] + 75, point[1], 10, 10))
+      point = NSMakePoint(((index + 1) * 25), 100)
+      path.lineToPoint([25 * index, 100])
+      path.appendBezierPathWithOvalInRect(NSMakeRect(point[0] - 10, point[1], 10, 10))
     end
     
     NSColor.blackColor.set
