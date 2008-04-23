@@ -36,7 +36,8 @@ class CommitsController < OSX::NSObject
       hash[email] = NSImage.imageNamed(NSImageNameUser)
     end
     
-    if(fetch_git_repository)
+    if fetch_git_repository
+      fetch_git_branch
       setup_commit_detail_view
       fetch_commits_for @branch, @offset
       setup_branches_menu
@@ -233,6 +234,11 @@ class CommitsController < OSX::NSObject
     rescue Grit::InvalidGitRepositoryError
       return false
     end
+  end
+  
+  def fetch_git_branch
+    head = @repo.head || @repo.heads.first
+    @branch = head.name.to_sym
   end
   
   def fetch_commits_for(branch, quanity, offset = 0)
