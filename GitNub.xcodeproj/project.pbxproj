@@ -10,7 +10,6 @@
 		0A4023590D949E0E00659E01 /* ImageLoadOperation.rb in Resources */ = {isa = PBXBuildFile; fileRef = 0A4023580D949E0E00659E01 /* ImageLoadOperation.rb */; };
 		0ABA3B1B0D89E53E004B6667 /* nub in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA3B1A0D89E53E004B6667 /* nub */; };
 		283254680D8B792500D99366 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 283254650D8B792500D99366 /* lib */; };
-		285BB47C0D8306C60027980C /* mime-types in Resources */ = {isa = PBXBuildFile; fileRef = 285BB4690D8306C60027980C /* mime-types */; };
 		285BB5320D849C890027980C /* TexturedWindow.rb in Resources */ = {isa = PBXBuildFile; fileRef = 285BB52F0D849C890027980C /* TexturedWindow.rb */; };
 		285BB53D0D849DD20027980C /* added.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5380D849DD20027980C /* added.png */; };
 		285BB53E0D849DD20027980C /* committer.png in Resources */ = {isa = PBXBuildFile; fileRef = 285BB5390D849DD20027980C /* committer.png */; };
@@ -25,7 +24,6 @@
 		2888530D0D7CEA5200862D67 /* gitnub-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2888530C0D7CEA5200862D67 /* gitnub-icon.icns */; };
 		288853C90D7E06A600862D67 /* commit.html in Resources */ = {isa = PBXBuildFile; fileRef = 288853C80D7E06A600862D67 /* commit.html */; };
 		288853CD0D7E074B00862D67 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 288853CC0D7E074B00862D67 /* style.css */; };
-		288854910D7E352C00862D67 /* grit in Resources */ = {isa = PBXBuildFile; fileRef = 288854540D7E352C00862D67 /* grit */; };
 		288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB4180D8789DD0092B5CC /* MainMenu.xib */; };
 		288CB41D0D878A1C0092B5CC /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB41C0D878A1C0092B5CC /* Info.xib */; };
 		4D922CA80D8889DB002A5539 /* CommitSummaryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D922CA60D8889DB002A5539 /* CommitSummaryCell.h */; };
@@ -261,8 +259,6 @@
 				2888530D0D7CEA5200862D67 /* gitnub-icon.icns in Resources */,
 				288853C90D7E06A600862D67 /* commit.html in Resources */,
 				288853CD0D7E074B00862D67 /* style.css in Resources */,
-				288854910D7E352C00862D67 /* grit in Resources */,
-				285BB47C0D8306C60027980C /* mime-types in Resources */,
 				285BB5320D849C890027980C /* TexturedWindow.rb in Resources */,
 				285BB53D0D849DD20027980C /* added.png in Resources */,
 				285BB53E0D849DD20027980C /* committer.png in Resources */,

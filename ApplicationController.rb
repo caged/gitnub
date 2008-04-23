@@ -9,9 +9,9 @@ $VERBOSE = nil
 require 'rubygems'
 require 'pathname'
 require 'osx/cocoa'
-require 'mime-types/lib/mime/types'
+require 'lib/mime-types/lib/mime/types'
 require 'open4'
-require 'grit/lib/grit'
+require 'lib/grit/lib/grit'
 require 'lib/time_extensions'
 require 'InfoWindowController'
 
