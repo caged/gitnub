@@ -69,6 +69,8 @@ class ImageLoadOperation < OSX::NSOperation
       )
       @delegate.imageLoadForURL_didFailWithError(@url, error)
     end
+    setExecuting false
+    setFinished true
   end
   
   private
