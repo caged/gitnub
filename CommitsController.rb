@@ -10,9 +10,10 @@ require 'osx/cocoa'
 require 'md5'
 require 'cgi'
  
-def gravatar_url(email, size=36)
+def gravatar_url(email, size=36, default="x-img://default")
   hash = MD5.hexdigest(email.downcase)
-  NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{hash}&size=#{size}")
+  edefault = default.gsub(/[^a-zA-Z0-9_-]/) { |s| "%%%02X" % s[0]}
+  NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{hash}&s=#{size}&d=#{edefault}")
 end
  
 class CommitsController < OSX::NSObject

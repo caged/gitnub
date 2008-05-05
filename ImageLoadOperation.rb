@@ -73,6 +73,16 @@ class ImageLoadOperation < OSX::NSOperation
     setFinished true
   end
   
+  def connection_willSendRequest_redirectResponse(connection, request, redirectResponse)
+    if request.URL.absoluteString == "x-img://default" then
+      # we're already showing the default image
+      connection.cancel
+      setExecuting false
+      setFinished true
+    end
+    request
+  end
+  
   private
   
   def setExecuting(bool)
