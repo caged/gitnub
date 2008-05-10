@@ -9,9 +9,8 @@ $VERBOSE = nil
 require 'rubygems'
 require 'pathname'
 require 'osx/cocoa'
-$: << "#{File.dirname(__FILE__)}/lib"
-$: << "#{File.dirname(__FILE__)}/lib/grit/lib"
-$: << "#{File.dirname(__FILE__)}/lib/mime-types/lib"
+libdir = OSX::NSBundle.mainBundle.resourcePath.stringByAppendingPathComponent("lib").fileSystemRepresentation
+$:.unshift(libdir, "#{libdir}/grit/lib", "#{libdir}/mime-types/lib")
 require 'grit'
 require 'time_extensions'
 require 'InfoWindowController'
