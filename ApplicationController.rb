@@ -9,9 +9,11 @@ $VERBOSE = nil
 require 'rubygems'
 require 'pathname'
 require 'osx/cocoa'
-require 'lib/mime-types/lib/mime/types'
-require 'lib/grit/lib/grit'
-require 'lib/time_extensions'
+$: << "#{File.dirname(__FILE__)}/lib"
+$: << "#{File.dirname(__FILE__)}/lib/grit/lib"
+$: << "#{File.dirname(__FILE__)}/lib/mime-types/lib"
+require 'grit'
+require 'time_extensions'
 require 'InfoWindowController'
 
 OSX.ns_import 'CommitSummaryCell'
