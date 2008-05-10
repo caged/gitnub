@@ -19,12 +19,20 @@ RELEASE_CONFIGURATION = 'Release'
 # Tasks
 task :default => [:run]
 
+task :testdeps do
+  begin
+    require 'open4'
+  rescue LoadError
+    raise "You need to install the open4 gem before building GitNub"
+  end
+end
+
 task :launch do
   sh %{open "build/Release/#{APPNAME}.app"}
 end
 
 desc "Build the default and run it."
-task :run => [:build] do
+task :run => [:testdeps, :build] do
   sh %{open "build/Release/#{APPNAME}.app"}
 end
 
