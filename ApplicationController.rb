@@ -65,9 +65,7 @@ class ApplicationController < OSX::NSObject
   
   ib_action :show_info_panel
   def show_info_panel(sender)
-    if @info_controller.nil? 
-      @info_controller = InfoWindowController.alloc.init_with_repository(@repo)
-    end
+    @info_controller ||= InfoWindowController.alloc.init_with_repository(repo)
     @info_controller.showWindow(self)
   end
   
