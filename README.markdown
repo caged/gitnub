@@ -3,7 +3,9 @@ A RubyCocoa app for getting quick information for a git repo.  Similar to GitK.
  
 ### Requirements
 * Git(duh!), RubyCocoa, Leopard
-
+* Gems:
+  * mime/types
+  * open4
 
 ### Quick Install
 1. Move GitNub.app to /Applications
