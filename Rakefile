@@ -33,7 +33,7 @@ end
 
 desc "Build the default and run it."
 task :run => [:testdeps, :build] do
-  sh %{open "build/Release/#{APPNAME}.app"}
+  sh %{"build/Release/#{APPNAME}.app/Contents/MacOS/#{APPNAME}"}
 end
 
 desc 'Build the default target using the default configuration'
