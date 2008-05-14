@@ -13,6 +13,7 @@ libdir = OSX::NSBundle.mainBundle.resourcePath.stringByAppendingPathComponent("l
 $:.unshift(libdir, "#{libdir}/grit/lib", "#{libdir}/mime-types/lib")
 require 'grit'
 require 'time_extensions'
+require 'string_hacks'
 require 'InfoWindowController'
 
 OSX.ns_import 'CommitSummaryCell'

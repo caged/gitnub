@@ -151,9 +151,9 @@ class CommitsController < OSX::NSObject
     diffs = []
     doc = @commit_details.mainFrame.DOMDocument
     title, message = active_commit.message.split("\n", 2)
-    set_html("title", title.strip.gsub("\n", "<br />"))
+    set_html("title", title.escapeHTML.strip.gsub("\n", "<br />"))
     if message
-      set_html("message", message.strip.gsub("\n", "<br />"))
+      set_html("message", message.escapeHTML.strip.gsub("\n", "<br />"))
       show_element("message")
     else
       hide_element("message")
