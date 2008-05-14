@@ -44,6 +44,27 @@ task :clean do
   puts %x{ xcodebuild -alltargets clean OBJROOT=build/ SYMROOT=build/ }
 end
 
+desc 'Install GitNub.app and nub'
+task :install => [:testdeps, :install_app, :install_nub]
+
+desc 'Install GitNub.app in /Applications'
+task :install_app => [:uninstall_app, "xcode:install:#{DEFAULT_TARGET}:#{RELEASE_CONFIGURATION}"]
+
+desc 'Install nub in /usr/local/bin/'
+task :install_nub do
+  exec("sudo", "cp", "nub", "/usr/local/bin/nub")
+end
+
+desc 'Uninstall /Applications/GitNub.app'
+task :uninstall_app do
+  # this is necessary for install_app, because Xcode, for some braindead reason,
+  # chmods the installed product a-w, so I can't overwrite or rm it
+  if File.exists?("/Applications/GitNub.app")
+    system("chmod", "-R", "u+w", "/Applications/GitNub.app")
+    system("rm", "-rf", "/Applications/GitNub.app")
+  end
+end
+
 desc "Add files to Xcode project"
 task :add do |t|
  files = ARGV[1..-1]
@@ -125,13 +146,13 @@ namespace :xcode do
  targets = xcode_targets
  configs = xcode_configurations
 
- %w{build clean}.each do |action|
+ %w{build clean install}.each do |action|
    namespace "#{action}" do
 
      targets.each do |target|
        desc "#{action} #{target}"
        task "#{target}" do |t|
-         puts %x{ xcodebuild -target '#{target}' #{action} OBJROOT=build/ SYMROOT=build/ }
+         puts %x{ xcodebuild -target '#{target}' #{action} OBJROOT=build/ SYMROOT=build/ DSTROOT=/ }
        end
 
        # alias the task above using a massaged name
@@ -143,7 +164,7 @@ namespace :xcode do
          configs.each do |config|
            desc "#{action} #{target} #{config}"
            task "#{config}" do |t|
-             puts %x{ xcodebuild -target '#{target}' -configuration '#{config}' #{action} SYMROOT=build/ OBJROOT=build/ }
+             puts %x{ xcodebuild -target '#{target}' -configuration '#{config}' #{action} SYMROOT=build/ OBJROOT=build/ DSTROOT=/ }
            end
          end
        end
