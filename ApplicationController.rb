@@ -33,6 +33,9 @@ class ApplicationController < OSX::NSObject
   ib_outlet :branch_field
   ib_outlet :tab_panel
   ib_outlet :extras_segment
+  ib_outlet :local_branches_menu
+  ib_outlet :remote_branches_menu
+  ib_outlet :tags_menu
   
   def applicationDidFinishLaunching(sender)
     @window.makeKeyAndOrderFront(self)
@@ -43,16 +46,19 @@ class ApplicationController < OSX::NSObject
   end
   
   def awakeFromNib
-    repo
-    @window.delegate = self
-    column = @commits_table.tableColumns[0]
-    cell = CommitSummaryCell.alloc.init
-    column.dataCell = cell
+    if repo
+      @window.delegate = self
+      column = @commits_table.tableColumns[0]
+      cell = CommitSummaryCell.alloc.init
+      column.dataCell = cell
     
-    @main_view.setFrameSize(@main_canvas.frame.size)
-    @main_canvas.addSubview(@main_view)    
+      @main_view.setFrameSize(@main_canvas.frame.size)
+      @main_canvas.addSubview(@main_view)    
     
-    @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
+      @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
+      
+      setup_refs_view_menu
+    end
   end
   
   def repo
@@ -74,4 +80,26 @@ class ApplicationController < OSX::NSObject
     tag = %w(commits network)[segment.cell.tagForSegment(segment.selectedSegment)]
     @tab_panel.selectTabViewItemWithIdentifier(tag)
   end
+  
+  private
+    def setup_refs_view_menu
+      [@local_branches_menu, @remote_branches_menu, @tags_menu].each { |m| m.submenu.setAutoenablesItems(false) }
+      
+      heads = repo.heads.sort_by do |head|
+        head.name == 'master' ? "***" : head.name
+      end
+      
+      add_menu_item = lambda do |refs, menu|
+        refs.each_with_index do |head, index|
+          item = NSMenuItem.alloc.initWithTitle_action_keyEquivalent(head.name, :swap_branch, index.to_s)
+          item.setEnabled(true)
+          item.setTarget(@commits_controller)
+          menu.submenu.addItem(item)
+        end
+      end
+      
+      add_menu_item.call(heads, @local_branches_menu)
+      add_menu_item.call(repo.remotes, @remote_branches_menu)
+      add_menu_item.call(repo.tags, @tags_menu)
+    end
 end
