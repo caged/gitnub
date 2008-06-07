@@ -25,8 +25,6 @@ class NetworkController < OSX::NSObject
   end
   
   def setup_network_visualization_view
-    puts @github_user
-    puts @github_repo
     github_network_url = NSURL.URLWithString("http://github.com/#{@github_user}/#{@github_repo}/network")
     @network_view.setFrameLoadDelegate(self)
     if has_github_credentials?
@@ -45,8 +43,8 @@ class NetworkController < OSX::NSObject
         <body style="padding:30px">
           <h2>If this is a Github repository you can set your credentials to view your network</h2>
           <pre>
-            git config github.user  YOUR_USER
-            git config githuser.repo YOUR_REPO
+            git config github.user  REPO_USER
+            git config githuser.repo REPO_NAME
           </pre>
         </body>
         </html>
@@ -95,7 +93,7 @@ class NetworkController < OSX::NSObject
     )
   
     header.setAttribute_value('style', style)
-    header.setInnerHTML(%(Github Visualizer))
+    header.setInnerHTML(%(Github Network))
     old_header.parentNode.insertBefore_refChild(header, old_header)
   end
   

@@ -2,7 +2,7 @@
 A RubyCocoa app for getting quick information for a git repo.  Similar to GitK.
  
 ### Requirements
-* Git(duh!), RubyCocoa, Leopard, RubyGems, open4
+* Git, RubyCocoa, Leopard, RubyGems, open4
 
 ### Quick Install
 1. Move GitNub.app to /Applications
@@ -18,9 +18,9 @@ helper to invoke the application, otherwise you get nothing.
 
 		
 ### Building from Source
-1. Open project in Xcode - press Build
-3. Move the build/Release/GitNub.app and `nub` to the proper locations 
-   specified in the Quick Install directions.
+1. Run `git submodule init` & `git submodule update` in the root directory.
+2. Run `rake build` or open GitNub.xcodeproj in Xcode - press Build
+3. Run `rake install` to move GitNub.app to /Applications and copy nub to /usr/local/bin.
    
 ### Major Contributors
 * Justin Palmer - Maintainer
