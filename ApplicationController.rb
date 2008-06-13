@@ -91,6 +91,11 @@ class ApplicationController < OSX::NSObject
     @current_search_item = sender.title
   end
   
+  def search_commits(sender)
+    @commits_controller.search_commits(@current_search_item, sender.stringValue)
+  end
+  
+  
   private
     def setup_refs_view_menu
       [@local_branches_menu, @remote_branches_menu, @tags_menu].each { |m| m.submenu.setAutoenablesItems(false) }
@@ -116,6 +121,9 @@ class ApplicationController < OSX::NSObject
     def setup_search_field
       @search_menu = NSMenu.alloc.initWithTitle("Search Menu")
       @search_field.cell.setSearchMenuTemplate(@search_menu)
+      @search_field.cell.setSendsWholeSearchString(true)
+      @search_field.setTarget(self)
+      @search_field.setAction(:search_commits)
       @search_menu.setAutoenablesItems(false)
       
       add_menu_item = lambda do |title, tooltip, state|
@@ -130,10 +138,11 @@ class ApplicationController < OSX::NSObject
         end
       end
       
-      add_menu_item.call("Commits", "Search commit messages", true)
+      add_menu_item.call("Message", "Search commit messages", true)
       add_menu_item.call("SHA1", "Find a commit by its SHA1 hash", false)
+      add_menu_item.call("Committer", "Find all all commits by a particular committer", false)
       add_menu_item.call("Author", "Find all all commits by a particular author", false)
       add_menu_item.call("Path", "Find commits based on a path", false)
-
+      @search_field.cell.setPlaceholderString("Search commits...")
     end
 end

@@ -224,6 +224,27 @@ class CommitsController < OSX::NSObject
     select_latest_commit
   end
   
+  def search_commits(category, query)
+    unless query == ""
+      repo = @application_controller.repo
+      case category.downcase.to_sym
+        when :message
+         @commits = Grit::Commit.find_all(repo, nil, {:grep => query, :i => true})
+        when :committer
+         @commits = Grit::Commit.find_all(repo, nil, {:committer => query})
+        when :author
+         @commits = Grit::Commit.find_all(repo, nil, {:author => query})
+        when :sha1
+          @commits = [repo.commit(query)]
+        when :path
+          @commits = repo.log(@branch, query)
+      end
+      @commits_table.reloadData
+      select_latest_commit
+    else
+      refresh
+    end
+  end
   
   private
   

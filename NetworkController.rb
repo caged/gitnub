@@ -44,7 +44,7 @@ class NetworkController < OSX::NSObject
           <h2>If this is a Github repository you can set your credentials to view your network</h2>
           <pre>
             git config github.user  REPO_USER
-            git config githuser.repo REPO_NAME
+            git config githubV.repo REPO_NAME
           </pre>
         </body>
         </html>

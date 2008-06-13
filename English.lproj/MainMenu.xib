@@ -519,18 +519,18 @@
 								<int key="NSSegmentStyle">2</int>
 							</object>
 						</object>
-						<object class="NSSearchField" id="444059892">
+						<object class="NSSearchField" id="349599463">
 							<reference key="NSNextResponder" ref="831824449"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{292, 11}, {154, 22}}</string>
+							<string key="NSFrame">{{347, 11}, {189, 22}}</string>
 							<reference key="NSSuperview" ref="831824449"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSSearchFieldCell" key="NSCell" id="534219204">
+							<object class="NSSearchFieldCell" key="NSCell" id="508547132">
 								<int key="NSCellFlags">343014976</int>
 								<int key="NSCellFlags2">268436480</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="98627494"/>
-								<reference key="NSControlView" ref="444059892"/>
+								<reference key="NSControlView" ref="349599463"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<int key="NSTextBezelStyle">1</int>
 								<object class="NSColor" key="NSBackgroundColor">
@@ -548,8 +548,8 @@
 									<int key="NSCellFlags2">0</int>
 									<string key="NSContents">search</string>
 									<string key="NSAction">_searchFieldSearch:</string>
-									<reference key="NSTarget" ref="534219204"/>
-									<reference key="NSControlView" ref="444059892"/>
+									<reference key="NSTarget" ref="508547132"/>
+									<reference key="NSControlView" ref="349599463"/>
 									<int key="NSButtonFlags">138690815</int>
 									<int key="NSButtonFlags2">0</int>
 									<string key="NSKeyEquivalent"/>
@@ -577,8 +577,8 @@
 										</object>
 									</object>
 									<string key="NSAction">_searchFieldCancel:</string>
-									<reference key="NSTarget" ref="534219204"/>
-									<reference key="NSControlView" ref="444059892"/>
+									<reference key="NSTarget" ref="508547132"/>
+									<reference key="NSControlView" ref="349599463"/>
 									<int key="NSButtonFlags">138690815</int>
 									<int key="NSButtonFlags2">0</int>
 									<string key="NSKeyEquivalent"/>
@@ -1532,7 +1532,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">search_field</string>
 						<reference key="source" ref="620275248"/>
-						<reference key="destination" ref="444059892"/>
+						<reference key="destination" ref="349599463"/>
 					</object>
 					<int key="connectionID">555</int>
 				</object>
@@ -1581,7 +1581,7 @@
 							<reference ref="869639466"/>
 							<reference ref="1049027428"/>
 							<reference ref="637722390"/>
-							<reference ref="444059892"/>
+							<reference ref="349599463"/>
 						</object>
 						<reference key="parent" ref="469667931"/>
 					</object>
@@ -2211,17 +2211,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">553</int>
-						<reference key="object" ref="444059892"/>
+						<reference key="object" ref="349599463"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="534219204"/>
+							<reference ref="508547132"/>
 						</object>
 						<reference key="parent" ref="831824449"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">554</int>
-						<reference key="object" ref="534219204"/>
-						<reference key="parent" ref="444059892"/>
+						<reference key="object" ref="508547132"/>
+						<reference key="parent" ref="349599463"/>
 					</object>
 				</object>
 			</object>
