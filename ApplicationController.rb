@@ -14,6 +14,7 @@ $:.unshift(libdir, "#{libdir}/grit/lib", "#{libdir}/mime-types/lib")
 require 'grit'
 require 'time_extensions'
 require 'string_extensions'
+require 'osx_notify'
 require 'InfoWindowController'
 
 OSX.ns_import 'CommitSummaryCell'
@@ -37,6 +38,7 @@ class ApplicationController < OSX::NSObject
   ib_outlet :remote_branches_menu
   ib_outlet :tags_menu
   ib_outlet :search_field
+  ib_outlet :paging_segment
   
   def applicationDidFinishLaunching(sender)
     @window.makeKeyAndOrderFront(self)
@@ -57,9 +59,20 @@ class ApplicationController < OSX::NSObject
       @main_canvas.addSubview(@main_view)    
     
       @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
+      @tab_panel.setDelegate(self)
       
       setup_refs_view_menu
       setup_search_field
+      
+      Notify.on "tab_view_changed" do |opts|
+        if(opts[:tab_item] != "commits")
+          @paging_segment.setEnabled(false)
+          @search_field.setEnabled(false)
+        else
+          @paging_segment.setEnabled(true)
+          @search_field.setEnabled(true)
+        end
+      end
     end
   end
   
@@ -95,6 +108,9 @@ class ApplicationController < OSX::NSObject
     @commits_controller.search_commits(@current_search_item, sender.stringValue)
   end
   
+  def tabView_didSelectTabViewItem(tab_view, tab_item)
+    Notify.send "tab_view_changed", { :tab_item => tab_item.identifier }
+  end
   
   private
     def setup_refs_view_menu

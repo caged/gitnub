@@ -24,6 +24,7 @@ class CommitsController < OSX::NSObject
   ib_outlet :application_controller
   
   def awakeFromNib  
+    @searching = false
     @current_commit_offset = 0
     @offset = 50
     @active_commit = nil
@@ -70,11 +71,13 @@ class CommitsController < OSX::NSObject
       when 2 then @current_commit_offset += @offset
     end
     
-    @current_commit_offset = 0 if @current_commit_offset == -(@offset)
-    fetch_commits_for(@branch, @offset, @current_commit_offset)
-    @commits_table.reloadData
+    unless @searching
+      @current_commit_offset = 0 if @current_commit_offset == -(@offset)
+      fetch_commits_for(@branch, @offset, @current_commit_offset)
+      @commits_table.reloadData
     
-    select_latest_commit  
+      select_latest_commit
+    end
     
     if @commits.size == 0 || @current_commit_offset == 0
       @paging_segment.setEnabled_forSegment(false, 0)
@@ -226,6 +229,7 @@ class CommitsController < OSX::NSObject
   
   def search_commits(category, query)
     unless query == ""
+      @searching = true
       repo = @application_controller.repo
       case category.downcase.to_sym
         when :message

@@ -519,18 +519,18 @@
 								<int key="NSSegmentStyle">2</int>
 							</object>
 						</object>
-						<object class="NSSearchField" id="349599463">
+						<object class="NSSearchField" id="829811974">
 							<reference key="NSNextResponder" ref="831824449"/>
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{347, 11}, {189, 22}}</string>
 							<reference key="NSSuperview" ref="831824449"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSSearchFieldCell" key="NSCell" id="508547132">
+							<object class="NSSearchFieldCell" key="NSCell" id="183119731">
 								<int key="NSCellFlags">343014976</int>
 								<int key="NSCellFlags2">268436480</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="98627494"/>
-								<reference key="NSControlView" ref="349599463"/>
+								<reference key="NSControlView" ref="829811974"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<int key="NSTextBezelStyle">1</int>
 								<object class="NSColor" key="NSBackgroundColor">
@@ -548,8 +548,8 @@
 									<int key="NSCellFlags2">0</int>
 									<string key="NSContents">search</string>
 									<string key="NSAction">_searchFieldSearch:</string>
-									<reference key="NSTarget" ref="508547132"/>
-									<reference key="NSControlView" ref="349599463"/>
+									<reference key="NSTarget" ref="183119731"/>
+									<reference key="NSControlView" ref="829811974"/>
 									<int key="NSButtonFlags">138690815</int>
 									<int key="NSButtonFlags2">0</int>
 									<string key="NSKeyEquivalent"/>
@@ -577,8 +577,8 @@
 										</object>
 									</object>
 									<string key="NSAction">_searchFieldCancel:</string>
-									<reference key="NSTarget" ref="508547132"/>
-									<reference key="NSControlView" ref="349599463"/>
+									<reference key="NSTarget" ref="183119731"/>
+									<reference key="NSControlView" ref="829811974"/>
 									<int key="NSButtonFlags">138690815</int>
 									<int key="NSButtonFlags2">0</int>
 									<string key="NSKeyEquivalent"/>
@@ -1532,9 +1532,17 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">search_field</string>
 						<reference key="source" ref="620275248"/>
-						<reference key="destination" ref="349599463"/>
+						<reference key="destination" ref="829811974"/>
 					</object>
 					<int key="connectionID">555</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">paging_segment</string>
+						<reference key="source" ref="620275248"/>
+						<reference key="destination" ref="421922180"/>
+					</object>
+					<int key="connectionID">556</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1581,7 +1589,7 @@
 							<reference ref="869639466"/>
 							<reference ref="1049027428"/>
 							<reference ref="637722390"/>
-							<reference ref="349599463"/>
+							<reference ref="829811974"/>
 						</object>
 						<reference key="parent" ref="469667931"/>
 					</object>
@@ -2211,17 +2219,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">553</int>
-						<reference key="object" ref="349599463"/>
+						<reference key="object" ref="829811974"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="508547132"/>
+							<reference ref="183119731"/>
 						</object>
 						<reference key="parent" ref="831824449"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">554</int>
-						<reference key="object" ref="508547132"/>
-						<reference key="parent" ref="349599463"/>
+						<reference key="object" ref="183119731"/>
+						<reference key="parent" ref="829811974"/>
 					</object>
 				</object>
 			</object>
@@ -2564,7 +2572,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">555</int>
+			<int key="maxID">556</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2596,6 +2604,7 @@
 							<string>local_branches_menu</string>
 							<string>main_canvas</string>
 							<string>main_view</string>
+							<string>paging_segment</string>
 							<string>remote_branches_menu</string>
 							<string>search_field</string>
 							<string>tab_panel</string>
@@ -2604,6 +2613,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
