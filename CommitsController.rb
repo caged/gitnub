@@ -229,11 +229,11 @@ class CommitsController < OSX::NSObject
       repo = @application_controller.repo
       case category.downcase.to_sym
         when :message
-         @commits = Grit::Commit.find_all(repo, nil, {:grep => query, :i => true})
+         @commits = Grit::Commit.find_all(repo, @branch, {:grep => query, :i => true})
         when :committer
-         @commits = Grit::Commit.find_all(repo, nil, {:committer => query})
+         @commits = Grit::Commit.find_all(repo, @branch, {:committer => query})
         when :author
-         @commits = Grit::Commit.find_all(repo, nil, {:author => query})
+         @commits = Grit::Commit.find_all(repo, @branch, {:author => query})
         when :sha1
           @commits = [repo.commit(query)]
         when :path
