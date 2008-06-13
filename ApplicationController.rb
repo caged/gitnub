@@ -36,6 +36,7 @@ class ApplicationController < OSX::NSObject
   ib_outlet :local_branches_menu
   ib_outlet :remote_branches_menu
   ib_outlet :tags_menu
+  ib_outlet :search_field
   
   def applicationDidFinishLaunching(sender)
     @window.makeKeyAndOrderFront(self)
@@ -58,6 +59,7 @@ class ApplicationController < OSX::NSObject
       @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
       
       setup_refs_view_menu
+      setup_search_field
     end
   end
   
@@ -81,6 +83,14 @@ class ApplicationController < OSX::NSObject
     @tab_panel.selectTabViewItemWithIdentifier(tag)
   end
   
+  def set_search_category(sender)
+    menu = @search_field.cell.searchMenuTemplate
+    menu.itemWithTitle(@current_search_item).setState(NSOffState)
+    menu.itemWithTitle(sender.title).setState(NSOnState)
+    @search_field.cell.setSearchMenuTemplate(menu)
+    @current_search_item = sender.title
+  end
+  
   private
     def setup_refs_view_menu
       [@local_branches_menu, @remote_branches_menu, @tags_menu].each { |m| m.submenu.setAutoenablesItems(false) }
@@ -101,5 +111,29 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call(heads, @local_branches_menu)
       add_menu_item.call(repo.remotes, @remote_branches_menu)
       add_menu_item.call(repo.tags, @tags_menu)
+    end  
+    
+    def setup_search_field
+      @search_menu = NSMenu.alloc.initWithTitle("Search Menu")
+      @search_field.cell.setSearchMenuTemplate(@search_menu)
+      @search_menu.setAutoenablesItems(false)
+      
+      add_menu_item = lambda do |title, tooltip, state|
+        item = NSMenuItem.alloc.initWithTitle_action_keyEquivalent(title, :set_search_category, "")
+        @search_menu.addItem(item)
+        item.setToolTip(tooltip)
+        item.setEnabled(true)
+        item.setTarget(self)
+        if state
+          item.setState(NSOnState)
+          @current_search_item =  title
+        end
+      end
+      
+      add_menu_item.call("Commits", "Search commit messages", true)
+      add_menu_item.call("SHA1", "Find a commit by its SHA1 hash", false)
+      add_menu_item.call("Author", "Find all all commits by a particular author", false)
+      add_menu_item.call("Path", "Find commits based on a path", false)
+
     end
 end
