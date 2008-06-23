@@ -39,6 +39,7 @@ class ApplicationController < OSX::NSObject
   ib_outlet :tags_menu
   ib_outlet :search_field
   ib_outlet :paging_segment
+  ib_outlet :branch_select
   
   def applicationDidFinishLaunching(sender)
     @window.makeKeyAndOrderFront(self)
@@ -61,8 +62,8 @@ class ApplicationController < OSX::NSObject
       @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
       @tab_panel.setDelegate(self)
       
-      setup_refs_view_menu
       setup_search_field
+      setup_refs_view_menu
       
       Notify.on "tab_view_changed" do |opts|
         if(opts[:tab_item] != "commits")
@@ -124,6 +125,7 @@ class ApplicationController < OSX::NSObject
         refs.each_with_index do |head, index|
           item = NSMenuItem.alloc.initWithTitle_action_keyEquivalent(head.name, :swap_branch, index.to_s)
           item.setEnabled(true)
+          item.setTag(index)
           item.setTarget(@commits_controller)
           menu.submenu.addItem(item)
         end
@@ -132,6 +134,14 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call(heads, @local_branches_menu)
       add_menu_item.call(repo.remotes, @remote_branches_menu)
       add_menu_item.call(repo.tags, @tags_menu)
+      
+      add_menu_item.call(heads, @branch_select.menu.itemAtIndex(0))         #local
+      add_menu_item.call(repo.remotes, @branch_select.menu.itemAtIndex(1))  #remote
+      add_menu_item.call(repo.tags, @branch_select.menu.itemAtIndex(2))     #tags
+      
+      current_head = repo.heads.first.name.to_sym 
+      item = @branch_select.itemAtIndex(0).submenu.itemWithTitle(current_head || :master)
+      @branch_select.cell.setMenuItem(item)
     end  
     
     def setup_search_field

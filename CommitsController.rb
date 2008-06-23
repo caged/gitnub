@@ -42,7 +42,6 @@ class CommitsController < OSX::NSObject
       fetch_git_branch
       setup_commit_detail_view
       fetch_commits_for(@branch, @offset)
-      setup_branches_menu
       setup_paging_control
       @commits_table.reloadData
     end
@@ -213,15 +212,16 @@ class CommitsController < OSX::NSObject
   
   def refresh
     current_commit = active_commit && active_commit.id
-    @branch = @branch_select.titleOfSelectedItem
+    @branch = @branch_select.cell.menuItem.title
     fetch_commits_for(@branch, @offset)
     
     @commits_table.reloadData
     select_latest_commit
   end
   
-  def swap_branch(foo)
-    @branch = foo.title
+  def swap_branch(item)
+    @branch = item.title
+    @branch_select.cell.setMenuItem(item)
     fetch_commits_for(@branch, @offset)
     @commits_table.reloadData
     select_latest_commit
@@ -271,14 +271,6 @@ class CommitsController < OSX::NSObject
   
   def fetch_commits_for(branch, quanity, offset = 0)
     @commits = @repo.commits(branch, quanity, offset)
-  end
-  
-  def setup_branches_menu
-    @branch_select.removeAllItems
-    @repo.branches.each do |branch|
-      @branch_select.addItemWithTitle(branch.name)
-    end
-    @branch_select.selectItemWithTitle(@branch)
   end
   
   def setup_paging_control
