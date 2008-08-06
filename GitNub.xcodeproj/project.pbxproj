@@ -77,7 +77,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		4D922CA60D8889DB002A5539 /* CommitSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitSummaryCell.h; sourceTree = "<group>"; };
 		4D922CA70D8889DB002A5539 /* CommitSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitSummaryCell.m; sourceTree = "<group>"; };
-		4DDCA7110ACC9A6100E082CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DDCA7110ACC9A6100E082CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DDCA7120ACC9A6100E082CE /* GitNub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitNub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8995E20D890D8A00CF2CDA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		E8F5E24E03AEB6EC03A81C6F /* RubyCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyCocoa.framework; path = /Library/Frameworks/RubyCocoa.framework; sourceTree = "<absolute>"; };

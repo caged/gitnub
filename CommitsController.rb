@@ -117,12 +117,17 @@ class CommitsController < OSX::NSObject
   end
   
   def webView_contextMenuItemsForElement_defaultMenuItems(view, element, defaultMenuItems)
-    defaultMenuItems.select do |item|
+    items = defaultMenuItems.select do |item|
       # WebMenuItemTagCopy = 8
       # WebMenuItemTagCut = 13
       # WebMenuItemTagPaste = 14
       [8, 13, 14].include? item.tag
     end
+    items << NSMenuItem.alloc.initWithTitle_action_keyEquivalent("Blame", :foo_bar, "")
+  end
+  
+  def foo_bar(sender)
+    puts "FOO"
   end
   
   def imageLoadForURL_didFinishLoading(url, image)
