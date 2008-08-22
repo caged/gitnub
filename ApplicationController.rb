@@ -117,8 +117,10 @@ class ApplicationController < OSX::NSObject
     def setup_refs_view_menu
       [@local_branches_menu, @remote_branches_menu, @tags_menu].each { |m| m.submenu.setAutoenablesItems(false) }
       
-      heads = repo.heads.sort_by do |head|
-        head.name == 'master' ? "***" : head.name
+      heads = repo.heads.reject { |head| head.nil? }
+      heads = heads.sort_by do |head|
+        name = head.name rescue "temp head"
+        name == 'master' ? "***" : name
       end
       
       add_menu_item = lambda do |refs, menu|
@@ -139,7 +141,7 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call(repo.remotes, @branch_select.menu.itemAtIndex(1))  #remote
       add_menu_item.call(repo.tags, @branch_select.menu.itemAtIndex(2))     #tags
       
-      current_head = repo.heads.first.name.to_sym 
+      current_head = repo.heads.first.name.to_sym rescue nil
       item = @branch_select.itemAtIndex(0).submenu.itemWithTitle(current_head || :master)
       @branch_select.cell.setMenuItem(item)
     end  
