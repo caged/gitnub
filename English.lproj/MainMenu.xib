@@ -2,14 +2,15 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.02">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9D34</string>
-		<string key="IBDocument.InterfaceBuilderVersion">644</string>
+		<string key="IBDocument.SystemVersion">9E17</string>
+		<string key="IBDocument.InterfaceBuilderVersion">670</string>
 		<string key="IBDocument.AppKitVersion">949.33</string>
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="517"/>
 			<integer value="2"/>
+			<integer value="344"/>
+			<integer value="517"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -37,6 +38,7 @@
 				<string key="NSWindowTitle">GitNub</string>
 				<string key="NSWindowClass">TexturedWindow</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<string key="NSWindowContentMinSize">{400, 300}</string>
 				<object class="NSView" key="NSWindowView" id="831824449">
 					<reference key="NSNextResponder"/>
@@ -1067,7 +1069,7 @@
 				<string key="NSClassName">CommitsController</string>
 			</object>
 			<object class="NSCustomView" id="591982567">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1104,6 +1106,7 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{481, 404}</string>
+				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSCustomObject" id="498734212">
@@ -2326,7 +2329,6 @@
 					<string>21.ImportedFromIB2</string>
 					<string>21.NSWindowTemplate.visibleAtLaunch</string>
 					<string>21.editorWindowContentRectSynchronizationRect</string>
-					<string>21.lastResizeAction</string>
 					<string>21.windowTemplate.hasMaxSize</string>
 					<string>21.windowTemplate.hasMinSize</string>
 					<string>21.windowTemplate.maxSize</string>
@@ -2359,7 +2361,7 @@
 					<string>344.IBEditorWindowLastContentRect</string>
 					<string>344.IBPluginDependency</string>
 					<string>344.editorWindowContentRectSynchronizationRect</string>
-					<string>344.lastResizeAction</string>
+					<string>345.CustomClassName</string>
 					<string>345.IBPluginDependency</string>
 					<string>374.IBPluginDependency</string>
 					<string>374.IBSegmentedControlTracker.RoundRobinState</string>
@@ -2467,25 +2469,12 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{-19, 101}, {990, 682}}</string>
+					<string>{{-11, 125}, {990, 682}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{-19, 101}, {990, 682}}</string>
+					<string>{{-11, 125}, {990, 682}}</string>
 					<reference ref="9"/>
 					<reference ref="9"/>
 					<string>{{146, 174}, {990, 682}}</string>
-					<object class="NSDictionary">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSMutableArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>IBResizeActionFinalFrame</string>
-							<string>IBResizeActionInitialFrame</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>{{-17, 107}, {990, 682}}</string>
-							<string>{{-17, 193}, {820, 596}}</string>
-						</object>
-					</object>
 					<reference ref="9"/>
 					<reference ref="9"/>
 					<string>{3.40282e+38, 3.40282e+38}</string>
@@ -2518,22 +2507,10 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{393, 350}, {481, 404}}</string>
+					<string>{{340, 350}, {481, 404}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{261, 325}, {481, 404}}</string>
-					<object class="NSDictionary">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSMutableArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>IBResizeActionFinalFrame</string>
-							<string>IBResizeActionInitialFrame</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>{{0, 430}, {481, 404}}</string>
-							<string>{{0, 430}, {481, 404}}</string>
-						</object>
-					</object>
+					<string>GitNubWebView</string>
 					<string>com.apple.WebKitIBPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
@@ -2700,7 +2677,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">ApplicationController.rb</string>
+						<string key="minorKey">controllers/ApplicationController.rb</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -2750,7 +2727,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">CommitsController.rb</string>
+						<string key="minorKey">controllers/CommitsController.rb</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -2763,13 +2740,23 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">FirstResponder</string>
+					<string key="superclassName">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">GitNubWebView</string>
+					<string key="superclassName">WebView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">views/GitNubWebView.rb</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">NSButton</string>
+					<string key="superclassName">NSControl</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
@@ -2777,6 +2764,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSSegmentedControl</string>
+					<string key="superclassName">NSControl</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
@@ -2800,7 +2788,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">NetworkController.rb</string>
+						<string key="minorKey">controllers/NetworkController.rb</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -2820,7 +2808,7 @@
 					<string key="superclassName">NSWindow</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">TexturedWindow.rb</string>
+						<string key="minorKey">views/TexturedWindow.rb</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

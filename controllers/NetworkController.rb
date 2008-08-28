@@ -101,7 +101,7 @@ class NetworkController < OSX::NSObject
   def hide_github_shell
     %w(header repo_menu repo_sub_menu repos footer triangle).each do |element|
       element = @document.getElementById(element)
-      element.style.setProperty_value_priority("display", "none", nil)
+      element.style.setProperty_value_priority("display", "none", nil) if element
     end
   end
 end

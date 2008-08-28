@@ -74,6 +74,7 @@ class ApplicationController < OSX::NSObject
           @search_field.setEnabled(true)
         end
       end
+      
     end
   end
   
@@ -83,6 +84,10 @@ class ApplicationController < OSX::NSObject
     rescue Grit::InvalidGitRepositoryError
       return false
     end
+  end
+  
+  def draggingEntered(sender)
+    puts sender
   end
   
   ib_action :show_info_panel

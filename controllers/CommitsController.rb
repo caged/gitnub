@@ -9,6 +9,8 @@
 require 'osx/cocoa'
 require 'md5'
 require 'cgi'
+
+OSX.require_framework 'WebKit'
  
 def gravatar_url(email, size=36, default="x-img://default")
   hash = MD5.hexdigest(email.downcase)
@@ -46,6 +48,8 @@ class CommitsController < OSX::NSObject
       @commits_table.reloadData
     end
   end
+
+  
   
   ib_action :perform_utility_action
   def perform_utility_action(segment)
@@ -124,10 +128,6 @@ class CommitsController < OSX::NSObject
       [8, 13, 14].include? item.tag
     end
     items << NSMenuItem.alloc.initWithTitle_action_keyEquivalent("Blame", :foo_bar, "")
-  end
-  
-  def foo_bar(sender)
-    puts "FOO"
   end
   
   def imageLoadForURL_didFinishLoading(url, image)
