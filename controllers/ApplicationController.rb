@@ -5,25 +5,8 @@
 #  Created by Justin Palmer on 3/1/08.
 #  Copyright (c) 2008 Active Reload, LLC. All rights reserved.
 #
-$VERBOSE = nil
-require 'rubygems'
-require 'pathname'
-require 'osx/cocoa'
-libdir = OSX::NSBundle.mainBundle.resourcePath.stringByAppendingPathComponent("lib").fileSystemRepresentation
-$:.unshift(libdir, "#{libdir}/grit/lib", "#{libdir}/mime-types/lib", "#{libdir}/open4/lib")
-require 'grit'
-require 'time_extensions'
-require 'string_extensions'
-require 'osx_notify'
+require 'boot'
 require 'InfoWindowController'
-
-OSX.ns_import 'CommitSummaryCell'
-include OSX
-
-# we use ENV['PWD'] instead of Dir.getwd if it exists so
-# `open GitNub` will work, since that launches us at / but leaves ENV['PWD'] intact
-pwd = Pathname.new(ENV['PWD'].nil? ? Dir.getwd : ENV['PWD'])
-REPOSITORY_LOCATION = pwd + `cd #{pwd} && git rev-parse --git-dir 2>/dev/null`.chomp
 
 class ApplicationController < OSX::NSObject 
   ib_outlet :commits_table
@@ -64,6 +47,7 @@ class ApplicationController < OSX::NSObject
       
       setup_search_field
       setup_refs_view_menu
+      load_commands
       
       Notify.on "tab_view_changed" do |opts|
         if(opts[:tab_item] != "commits")
@@ -74,7 +58,6 @@ class ApplicationController < OSX::NSObject
           @search_field.setEnabled(true)
         end
       end
-      
     end
   end
   
@@ -84,6 +67,14 @@ class ApplicationController < OSX::NSObject
     rescue Grit::InvalidGitRepositoryError
       return false
     end
+  end
+  
+  def app_name
+    NSFileManager.defaultManager.displayNameAtPath(main_bundle_path)
+  end
+  
+  def main_bundle_path
+    NSBundle.mainBundle.bundlePath
   end
   
   def draggingEntered(sender)
@@ -177,5 +168,24 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call("Author", "Find all all commits by a particular author", false)
       add_menu_item.call("Path", "Find commits based on a path", false)
       @search_field.cell.setPlaceholderString("Search commits...")
+    end
+    
+    def load_commands
+      file_manager = NSFileManager.defaultManager 
+      search_paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, 
+                        NSUserDomainMask, true);
+
+      search_paths.each do |path|
+        support_path = File.join(path, app_name)
+        unless File.exists?(support_path)
+          file_manager.createDirectoryAtPath_attributes(support_path, NSFileTypeDirectory)
+        end
+
+        Dir[support_path + "/**/*.gnCommand"].each do |f|
+          puts Pathname.new(f).basename
+          load f
+        end
+      end
+      
     end
 end

@@ -29,6 +29,8 @@
 		283254680D8B792500D99366 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 283254650D8B792500D99366 /* lib */; };
 		288853050D7CE2E500862D67 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 288853040D7CE2E500862D67 /* LICENSE */; };
 		288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB4180D8789DD0092B5CC /* MainMenu.xib */; };
+		28DAB0220E672FF1004DB17C /* PluginForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DAB0210E672FF1004DB17C /* PluginForm.xib */; };
+		28DAB03F0E676094004DB17C /* boot.rb in Resources */ = {isa = PBXBuildFile; fileRef = 28DAB03E0E676094004DB17C /* boot.rb */; };
 		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E25803AEB7C803A81C6F /* rb_main.rb */; };
 		4DDCA70A0ACC9A6100E082CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -76,6 +78,8 @@
 		283254650D8B792500D99366 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
 		288853040D7CE2E500862D67 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		288CB4190D8789DD0092B5CC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		28DAB0210E672FF1004DB17C /* PluginForm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PluginForm.xib; sourceTree = "<group>"; };
+		28DAB03E0E676094004DB17C /* boot.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = boot.rb; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -188,6 +192,7 @@
 				4DDCA7110ACC9A6100E082CE /* Info.plist */,
 				288853040D7CE2E500862D67 /* LICENSE */,
 				288CB4180D8789DD0092B5CC /* MainMenu.xib */,
+				28DAB0210E672FF1004DB17C /* PluginForm.xib */,
 			);
 			name = GitNub;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				283254650D8B792500D99366 /* lib */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				E8F5E25803AEB7C803A81C6F /* rb_main.rb */,
+				28DAB03E0E676094004DB17C /* boot.rb */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -297,6 +303,8 @@
 				281AEACC0E65418500B48530 /* ImageLoadOperation.rb in Resources */,
 				281AEACE0E6541AB00B48530 /* Info.xib in Resources */,
 				281AED6C0E6677B500B48530 /* GitNubWebView.rb in Resources */,
+				28DAB0220E672FF1004DB17C /* PluginForm.xib in Resources */,
+				28DAB03F0E676094004DB17C /* boot.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

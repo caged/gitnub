@@ -12,8 +12,8 @@ class GitNubWebView < WebView
   end
   
   def performDragOperation(sender)
-    # str = sender.draggingPasteboard.stringForType("NSStringPboardType")
-    # puts NSURL.URLWithString(str).host
+    str = sender.draggingPasteboard.stringForType("NSStringPboardType")
+    Notify.send(:drop, {:url => str})
   end
 
 end

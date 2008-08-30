@@ -13,18 +13,19 @@ module OSX
       notify.block = block
  
       c = OSX::NSDistributedNotificationCenter.defaultCenter
-      c.addObserver_selector_name_object_ notify, "call:", name, nil
+      c.addObserver_selector_name_object notify, "call:", name, nil
       return notify
     end
  
     def self.send(name, opts)
+      puts "NAME: #{name} OPTS: #{opts.inspect}"
       c = OSX::NSDistributedNotificationCenter.defaultCenter
-      c.postNotificationName_object_userInfo_deliverImmediately_ name, nil, opts, true
+      c.postNotificationName_object_userInfo_deliverImmediately name, nil, opts, true
     end
  
     attr_accessor :block, :name
  
-    def call(notification)
+    def call(notification)      
       @block.call(notification.userInfo)
     end
  

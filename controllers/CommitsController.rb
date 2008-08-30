@@ -275,7 +275,7 @@ class CommitsController < OSX::NSObject
   end
   
   def fetch_commits_for(branch, quanity, offset = 0)
-    @commits = @repo.commits(branch, quanity, offset)
+    @commits = @repo.commits(branch.to_s, quanity, offset)
   end
   
   def setup_paging_control
