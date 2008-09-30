@@ -2,15 +2,15 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.02">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9E17</string>
+		<string key="IBDocument.SystemVersion">9F33</string>
 		<string key="IBDocument.InterfaceBuilderVersion">670</string>
-		<string key="IBDocument.AppKitVersion">949.33</string>
+		<string key="IBDocument.AppKitVersion">949.34</string>
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="2"/>
-			<integer value="344"/>
 			<integer value="517"/>
+			<integer value="344"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -499,7 +499,7 @@
 						<object class="NSSegmentedControl" id="637722390">
 							<reference key="NSNextResponder" ref="831824449"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{186, 9}, {71, 25}}</string>
+							<string key="NSFrame">{{186, 9}, {83, 25}}</string>
 							<reference key="NSSuperview" ref="831824449"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSegmentedCell" key="NSCell" id="523062467">
@@ -520,13 +520,22 @@
 										<int key="NSSegmentItemImageScaling">0</int>
 									</object>
 									<object class="NSSegmentItem">
-										<double key="NSSegmentItemWidth">3.200000e+01</double>
+										<double key="NSSegmentItemWidth">3.100000e+01</double>
 										<object class="NSCustomResource" key="NSSegmentItemImage">
 											<string key="NSClassName">NSImage</string>
 											<string key="NSResourceName">NSIconViewTemplate</string>
 										</object>
 										<string key="NSSegmentItemLabel"/>
 										<int key="NSSegmentItemTag">1</int>
+										<int key="NSSegmentItemImageScaling">0</int>
+									</object>
+									<object class="NSSegmentItem">
+										<object class="NSCustomResource" key="NSSegmentItemImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">NSPathTemplate</string>
+										</object>
+										<string key="NSSegmentItemLabel"/>
+										<int key="NSSegmentItemTag">2</int>
 										<int key="NSSegmentItemImageScaling">0</int>
 									</object>
 								</object>
@@ -2407,6 +2416,8 @@
 					<string>458.IBPluginDependency</string>
 					<string>485.IBAttributePlaceholdersKey</string>
 					<string>496.IBPluginDependency</string>
+					<string>496.IBSegmentedControlTracker.RoundRobinState</string>
+					<string>496.IBSegmentedControlTracker.WasGrowing</string>
 					<string>497.IBPluginDependency</string>
 					<string>512.IBPluginDependency</string>
 					<string>513.IBEditorWindowLastContentRect</string>
@@ -2507,7 +2518,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{340, 350}, {481, 404}}</string>
+					<string>{{172, 350}, {481, 404}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{261, 325}, {481, 404}}</string>
 					<string>GitNubWebView</string>
@@ -2563,6 +2574,8 @@
 						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<reference ref="8"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{753, 793}, {64, 6}}</string>
