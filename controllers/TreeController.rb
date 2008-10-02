@@ -14,8 +14,9 @@ OSX.ns_import 'GNTreeDataSource'
 class TreeController < OSX::NSObject
   ib_outlet :tree_outline
   ib_outlet :file_canvas
+  ib_outlet :tree_data_source
   
   def awakeFromNib
-    #@tree_outline.setDelegate(self)
+    @tree_outline.setDelegate(@tree_data_source)
   end
 end

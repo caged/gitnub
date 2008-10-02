@@ -142,6 +142,11 @@ static GNFileSystemItem *rootItem = nil;
     return (tmp == IsALeafNode) ? (-1) : [tmp count];
 }
 
+- (BOOL)isHeading
+{
+    return [[self fullPath] isEqualToString:[GNFileSystemItem repoRoot]];
+}
+
 - (void)dealloc
 {
     [image release];

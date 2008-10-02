@@ -32,6 +32,17 @@
 }
 
 // Delegate methods
+- (BOOL)outlineView:(NSOutlineView *)sender isGroupItem:(id)item {
+    return [item isHeading];
+}
 
+- (void)outlineView:(NSOutlineView *)sender willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+    if ([item isHeading]) {
+    NSMutableAttributedString *newTitle = [[cell attributedStringValue] mutableCopy];
+    [newTitle replaceCharactersInRange:NSMakeRange(0,[newTitle length]) withString:[[newTitle string] uppercaseString]];
+    [cell setAttributedStringValue:newTitle];
+    [newTitle release];
+ }
+}
 @end
 

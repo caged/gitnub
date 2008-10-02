@@ -24,4 +24,5 @@
 - (NSImage*)icon;
 - (BOOL)isLeafNode;
 - (NSDictionary*)attributes;
+- (BOOL)isHeading;
 @end
