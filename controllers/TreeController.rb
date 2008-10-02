@@ -18,5 +18,6 @@ class TreeController < OSX::NSObject
   
   def awakeFromNib
     @tree_outline.setDelegate(@tree_data_source)
+    @tree_outline.expandItem(@tree_outline.itemAtRow(0))
   end
 end

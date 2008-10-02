@@ -44,5 +44,14 @@
     [newTitle release];
  }
 }
+
+- (NSCell *)outlineView:(NSOutlineView *)sender dataCellForTableColumn:(id)cell item:(id)item
+{
+    if([item isHeading])
+        return [[[NSTextFieldCell alloc] init] autorelease];
+        
+   return nil;
+}
+
 @end
 
