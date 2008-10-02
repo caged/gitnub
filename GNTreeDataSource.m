@@ -21,6 +21,16 @@
     return (item == nil) ? @"/" : (id)[item relativePath];
 }
 
+- (NSImage *)outlineView: (NSOutlineView *)outlineView iconOfItem: (id)item
+{
+    // Note:  -observedObject is needed here due to use of Bindings and the
+    //        mess surrounding NSTreeController (described at the URL above).
+    //        If you avoid Bindings and use a normal dataSource, you can simply
+    //        return [item icon] here, as the actual item will be passed in.
+
+    return [item icon];
+}
+
 // Delegate methods
 
 @end

@@ -1,7 +1,6 @@
 //
 //  GNFileSystemItem.m
 //
-//  Based on code examples in NSOutlineView documentation.
 
 #import "GNFileSystemItem.h"
 

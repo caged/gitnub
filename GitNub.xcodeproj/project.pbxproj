@@ -32,6 +32,10 @@
 		283E2ECC0E9332AD00E33E25 /* GNFileSystemItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2ECA0E9332AD00E33E25 /* GNFileSystemItem.h */; };
 		283E2ECF0E9332B700E33E25 /* GNTreeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2ECD0E9332B700E33E25 /* GNTreeDataSource.m */; };
 		283E2ED00E9332B700E33E25 /* GNTreeDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2ECE0E9332B700E33E25 /* GNTreeDataSource.h */; };
+		283E2F5A0E95728700E33E25 /* GNSourceListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2F580E95728700E33E25 /* GNSourceListCell.h */; };
+		283E2F5B0E95728700E33E25 /* GNSourceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2F590E95728700E33E25 /* GNSourceListCell.m */; };
+		283E2F7D0E9574A000E33E25 /* GNOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2F7B0E9574A000E33E25 /* GNOutlineView.h */; };
+		283E2F7E0E9574A000E33E25 /* GNOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2F7C0E9574A000E33E25 /* GNOutlineView.m */; };
 		288853050D7CE2E500862D67 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 288853040D7CE2E500862D67 /* LICENSE */; };
 		288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB4180D8789DD0092B5CC /* MainMenu.xib */; };
 		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -84,6 +88,10 @@
 		283E2ECA0E9332AD00E33E25 /* GNFileSystemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFileSystemItem.h; sourceTree = "<group>"; };
 		283E2ECD0E9332B700E33E25 /* GNTreeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNTreeDataSource.m; sourceTree = "<group>"; };
 		283E2ECE0E9332B700E33E25 /* GNTreeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTreeDataSource.h; sourceTree = "<group>"; };
+		283E2F580E95728700E33E25 /* GNSourceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSourceListCell.h; sourceTree = "<group>"; };
+		283E2F590E95728700E33E25 /* GNSourceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNSourceListCell.m; sourceTree = "<group>"; };
+		283E2F7B0E9574A000E33E25 /* GNOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNOutlineView.h; sourceTree = "<group>"; };
+		283E2F7C0E9574A000E33E25 /* GNOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNOutlineView.m; sourceTree = "<group>"; };
 		288853040D7CE2E500862D67 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		288CB4190D8789DD0092B5CC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +177,10 @@
 				281AEAB60E65411300B48530 /* CommitSummaryCell.h */,
 				281AEAB70E65411300B48530 /* CommitSummaryCell.m */,
 				281AEAB80E65411300B48530 /* TexturedWindow.rb */,
+				283E2F580E95728700E33E25 /* GNSourceListCell.h */,
+				283E2F590E95728700E33E25 /* GNSourceListCell.m */,
+				283E2F7B0E9574A000E33E25 /* GNOutlineView.h */,
+				283E2F7C0E9574A000E33E25 /* GNOutlineView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -245,6 +257,8 @@
 				281AEAB90E65411300B48530 /* CommitSummaryCell.h in Headers */,
 				283E2ECC0E9332AD00E33E25 /* GNFileSystemItem.h in Headers */,
 				283E2ED00E9332B700E33E25 /* GNTreeDataSource.h in Headers */,
+				283E2F5A0E95728700E33E25 /* GNSourceListCell.h in Headers */,
+				283E2F7D0E9574A000E33E25 /* GNOutlineView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +343,8 @@
 				281AEABA0E65411300B48530 /* CommitSummaryCell.m in Sources */,
 				283E2ECB0E9332AD00E33E25 /* GNFileSystemItem.m in Sources */,
 				283E2ECF0E9332B700E33E25 /* GNTreeDataSource.m in Sources */,
+				283E2F5B0E95728700E33E25 /* GNSourceListCell.m in Sources */,
+				283E2F7E0E9574A000E33E25 /* GNOutlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
