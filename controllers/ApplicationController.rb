@@ -86,8 +86,8 @@ class ApplicationController < OSX::NSObject
     end
   end
   
-  def draggingEntered(sender)
-    puts sender
+  def repository_location
+    REPOSITORY_LOCATION.to_s.gsub('.git', '')
   end
   
   ib_action :show_info_panel
@@ -98,7 +98,7 @@ class ApplicationController < OSX::NSObject
   
   ib_action :swap_tab
   def swap_tab(segment)
-    tag = %w(commits network)[segment.cell.tagForSegment(segment.selectedSegment)]
+    tag = %w(commits network browser)[segment.cell.tagForSegment(segment.selectedSegment)]
     @tab_panel.selectTabViewItemWithIdentifier(tag)
   end
   
