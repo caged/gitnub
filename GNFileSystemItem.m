@@ -14,7 +14,6 @@ static GNFileSystemItem *rootItem = nil;
 {
     if (self = [super init])
     {
-        
         relativePath = [[path lastPathComponent] copy];
         parent = obj;
     }
@@ -70,9 +69,9 @@ static GNFileSystemItem *rootItem = nil;
                     continue;
                 }
                 
-                if([self ignoredByGit:sourceFile]) {
-                    continue;
-                }
+                // if([self ignoredByGit:sourceFile]) {
+                //     continue;
+                // }
                 
                 GNFileSystemItem *newChild = [[GNFileSystemItem alloc] initWithPath:sourceFile parent:self];
                 [children addObject:newChild];

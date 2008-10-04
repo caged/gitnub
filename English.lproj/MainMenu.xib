@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="579"/>
+			<integer value="578"/>
 			<integer value="344"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -488,12 +488,12 @@
 									<string key="NSIdentifier">browser</string>
 									<object class="NSView" key="NSView" id="245622268">
 										<reference key="NSNextResponder" ref="1049027428"/>
-										<int key="NSvFlags">256</int>
+										<int key="NSvFlags">274</int>
 										<object class="NSMutableArray" key="NSSubviews">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<object class="NSSplitView" id="623515617">
 												<reference key="NSNextResponder" ref="245622268"/>
-												<int key="NSvFlags">256</int>
+												<int key="NSvFlags">274</int>
 												<object class="NSMutableArray" key="NSSubviews">
 													<bool key="EncodedWithXMLCoder">YES</bool>
 													<object class="NSScrollView" id="270857048">
@@ -1277,9 +1277,6 @@
 			<object class="NSCustomObject" id="869013782">
 				<string key="NSClassName">TreeController</string>
 			</object>
-			<object class="NSCustomObject" id="1049074456">
-				<string key="NSClassName">GNTreeDataSource</string>
-			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -1747,14 +1744,6 @@
 						<reference key="destination" ref="176859736"/>
 					</object>
 					<int key="connectionID">582</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">tree_data_source</string>
-						<reference key="source" ref="869013782"/>
-						<reference key="destination" ref="1049074456"/>
-					</object>
-					<int key="connectionID">585</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -2579,12 +2568,6 @@
 						<reference key="parent" ref="269908025"/>
 						<string key="objectName">TreeController</string>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">583</int>
-						<reference key="object" ref="1049074456"/>
-						<reference key="parent" ref="269908025"/>
-						<string key="objectName">GNTreeDataSource</string>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -2747,7 +2730,6 @@
 					<string>58.IBPluginDependency</string>
 					<string>58.ImportedFromIB2</string>
 					<string>580.IBPluginDependency</string>
-					<string>583.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2818,7 +2800,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{364, 27}, {481, 404}}</string>
+					<string>{{396, 69}, {481, 404}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{261, 325}, {481, 404}}</string>
 					<string>GitNubWebView</string>
@@ -2917,7 +2899,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -2940,7 +2921,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">587</int>
+			<int key="maxID">588</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3078,14 +3059,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">GNTreeDataSource</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">GNTreeDataSource.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">GitNubWebView</string>
 					<string key="superclassName">WebView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -3178,13 +3151,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>file_canvas</string>
 							<string>main_canvas</string>
-							<string>main_webview</string>
 							<string>tree_data_source</string>
 							<string>tree_outline</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

@@ -16,9 +16,13 @@ class TreeController < OSX::NSObject
   ib_outlet :file_canvas
   ib_outlet :tree_data_source
   ib_outlet :main_canvas
-  ib_outlet :main_webview
   
   def awakeFromNib
+    main_view = WebView.alloc.init
+    main_view.setAutoresizingMask(NSViewWidthSizable|NSViewHeightSizable)
+    main_view.setFrameSize(@main_canvas.frame.size)
+    @main_canvas.addSubview(main_view)
+    
     dsource = GNTreeDataSource.alloc.init
     @tree_outline.setDataSource(dsource)
     @tree_outline.setDelegate(dsource)
