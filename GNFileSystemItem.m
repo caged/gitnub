@@ -14,6 +14,7 @@ static GNFileSystemItem *rootItem = nil;
 {
     if (self = [super init])
     {
+        
         relativePath = [[path lastPathComponent] copy];
         parent = obj;
     }
@@ -34,19 +35,19 @@ static GNFileSystemItem *rootItem = nil;
     return  [[[NSApplication sharedApplication] delegate] repository_location];
 }
 
-- (BOOL)ignoredByGit:(NSString *)fileItem
-{
-    NSString *format;
-    if([[self fullPath] hasSuffix:@"/"])
-        format = @"%@%@";
-    else
-        format = @"%@/%@";
-        
-    NSString *file = [NSString stringWithFormat:format, [self fullPath], fileItem];
-        
-    BOOL ignored = [[[NSApplication sharedApplication] delegate] is_file_ignored:file];
-    return !ignored;
-}
+// - (BOOL)ignoredByGit:(NSString *)fileItem
+// {
+//     NSString *format;
+//     if([[self fullPath] hasSuffix:@"/"])
+//         format = @"%@%@";
+//     else
+//         format = @"%@/%@";
+//         
+//     NSString *file = [NSString stringWithFormat:format, [self fullPath], fileItem];
+//         
+//     BOOL ignored = [[[NSApplication sharedApplication] delegate] is_file_ignored:file];
+//     return !ignored;
+// }
 
 // Creates, caches, and returns the array of children
 // Loads children incrementally
@@ -69,9 +70,9 @@ static GNFileSystemItem *rootItem = nil;
                     continue;
                 }
                 
-                // if([self ignoredByGit:sourceFile]) {
-                //     continue;
-                // }
+                if([self ignoredByGit:sourceFile]) {
+                    continue;
+                }
                 
                 GNFileSystemItem *newChild = [[GNFileSystemItem alloc] initWithPath:sourceFile parent:self];
                 [children addObject:newChild];
