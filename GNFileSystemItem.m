@@ -34,13 +34,19 @@ static GNFileSystemItem *rootItem = nil;
     return  [[[NSApplication sharedApplication] delegate] repository_location];
 }
 
-// - (NSString *)ignoredByGit:(NSString *)fileItem
-// {
-//     NSString *ret = [NSTask launchedTaskWithLaunchPath:@"/usr/bin/env" arguments:
-//                     [NSArray arrayWithObjects:@"git", @"status", fileItem, nil]];
-//     NSLog(@"%s RET: %@", _cmd, ret);
-//                     return ret;
-// }
+- (BOOL)ignoredByGit:(NSString *)fileItem
+{
+    NSString *format;
+    if([[self fullPath] hasSuffix:@"/"])
+        format = @"%@%@";
+    else
+        format = @"%@/%@";
+        
+    NSString *file = [NSString stringWithFormat:format, [self fullPath], fileItem];
+        
+    BOOL ignored = [[[NSApplication sharedApplication] delegate] is_file_ignored:file];
+    return !ignored;
+}
 
 // Creates, caches, and returns the array of children
 // Loads children incrementally

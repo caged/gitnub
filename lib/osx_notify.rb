@@ -13,7 +13,7 @@ module OSX
       notify.block = block
  
       c = OSX::NSDistributedNotificationCenter.defaultCenter
-      c.addObserver_selector_name_object_ notify, "call:", name, nil
+      c.addObserver_selector_name_object notify, "call:", name, nil
       return notify
     end
  

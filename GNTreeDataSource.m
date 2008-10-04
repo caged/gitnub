@@ -53,5 +53,16 @@
    return nil;
 }
 
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
+{
+    BOOL isDir;
+    [[NSFileManager defaultManager] fileExistsAtPath:[item fullPath] isDirectory:&isDir];
+    
+    if([item isHeading] || isDir)
+        return NO;
+        
+    return YES;
+}
+
 @end
 

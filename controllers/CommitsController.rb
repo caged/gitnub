@@ -25,6 +25,8 @@ class CommitsController < OSX::NSObject
   ib_outlet :commit_details
   ib_outlet :application_controller
   
+  attr_reader :branch
+  
   def awakeFromNib  
     @searching = false
     @current_commit_offset = 0
