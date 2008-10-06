@@ -236,6 +236,23 @@ h2#place-holder {
   padding: 5px;
 }
 
+#blame .sha {
+  position: absolute;
+  background-color: #000;
+  color: #ccc;
+  -webkit-border-radius: 4px;
+  padding: 2px;
+  line-height: 120%;
+  opacity: 0.7;
+  top: 3px;
+  right: 0;
+  display: none;
+}
+
+#blame li:hover .sha {
+  display: inline;
+}
+
 .image-wrapper {
   vertical-align: middle;
   height: 100%;
