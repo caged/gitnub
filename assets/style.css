@@ -184,12 +184,19 @@ pre code {
 ------------------------------------------------------------------------------------*/
 #blame {
   display: block;
-  background-color: #f7f7f7;
+}
+
+h2#place-holder {
+  font-size: 400%;
+  color: #eee;
+  text-shadow: -1px -1px #ddd;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 #blame-list li {
   line-height: 100%;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f7f7f7;
   padding: 0;
   margin: 0;
   position: relative;
@@ -215,8 +222,6 @@ pre code {
   margin: 0;
   vertical-align: middle;
 }
-
-
 
 #blame .linenum {
   background: #eee;

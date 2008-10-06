@@ -59,7 +59,6 @@ class TreeController < OSX::NSObject
         
         unless blob.nil?
           set_html('hash', blob.id)
-          puts blob.mime_type
           last_commit_html(app, branch, file)
           
           if IMAGE_MIMES.include?(blob.mime_type)
