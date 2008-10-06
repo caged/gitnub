@@ -51,10 +51,10 @@ class TreeController < OSX::NSObject
       Thread.start do
         doc    = @main_view.mainFrame.DOMDocument
         app    = NSApplication.sharedApplication.delegate
-        branch = app.active_branch
-        file   = item.fullPath.sub(app.repository_location, '')
-        commit = app.repo.commit(branch.to_s)
-        blob   = commit.tree/file.to_s
+        branch = app.active_branch.to_s
+        file   = item.fullPath.sub(app.repository_location, '').to_s
+        commit = app.repo.commit(branch)
+        blob   = commit.tree/file
         
         set_html('title', File.basename(file))
         element = doc.getElementById(ELEMENTS[:blame])
@@ -63,13 +63,13 @@ class TreeController < OSX::NSObject
         unless blob.nil?
           set_html('hash', blob.id)
           
-          render_last_commit_html(app, branch, file)
+          last_commit_html(app, branch, file)
           
           if IMAGE_MIMES.include?(blob.mime_type)
             return display_as_image(blob, item)
           end
       
-          blame = Grit::Blob.blame(app.repo, commit.id, file.to_s)
+          blame = Grit::Blob.blame(app.repo, commit.id, file)
  
           blame_list = doc.createElement('ul')
           blame_list.setAttribute__('id', ELEMENTS[:list])
@@ -95,13 +95,13 @@ class TreeController < OSX::NSObject
     end
   end
   
-  private
-  
-  def render_last_commit_html(branch, file)
-    last_commit = app.repo.log(branch, file)
-    puts last_commit
-    #active_commit.authored_date.to_system_time
+  def last_commit_html(app, branch, file)
+    last_commit = app.repo.log(branch, file).last
+    cdate = last_commit.authored_date.to_system_time
+    set_html("date", "Last Modified: #{cdate} by #{last_commit.author.name}")
   end
+  
+  private
   
   def display_as_image(blob, outline_item)
     doc = @main_view.mainFrame.DOMDocument
