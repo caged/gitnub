@@ -38,6 +38,7 @@
 		283E2F7E0E9574A000E33E25 /* GNOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2F7C0E9574A000E33E25 /* GNOutlineView.m */; };
 		288853050D7CE2E500862D67 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 288853040D7CE2E500862D67 /* LICENSE */; };
 		288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB4180D8789DD0092B5CC /* MainMenu.xib */; };
+		28EF91600E98243A009B70DF /* blame.html in Resources */ = {isa = PBXBuildFile; fileRef = 28EF915F0E98243A009B70DF /* blame.html */; };
 		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E25803AEB7C803A81C6F /* rb_main.rb */; };
 		4DDCA70A0ACC9A6100E082CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -94,6 +95,7 @@
 		283E2F7C0E9574A000E33E25 /* GNOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNOutlineView.m; sourceTree = "<group>"; };
 		288853040D7CE2E500862D67 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		288CB4190D8789DD0092B5CC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		28EF915F0E98243A009B70DF /* blame.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = blame.html; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -195,6 +197,7 @@
 				281AEAC00E65412C00B48530 /* delete.png */,
 				281AEAC10E65412C00B48530 /* gitnub-icon.icns */,
 				281AEAC20E65412C00B48530 /* style.css */,
+				28EF915F0E98243A009B70DF /* blame.html */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				281AEACE0E6541AB00B48530 /* Info.xib in Resources */,
 				281AED6C0E6677B500B48530 /* GitNubWebView.rb in Resources */,
 				283E2EC20E932E9E00E33E25 /* TreeController.rb in Resources */,
+				28EF91600E98243A009B70DF /* blame.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

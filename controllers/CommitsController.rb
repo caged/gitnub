@@ -189,7 +189,7 @@ class CommitsController < OSX::NSObject
       li.setInnerHTML(%(<a href="#diff-#{i}" class="">#{diff.b_path}</a>))
       file_list.appendChild(li)
  
-      unless diff.deleted_file or diff.diff.nil?
+      unless diff.deleted_file || diff.diff.nil?
         diff_div = doc.createElement('div')
         diff_div.setAttribute__('class', 'diff')
         diff_div.setAttribute__('id', "diff-#{i}")

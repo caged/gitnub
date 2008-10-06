@@ -9,20 +9,23 @@
 require 'osx/cocoa'
 OSX.ns_import 'GNFileSystemItem'
 OSX.ns_import 'GNTreeDataSource'
-
+require 'fileutils'
 
 class TreeController < OSX::NSObject
+  IMAGE_MIMES = ["image/png", "img/jpeg", "image/jpg", "image/gif", "img/bmp"]
+  ELEMENTS = {
+    :blame => 'blame',
+    :list  => 'blame-list'
+  }
+  
   ib_outlet :tree_outline
   ib_outlet :file_canvas
   ib_outlet :tree_data_source
   ib_outlet :main_canvas
+
   
   def awakeFromNib
-    main_view = WebView.alloc.init
-    main_view.setAutoresizingMask(NSViewWidthSizable|NSViewHeightSizable)
-    main_view.setFrameSize(@main_canvas.frame.size)
-    @main_canvas.addSubview(main_view)
-    
+    setup_web_view
     dsource = GNTreeDataSource.alloc.init
     @tree_outline.setDataSource(dsource)
     @tree_outline.setDelegate(dsource)
@@ -45,8 +48,84 @@ class TreeController < OSX::NSObject
     outline_view = notification.object
     item = outline_view.itemAtRow(outline_view.selectedRow)
     unless item.nil?
-      puts NSApplication.sharedApplication.delegate.active_branch
-      puts item.fullPath
+      Thread.start do
+        doc    = @main_view.mainFrame.DOMDocument
+        app    = NSApplication.sharedApplication.delegate
+        branch = app.active_branch
+        file   = item.fullPath.sub(app.repository_location, '')
+        commit = app.repo.commit(branch.to_s)
+        blob   = commit.tree/file.to_s
+        
+        set_html('title', File.basename(file))
+        element = doc.getElementById(ELEMENTS[:blame])
+        element.setInnerHTML("")
+        
+        unless blob.nil?
+          set_html('hash', blob.id)
+          
+          render_last_commit_html(app, branch, file)
+          
+          if IMAGE_MIMES.include?(blob.mime_type)
+            return display_as_image(blob, item)
+          end
+      
+          blame = Grit::Blob.blame(app.repo, commit.id, file.to_s)
+ 
+          blame_list = doc.createElement('ul')
+          blame_list.setAttribute__('id', ELEMENTS[:list])
+          blame_list.setInnerHTML('')
+          blame.each do |commit, lines|
+            lines.each do |line|
+              line = line.empty? ? "&nbsp;" : line.escapeHTML
+              li = doc.createElement('li')
+              img = doc.createElement('img')
+              url = gravatar_url(commit.author.email, 16).to_s
+              img.setAttribute__('src', url)
+              img.setAttribute__('class', 'gravatar')
+              li.setInnerHTML(%(<pre><code>#{line}</code></pre>))
+              li.appendChild(img)
+              blame_list.appendChild(li)
+            end
+          end
+          element.appendChild(blame_list)
+        else 
+          set_html('hash', 'Untracked or ignored file')
+        end
+      end
     end
+  end
+  
+  private
+  
+  def render_last_commit_html(branch, file)
+    last_commit = app.repo.log(branch, file)
+    puts last_commit
+    #active_commit.authored_date.to_system_time
+  end
+  
+  def display_as_image(blob, outline_item)
+    doc = @main_view.mainFrame.DOMDocument
+    img = doc.createElement('img')
+    url = NSURL.fileURLWithPath(outline_item.fullPath)
+    img.setAttribute__('src', url.to_s)
+    doc.getElementById(ELEMENT[:blame]).appendChild(img)
+  end
+  
+  def render_last_commit_html(blob, branch)
+    
+  end
+  
+  def setup_web_view
+    @main_view = WebView.alloc.init
+    @main_view.setAutoresizingMask(NSViewWidthSizable|NSViewHeightSizable)
+    @main_view.setFrameSize(@main_canvas.frame.size)
+    @main_canvas.addSubview(@main_view)
+    
+    web_view = File.join(NSBundle.mainBundle.bundlePath, "Contents", "Resources", "blame.html")
+    @main_view.mainFrame.loadRequest(NSURLRequest.requestWithURL(NSURL.fileURLWithPath(web_view)))
+  end
+  
+  def set_html(element, html)
+    @main_view.mainFrame.DOMDocument.getElementById(element).setInnerHTML(html)
   end
 end

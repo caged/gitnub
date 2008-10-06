@@ -178,3 +178,50 @@ pre code {
 
 
 /* @end */
+
+/*------------------------------------------------------------------------------------
+  @group blame
+------------------------------------------------------------------------------------*/
+
+#blame-list li {
+  line-height: 100%;
+  border-bottom: 1px solid #f7f7f7;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: block;
+  min-height: 24px;
+  font-size: 92%;
+}
+
+#blame pre {
+  line-height: 100%;
+  overflow: visible;
+  border: 0 !important;
+  margin: 0 0 0 21px !important;
+  padding: 0 !important;
+  white-space: pre-wrap;
+}
+
+#blame code {
+  line-height: 100%;
+}
+/*
+#blame .linenum {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 16px;
+  text-align: right;
+  font-family: Courier, monospace;
+}*/
+
+#blame .gravatar {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  padding: 1px;
+  border: 1px solid #eee;
+}
+
+/* @end */  
