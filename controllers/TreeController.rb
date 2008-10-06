@@ -35,14 +35,11 @@ class TreeController < OSX::NSObject
   		:name, "NSOutlineViewSelectionDidChangeNotification",
   		:object, @tree_outline)
   		
-  	Notify.on 'branch_was_changed' do |opts|
-  	  puts "BRANCH WAS CHANGED"
+  	Notify.on 'branch_was_changed' do |info|
+  	  #working
 	  end
   end
-  
-  def branch_was_changed(branch)
-    puts "BRANCH WAS CHANGED"
-  end
+
   
   def item_was_selected(notification)
     outline_view = notification.object
@@ -62,7 +59,7 @@ class TreeController < OSX::NSObject
         
         unless blob.nil?
           set_html('hash', blob.id)
-          
+          puts blob.mime_type
           last_commit_html(app, branch, file)
           
           if IMAGE_MIMES.include?(blob.mime_type)
@@ -74,6 +71,7 @@ class TreeController < OSX::NSObject
           blame_list = doc.createElement('ul')
           blame_list.setAttribute__('id', ELEMENTS[:list])
           blame_list.setInnerHTML('')
+          i = 1
           blame.each do |commit, lines|
             lines.each do |line|
               line = line.empty? ? "&nbsp;" : line.escapeHTML
@@ -82,9 +80,11 @@ class TreeController < OSX::NSObject
               url = gravatar_url(commit.author.email, 16).to_s
               img.setAttribute__('src', url)
               img.setAttribute__('class', 'gravatar')
-              li.setInnerHTML(%(<pre><code>#{line}</code></pre>))
+              img.setAttribute__('title', commit.author.email)
+              li.setInnerHTML(%(<span class="linenum">#{i}</span><pre><code>#{line.chomp}</code></pre>))
               li.appendChild(img)
               blame_list.appendChild(li)
+              i += 1
             end
           end
           element.appendChild(blame_list)
@@ -104,11 +104,18 @@ class TreeController < OSX::NSObject
   private
   
   def display_as_image(blob, outline_item)
-    doc = @main_view.mainFrame.DOMDocument
-    img = doc.createElement('img')
-    url = NSURL.fileURLWithPath(outline_item.fullPath)
+    doc  = @main_view.mainFrame.DOMDocument
+    wrap = doc.createElement('div')
+    img  = doc.createElement('img')
+    
+    url  = NSURL.fileURLWithPath(outline_item.fullPath)
     img.setAttribute__('src', url.to_s)
-    doc.getElementById(ELEMENT[:blame]).appendChild(img)
+    img.setAttribute__('class', 'inline-image')
+    
+    wrap.setAttribute__('class', 'image-wrapper')
+    wrap.appendChild(img)
+    
+    doc.getElementById(ELEMENTS[:blame]).appendChild(wrap)
   end
   
   def render_last_commit_html(blob, branch)

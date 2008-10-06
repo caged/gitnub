@@ -127,7 +127,7 @@ class ApplicationController < OSX::NSObject
   
   def swap_branch(item)
     @commits_controller.swap_branch(item)
-    Notify.send('branch_was_changed', {:title => item.title})
+    #Notify.send('branch_was_changed', {:title => item.title})
   end
   
   def active_branch

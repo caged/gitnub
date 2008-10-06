@@ -155,6 +155,7 @@ class CommitsController < OSX::NSObject
     @commits_table.scrollRowToVisible(0)
   end
   
+  # TODO: remove the stank
   def update_main_document
     return unless active_commit
     diffs = []

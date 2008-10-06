@@ -182,10 +182,14 @@ pre code {
 /*------------------------------------------------------------------------------------
   @group blame
 ------------------------------------------------------------------------------------*/
+#blame {
+  display: block;
+  background-color: #f7f7f7;
+}
 
 #blame-list li {
   line-height: 100%;
-  border-bottom: 1px solid #f7f7f7;
+  border-bottom: 1px solid #eee;
   padding: 0;
   margin: 0;
   position: relative;
@@ -195,31 +199,53 @@ pre code {
 }
 
 #blame pre {
-  line-height: 100%;
+  line-height: 100% !important;
   overflow: visible;
   border: 0 !important;
-  margin: 0 0 0 21px !important;
+  margin: 0 0 0 68px !important;
   padding: 0 !important;
   white-space: pre-wrap;
+  background: transparent !important;
 }
 
 #blame code {
-  line-height: 100%;
+  background: transparent !important;
+  line-height: 100% !important;
+  padding: 8px 0 0 0;
+  margin: 0;
+  vertical-align: middle;
 }
-/*
+
+
+
 #blame .linenum {
+  background: #eee;
   position: absolute;
-  top: 5px;
+  top: 3px;
   left: 0;
-  width: 16px;
+  width: 30px;
   text-align: right;
   font-family: Courier, monospace;
-}*/
+  color: #777;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.image-wrapper {
+  vertical-align: middle;
+  height: 100%;
+  text-align: center;
+  min-height: 400px;
+}
+
+#blame .inline-image {
+
+}
 
 #blame .gravatar {
   position: absolute;
-  top: 5px;
-  left: 0;
+  top: 3px;
+  left: 43px;
   padding: 1px;
   border: 1px solid #eee;
 }
