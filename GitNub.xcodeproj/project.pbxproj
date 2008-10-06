@@ -27,8 +27,18 @@
 		281AECA70E6662B000B48530 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281AECA60E6662B000B48530 /* WebKit.framework */; };
 		281AED6C0E6677B500B48530 /* GitNubWebView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 281AED6B0E6677B500B48530 /* GitNubWebView.rb */; };
 		283254680D8B792500D99366 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 283254650D8B792500D99366 /* lib */; };
+		283E2EC20E932E9E00E33E25 /* TreeController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 283E2EC10E932E9E00E33E25 /* TreeController.rb */; };
+		283E2ECB0E9332AD00E33E25 /* GNFileSystemItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2EC90E9332AD00E33E25 /* GNFileSystemItem.m */; };
+		283E2ECC0E9332AD00E33E25 /* GNFileSystemItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2ECA0E9332AD00E33E25 /* GNFileSystemItem.h */; };
+		283E2ECF0E9332B700E33E25 /* GNTreeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2ECD0E9332B700E33E25 /* GNTreeDataSource.m */; };
+		283E2ED00E9332B700E33E25 /* GNTreeDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2ECE0E9332B700E33E25 /* GNTreeDataSource.h */; };
+		283E2F5A0E95728700E33E25 /* GNSourceListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2F580E95728700E33E25 /* GNSourceListCell.h */; };
+		283E2F5B0E95728700E33E25 /* GNSourceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2F590E95728700E33E25 /* GNSourceListCell.m */; };
+		283E2F7D0E9574A000E33E25 /* GNOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 283E2F7B0E9574A000E33E25 /* GNOutlineView.h */; };
+		283E2F7E0E9574A000E33E25 /* GNOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E2F7C0E9574A000E33E25 /* GNOutlineView.m */; };
 		288853050D7CE2E500862D67 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 288853040D7CE2E500862D67 /* LICENSE */; };
 		288CB41A0D8789DD0092B5CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288CB4180D8789DD0092B5CC /* MainMenu.xib */; };
+		28EF91600E98243A009B70DF /* blame.html in Resources */ = {isa = PBXBuildFile; fileRef = 28EF915F0E98243A009B70DF /* blame.html */; };
 		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E25803AEB7C803A81C6F /* rb_main.rb */; };
 		4DDCA70A0ACC9A6100E082CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -74,8 +84,18 @@
 		281AECA60E6662B000B48530 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		281AED6B0E6677B500B48530 /* GitNubWebView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GitNubWebView.rb; sourceTree = "<group>"; };
 		283254650D8B792500D99366 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
+		283E2EC10E932E9E00E33E25 /* TreeController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = TreeController.rb; sourceTree = "<group>"; };
+		283E2EC90E9332AD00E33E25 /* GNFileSystemItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNFileSystemItem.m; sourceTree = "<group>"; };
+		283E2ECA0E9332AD00E33E25 /* GNFileSystemItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNFileSystemItem.h; sourceTree = "<group>"; };
+		283E2ECD0E9332B700E33E25 /* GNTreeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNTreeDataSource.m; sourceTree = "<group>"; };
+		283E2ECE0E9332B700E33E25 /* GNTreeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTreeDataSource.h; sourceTree = "<group>"; };
+		283E2F580E95728700E33E25 /* GNSourceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNSourceListCell.h; sourceTree = "<group>"; };
+		283E2F590E95728700E33E25 /* GNSourceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNSourceListCell.m; sourceTree = "<group>"; };
+		283E2F7B0E9574A000E33E25 /* GNOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNOutlineView.h; sourceTree = "<group>"; };
+		283E2F7C0E9574A000E33E25 /* GNOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNOutlineView.m; sourceTree = "<group>"; };
 		288853040D7CE2E500862D67 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		288CB4190D8789DD0092B5CC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		28EF915F0E98243A009B70DF /* blame.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = blame.html; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -145,6 +165,7 @@
 				281AEAAF0E65410600B48530 /* CommitsController.rb */,
 				281AEAB00E65410600B48530 /* InfoWindowController.rb */,
 				281AEAB10E65410600B48530 /* NetworkController.rb */,
+				283E2EC10E932E9E00E33E25 /* TreeController.rb */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -158,6 +179,10 @@
 				281AEAB60E65411300B48530 /* CommitSummaryCell.h */,
 				281AEAB70E65411300B48530 /* CommitSummaryCell.m */,
 				281AEAB80E65411300B48530 /* TexturedWindow.rb */,
+				283E2F580E95728700E33E25 /* GNSourceListCell.h */,
+				283E2F590E95728700E33E25 /* GNSourceListCell.m */,
+				283E2F7B0E9574A000E33E25 /* GNOutlineView.h */,
+				283E2F7C0E9574A000E33E25 /* GNOutlineView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -172,6 +197,7 @@
 				281AEAC00E65412C00B48530 /* delete.png */,
 				281AEAC10E65412C00B48530 /* gitnub-icon.icns */,
 				281AEAC20E65412C00B48530 /* style.css */,
+				28EF915F0E98243A009B70DF /* blame.html */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -195,6 +221,10 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				283E2ECD0E9332B700E33E25 /* GNTreeDataSource.m */,
+				283E2ECE0E9332B700E33E25 /* GNTreeDataSource.h */,
+				283E2EC90E9332AD00E33E25 /* GNFileSystemItem.m */,
+				283E2ECA0E9332AD00E33E25 /* GNFileSystemItem.h */,
 				283254650D8B792500D99366 /* lib */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				E8F5E25803AEB7C803A81C6F /* rb_main.rb */,
@@ -228,6 +258,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				281AEAB90E65411300B48530 /* CommitSummaryCell.h in Headers */,
+				283E2ECC0E9332AD00E33E25 /* GNFileSystemItem.h in Headers */,
+				283E2ED00E9332B700E33E25 /* GNTreeDataSource.h in Headers */,
+				283E2F5A0E95728700E33E25 /* GNSourceListCell.h in Headers */,
+				283E2F7D0E9574A000E33E25 /* GNOutlineView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +331,8 @@
 				281AEACC0E65418500B48530 /* ImageLoadOperation.rb in Resources */,
 				281AEACE0E6541AB00B48530 /* Info.xib in Resources */,
 				281AED6C0E6677B500B48530 /* GitNubWebView.rb in Resources */,
+				283E2EC20E932E9E00E33E25 /* TreeController.rb in Resources */,
+				28EF91600E98243A009B70DF /* blame.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +345,10 @@
 			files = (
 				4DDCA70A0ACC9A6100E082CE /* main.m in Sources */,
 				281AEABA0E65411300B48530 /* CommitSummaryCell.m in Sources */,
+				283E2ECB0E9332AD00E33E25 /* GNFileSystemItem.m in Sources */,
+				283E2ECF0E9332B700E33E25 /* GNTreeDataSource.m in Sources */,
+				283E2F5B0E95728700E33E25 /* GNSourceListCell.m in Sources */,
+				283E2F7E0E9574A000E33E25 /* GNOutlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

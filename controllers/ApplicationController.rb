@@ -20,6 +20,8 @@ require 'InfoWindowController'
 OSX.ns_import 'CommitSummaryCell'
 include OSX
 
+#Grit.debug = true
+
 # we use ENV['PWD'] instead of Dir.getwd if it exists so
 # `open GitNub` will work, since that launches us at / but leaves ENV['PWD'] intact
 pwd = Pathname.new(ENV['PWD'].nil? ? Dir.getwd : ENV['PWD'])
@@ -61,7 +63,7 @@ class ApplicationController < OSX::NSObject
     
       @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
       @tab_panel.setDelegate(self)
-      
+
       setup_search_field
       setup_refs_view_menu
       
@@ -86,8 +88,13 @@ class ApplicationController < OSX::NSObject
     end
   end
   
-  def draggingEntered(sender)
-    puts sender
+  def is_file_ignored(file)
+    #return ignore_list.include?(file)
+    return false
+  end
+  
+  def repository_location
+    REPOSITORY_LOCATION.to_s.gsub('.git', '')
   end
   
   ib_action :show_info_panel
@@ -98,7 +105,7 @@ class ApplicationController < OSX::NSObject
   
   ib_action :swap_tab
   def swap_tab(segment)
-    tag = %w(commits network)[segment.cell.tagForSegment(segment.selectedSegment)]
+    tag = %w(commits network browser)[segment.cell.tagForSegment(segment.selectedSegment)]
     @tab_panel.selectTabViewItemWithIdentifier(tag)
   end
   
@@ -118,7 +125,32 @@ class ApplicationController < OSX::NSObject
     Notify.send "tab_view_changed", { :tab_item => tab_item.identifier }
   end
   
+  def swap_branch(item)
+    @commits_controller.swap_branch(item)
+    #Notify.send('branch_was_changed', {:title => item.title})
+  end
+  
+  def active_branch
+    @commits_controller.branch
+  end
+  
   private
+    def ignore_list
+      @ignore_list ||= lambda do
+        # Grit takes over ls-files so we have to run it this way
+        #repo.git.sh("cd #{repository_location}")
+        files = repo.git.run(nil, "ls-files", nil,  {:others => true, :exclude_from => "#{repo.path}/info/exclude"}, [])
+        #puts files
+        
+        #files = files.split("\n").collect {|f| %(#{repository_location}#{f.strip.chomp}) }
+        # files.each do |f|
+        #           puts f
+        #         end
+        #puts files
+        files
+      end.call
+    end
+    
     def setup_refs_view_menu
       [@local_branches_menu, @remote_branches_menu, @tags_menu].each { |m| m.submenu.setAutoenablesItems(false) }
       
@@ -133,7 +165,7 @@ class ApplicationController < OSX::NSObject
           item = NSMenuItem.alloc.initWithTitle_action_keyEquivalent(head.name, :swap_branch, index.to_s)
           item.setEnabled(true)
           item.setTag(index)
-          item.setTarget(@commits_controller)
+          item.setTarget(self)
           menu.submenu.addItem(item)
         end
       end

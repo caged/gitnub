@@ -25,6 +25,8 @@ class CommitsController < OSX::NSObject
   ib_outlet :commit_details
   ib_outlet :application_controller
   
+  attr_reader :branch
+  
   def awakeFromNib  
     @searching = false
     @current_commit_offset = 0
@@ -153,6 +155,7 @@ class CommitsController < OSX::NSObject
     @commits_table.scrollRowToVisible(0)
   end
   
+  # TODO: remove the stank
   def update_main_document
     return unless active_commit
     diffs = []
@@ -187,7 +190,7 @@ class CommitsController < OSX::NSObject
       li.setInnerHTML(%(<a href="#diff-#{i}" class="">#{diff.b_path}</a>))
       file_list.appendChild(li)
  
-      unless diff.deleted_file or diff.diff.nil?
+      unless diff.deleted_file || diff.diff.nil?
         diff_div = doc.createElement('div')
         diff_div.setAttribute__('class', 'diff')
         diff_div.setAttribute__('id', "diff-#{i}")
@@ -234,19 +237,20 @@ class CommitsController < OSX::NSObject
   
   def search_commits(category, query)
     unless query == ""
+      branch = @branch.to_s
       @searching = true
       repo = @application_controller.repo
       case category.downcase.to_sym
         when :message
-         @commits = Grit::Commit.find_all(repo, @branch, {:grep => query, :i => true})
+         @commits = Grit::Commit.find_all(repo, branch, {:grep => query, :i => true})
         when :committer
-         @commits = Grit::Commit.find_all(repo, @branch, {:committer => query})
+         @commits = Grit::Commit.find_all(repo, branch, {:committer => query})
         when :author
-         @commits = Grit::Commit.find_all(repo, @branch, {:author => query})
+         @commits = Grit::Commit.find_all(repo, branch, {:author => query})
         when :sha1
           @commits = [repo.commit(query)]
         when :path
-          @commits = repo.log(@branch, query)
+          @commits = repo.log(branch, query)
       end
       @commits_table.reloadData
       select_latest_commit
@@ -275,7 +279,7 @@ class CommitsController < OSX::NSObject
   end
   
   def fetch_commits_for(branch, quanity, offset = 0)
-    @commits = @repo.commits(branch, quanity, offset)
+    @commits = @repo.commits(branch.to_s, quanity, offset)
   end
   
   def setup_paging_control

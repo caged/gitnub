@@ -178,3 +178,76 @@ pre code {
 
 
 /* @end */
+
+/*------------------------------------------------------------------------------------
+  @group blame
+------------------------------------------------------------------------------------*/
+#blame {
+  display: block;
+  background-color: #f7f7f7;
+}
+
+#blame-list li {
+  line-height: 100%;
+  border-bottom: 1px solid #eee;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: block;
+  min-height: 24px;
+  font-size: 92%;
+}
+
+#blame pre {
+  line-height: 100% !important;
+  overflow: visible;
+  border: 0 !important;
+  margin: 0 0 0 68px !important;
+  padding: 0 !important;
+  white-space: pre-wrap;
+  background: transparent !important;
+}
+
+#blame code {
+  background: transparent !important;
+  line-height: 100% !important;
+  padding: 8px 0 0 0;
+  margin: 0;
+  vertical-align: middle;
+}
+
+
+
+#blame .linenum {
+  background: #eee;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 30px;
+  text-align: right;
+  font-family: Courier, monospace;
+  color: #777;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.image-wrapper {
+  vertical-align: middle;
+  height: 100%;
+  text-align: center;
+  min-height: 400px;
+}
+
+#blame .inline-image {
+
+}
+
+#blame .gravatar {
+  position: absolute;
+  top: 3px;
+  left: 43px;
+  padding: 1px;
+  border: 1px solid #eee;
+}
+
+/* @end */  
