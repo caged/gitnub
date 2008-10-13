@@ -25,5 +25,5 @@
 - (BOOL)isLeafNode;
 - (NSDictionary*)attributes;
 - (BOOL)isHeading;
-- (BOOL)ignoredByGit:(NSString *)fileItem;
+// - (BOOL)ignoredByGit:(NSString *)fileItem;
 @end

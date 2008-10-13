@@ -64,6 +64,7 @@ class ApplicationController < OSX::NSObject
       @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
       @tab_panel.setDelegate(self)
 
+      set_window_title
       setup_search_field
       setup_refs_view_menu
       
@@ -77,6 +78,8 @@ class ApplicationController < OSX::NSObject
         end
       end
       
+    else
+      warn_user_no_repository
     end
   end
   
@@ -135,6 +138,11 @@ class ApplicationController < OSX::NSObject
   end
   
   private
+    def set_window_title
+      name = File.basename(repository_location)
+      @window.title = name
+    end
+    
     def ignore_list
       @ignore_list ||= lambda do
         # Grit takes over ls-files so we have to run it this way
@@ -209,5 +217,17 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call("Author", "Find all all commits by a particular author", false)
       add_menu_item.call("Path", "Find commits based on a path", false)
       @search_field.cell.setPlaceholderString("Search commits...")
+    end
+    
+    def warn_user_no_repository
+      alert = NSAlert.alloc.init
+      alert.addButtonWithTitle("OK")
+      alert.setMessageText("Couldn't find a git repository")
+      alert.setInformativeText("Make sure you launch GitNub with the `nub` command line tool from a valid git repository.")
+      alert.setAlertStyle(NSCriticalAlertStyle)
+      
+      if(alert.runModal == NSAlertFirstButtonReturn)
+        NSApp.terminate
+      end
     end
 end
