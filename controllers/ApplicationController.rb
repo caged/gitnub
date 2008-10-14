@@ -166,7 +166,7 @@ class ApplicationController < OSX::NSObject
       heads = heads.sort_by do |head|
         name = head.name rescue "temp head"
         name == 'master' ? "***" : name
-      end
+      end.uniq
       
       add_menu_item = lambda do |refs, menu|
         refs.each_with_index do |head, index|
@@ -187,7 +187,6 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call(repo.tags, @branch_select.menu.itemAtIndex(2))     #tags
       
       current_head = repo.head.name rescue nil
-      puts "CURRENT HEAD: #{current_head}"
       item = @branch_select.itemAtIndex(0).submenu.itemWithTitle(current_head || "master")
       @branch_select.cell.setMenuItem(item)
     end  

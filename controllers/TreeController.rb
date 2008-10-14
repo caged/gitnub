@@ -57,6 +57,7 @@ class TreeController < OSX::NSObject
         set_html('title', File.basename(file))
         element = doc.getElementById(ELEMENTS[:blame])
         element.setInnerHTML("")
+        element.setInnerHTML('<span id="loading">Loading...</span>')
         
         unless blob.nil?
           set_html('hash', blob.id)
@@ -87,6 +88,7 @@ class TreeController < OSX::NSObject
               i += 1
             end
           end
+          element.setInnerHTML("")
           element.appendChild(blame_list)
         else 
           set_html('hash', 'Untracked or ignored file')
