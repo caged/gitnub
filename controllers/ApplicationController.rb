@@ -186,8 +186,9 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call(repo.remotes, @branch_select.menu.itemAtIndex(1))  #remote
       add_menu_item.call(repo.tags, @branch_select.menu.itemAtIndex(2))     #tags
       
-      current_head = repo.heads.first.name.to_sym rescue nil
-      item = @branch_select.itemAtIndex(0).submenu.itemWithTitle(current_head || :master)
+      current_head = repo.head.name rescue nil
+      puts "CURRENT HEAD: #{current_head}"
+      item = @branch_select.itemAtIndex(0).submenu.itemWithTitle(current_head || "master")
       @branch_select.cell.setMenuItem(item)
     end  
     
