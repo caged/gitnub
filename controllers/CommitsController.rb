@@ -275,7 +275,7 @@ class CommitsController < OSX::NSObject
   
   def fetch_git_branch
     head = @repo.head || @repo.heads.first
-    @branch = head.name.to_sym
+    @branch = head.name
   end
   
   def fetch_commits_for(branch, quanity, offset = 0)
