@@ -14,8 +14,11 @@ require 'fileutils'
 class TreeController < OSX::NSObject
   IMAGE_MIMES = ["image/png", "img/jpeg", "image/jpg", "image/gif", "img/bmp"]
   ELEMENTS = {
-    :blame => 'blame',
-    :list  => 'blame-list'
+    :blame        => 'blame',
+    :list         => 'blame-list',
+    :wrapper      => 'blame-view',
+    :content      => 'content',
+    :placeholder  => 'place-holder'
   }
   
   ib_outlet :tree_outline
@@ -54,6 +57,10 @@ class TreeController < OSX::NSObject
         commit = app.repo.commit(branch)
         blob   = commit.tree/file
         
+        doc.getElementById(ELEMENTS[:wrapper]).setAttribute__('style', 'background:#fff')
+        doc.getElementById(ELEMENTS[:placeholder]).setAttribute__('style', 'display:none')
+        content = doc.getElementById(ELEMENTS[:content])
+        content.setAttribute__('style', 'display:block')
         set_html('title', File.basename(file))
         element = doc.getElementById(ELEMENTS[:blame])
         element.setInnerHTML("")
@@ -91,6 +98,7 @@ class TreeController < OSX::NSObject
           element.setInnerHTML("")
           element.appendChild(blame_list)
         else 
+          element.setInnerHTML("")
           set_html('hash', 'Untracked or ignored file')
         end
       end

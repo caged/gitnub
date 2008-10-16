@@ -182,6 +182,21 @@ pre code {
 /*------------------------------------------------------------------------------------
   @group blame
 ------------------------------------------------------------------------------------*/
+#content {
+  width: 100%;
+  position: relative;
+  background: #fff;
+  color: #000;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+}
+
+#blame-view {
+  background: #656565;
+  color: #ccc;
+}
+
 #loading {
   font-size: 120%;
   font-family: "Lucida Grande", sans-serif;
@@ -196,11 +211,11 @@ pre code {
 }
 
 h2#place-holder {
-  font-size: 400%;
-  color: #eee;
-  text-shadow: -1px -1px #ddd;
+  margin-top: 30%;
+  font-size: 120%;
+  color: #000;
+  text-shadow: 1px 1px #777;
   text-align: center;
-  text-transform: uppercase;
 }
 
 #blame-list li {
