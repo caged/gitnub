@@ -3,7 +3,7 @@ require 'rubygems'
 require 'pathname'
 require 'osx/cocoa'
 libdir = OSX::NSBundle.mainBundle.resourcePath.stringByAppendingPathComponent("lib").fileSystemRepresentation
-$:.unshift(libdir, "#{libdir}/grit/lib", "#{libdir}/mime-types/lib", "#{libdir}/open4/lib")
+$:.unshift(libdir, "#{libdir}/grit/lib", "#{libdir}/mime-types/lib", "#{libdir}/open4/lib",  "#{libdir}/diff-lcs/lib")
 require 'grit'
 require 'time_extensions'
 require 'string_extensions'
