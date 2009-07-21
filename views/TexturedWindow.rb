@@ -11,7 +11,7 @@ require 'osx/cocoa'
 class TexturedWindow < OSX::NSWindow
   def initWithContentRect_styleMask_backing_defer(rect, mask, backing, defer)
     if super_initWithContentRect_styleMask_backing_defer(rect, mask, backing, defer)
-      self.setContentBorderThickness_forEdge(44.0, NSMinYEdge)
+      self.setContentBorderThickness_forEdge(44.0, CGRectMinYEdge)
       self.registerForDraggedTypes([NSURLPboardType, NSFilenamesPboardType])
     end
     return self
