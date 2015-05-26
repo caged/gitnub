@@ -8,8 +8,9 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="589"/>
+			<integer value="29"/>
 			<integer value="344"/>
+			<integer value="589"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -34,7 +35,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{246, 89}, {990, 682}}</string>
 				<int key="NSWTFlags">813170688</int>
-				<string key="NSWindowTitle">GitNub</string>
+				<string key="NSWindowTitle">Gitnub</string>
 				<string key="NSWindowClass">TexturedWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -776,7 +777,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="NSMenuItem" id="273211888">
 						<reference key="NSMenu" ref="613528524"/>
-						<string key="NSTitle">GitNub</string>
+						<string key="NSTitle">Gitnub</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -784,12 +785,12 @@
 						<reference key="NSMixedImage" ref="414381303"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="514001054">
-							<string key="NSTitle">GitNub</string>
+							<string key="NSTitle">Gitnub</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="905696592">
 									<reference key="NSMenu" ref="514001054"/>
-									<string key="NSTitle">About GitNub</string>
+									<string key="NSTitle">About Gitnub</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="602984626"/>
@@ -856,7 +857,7 @@
 								</object>
 								<object class="NSMenuItem" id="75149726">
 									<reference key="NSMenu" ref="514001054"/>
-									<string key="NSTitle">Hide GitNub</string>
+									<string key="NSTitle">Hide Gitnub</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -894,7 +895,7 @@
 								</object>
 								<object class="NSMenuItem" id="826738325">
 									<reference key="NSMenu" ref="514001054"/>
-									<string key="NSTitle">Quit GitNub</string>
+									<string key="NSTitle">Quit Gitnub</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -2762,8 +2763,8 @@
 					<reference ref="9"/>
 					<string>{{105, 155}, {990, 682}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<integer value="0" id="6"/>
-					<reference ref="6"/>
+					<integer value="0" id="8"/>
+					<reference ref="8"/>
 					<string>{{105, 155}, {990, 682}}</string>
 					<reference ref="9"/>
 					<reference ref="9"/>
@@ -2784,12 +2785,12 @@
 					<string>{{736, 76}, {172, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{98, 319}, {170, 63}}</string>
-					<string>{{435, 829}, {186, 20}}</string>
+					<string>{{435, 829}, {185, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{70, 809}, {142, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<integer value="0" id="8"/>
+					<reference ref="8"/>
 					<object class="NSColor">
 						<int key="NSColorSpace">1</int>
 						<bytes key="NSRGB">MC44MDAwMDAwMSAwLjgwMDAwMDAxIDAuODAwMDAwMDEAA</bytes>
@@ -2810,14 +2811,14 @@
 					<reference ref="8"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{559, 736}, {194, 93}}</string>
+					<string>{{558, 736}, {194, 93}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{223, 784}, {194, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{556, 611}, {154, 223}}</string>
+					<string>{{514, 606}, {154, 223}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2885,7 +2886,7 @@
 					<string>{{908, 93}, {64, 6}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{488, 641}, {218, 193}}</string>
+					<string>{{447, 636}, {218, 193}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{82, 616}, {218, 193}}</string>

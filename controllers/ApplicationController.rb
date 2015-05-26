@@ -5,27 +5,7 @@
 #  Created by Justin Palmer on 3/1/08.
 #  Copyright (c) 2008 Active Reload, LLC. All rights reserved.
 #
-$VERBOSE = nil
-require 'rubygems'
-require 'pathname'
-require 'osx/cocoa'
-libdir = OSX::NSBundle.mainBundle.resourcePath.stringByAppendingPathComponent("lib").fileSystemRepresentation
-$:.unshift(libdir, "#{libdir}/grit/lib", "#{libdir}/mime-types/lib", "#{libdir}/open4/lib")
-require 'grit'
-require 'time_extensions'
-require 'string_extensions'
-require 'osx_notify'
-require 'InfoWindowController'
-
-OSX.ns_import 'CommitSummaryCell'
-include OSX
-
-#Grit.debug = true
-
-# we use ENV['PWD'] instead of Dir.getwd if it exists so
-# `open GitNub` will work, since that launches us at / but leaves ENV['PWD'] intact
-pwd = Pathname.new(ENV['PWD'].nil? ? Dir.getwd : ENV['PWD'])
-REPOSITORY_LOCATION = pwd + `cd #{pwd} && git rev-parse --git-dir 2>/dev/null`.chomp
+require 'bootstrap'
 
 class ApplicationController < OSX::NSObject 
   ib_outlet :commits_table
@@ -64,6 +44,7 @@ class ApplicationController < OSX::NSObject
       @branch_field.cell.setBackgroundStyle(NSBackgroundStyleRaised)
       @tab_panel.setDelegate(self)
 
+      set_window_title
       setup_search_field
       setup_refs_view_menu
       
@@ -77,6 +58,8 @@ class ApplicationController < OSX::NSObject
         end
       end
       
+    else
+      warn_user_no_repository
     end
   end
   
@@ -135,6 +118,11 @@ class ApplicationController < OSX::NSObject
   end
   
   private
+    def set_window_title
+      name = File.basename(repository_location)
+      @window.title = name
+    end
+    
     def ignore_list
       @ignore_list ||= lambda do
         # Grit takes over ls-files so we have to run it this way
@@ -158,7 +146,7 @@ class ApplicationController < OSX::NSObject
       heads = heads.sort_by do |head|
         name = head.name rescue "temp head"
         name == 'master' ? "***" : name
-      end
+      end.uniq
       
       add_menu_item = lambda do |refs, menu|
         refs.each_with_index do |head, index|
@@ -178,8 +166,8 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call(repo.remotes, @branch_select.menu.itemAtIndex(1))  #remote
       add_menu_item.call(repo.tags, @branch_select.menu.itemAtIndex(2))     #tags
       
-      current_head = repo.heads.first.name.to_sym rescue nil
-      item = @branch_select.itemAtIndex(0).submenu.itemWithTitle(current_head || :master)
+      current_head = repo.head.name rescue nil
+      item = @branch_select.itemAtIndex(0).submenu.itemWithTitle(current_head || "master")
       @branch_select.cell.setMenuItem(item)
     end  
     
@@ -209,5 +197,17 @@ class ApplicationController < OSX::NSObject
       add_menu_item.call("Author", "Find all all commits by a particular author", false)
       add_menu_item.call("Path", "Find commits based on a path", false)
       @search_field.cell.setPlaceholderString("Search commits...")
+    end
+    
+    def warn_user_no_repository
+      alert = NSAlert.alloc.init
+      alert.addButtonWithTitle("OK")
+      alert.setMessageText("Couldn't find a git repository")
+      alert.setInformativeText("Make sure you launch GitNub with the `nub` command line tool from a valid git repository.")
+      alert.setAlertStyle(NSCriticalAlertStyle)
+      
+      if(alert.runModal == NSAlertFirstButtonReturn)
+        NSApp.terminate
+      end
     end
 end

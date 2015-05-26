@@ -14,8 +14,8 @@ OSX.require_framework 'WebKit'
  
 def gravatar_url(email, size=36, default="x-img://default")
   hash = MD5.hexdigest(email.downcase)
-  edefault = default.gsub(/[^a-zA-Z0-9_-]/) { |s| "%%%02X" % s[0]}
-  NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{hash}&s=#{size}&d=#{edefault}")
+  default.gsub!(/[^a-zA-Z0-9_-]/) { |s| "%%%02X" % s[0]}
+  NSURL.URLWithString("http://www.gravatar.com/avatar.php?gravatar_id=#{hash}&s=#{size}&d=#{default}")
 end
  
 class CommitsController < OSX::NSObject
@@ -275,7 +275,7 @@ class CommitsController < OSX::NSObject
   
   def fetch_git_branch
     head = @repo.head || @repo.heads.first
-    @branch = head.name.to_sym
+    @branch = head.name
   end
   
   def fetch_commits_for(branch, quanity, offset = 0)

@@ -14,8 +14,11 @@ require 'fileutils'
 class TreeController < OSX::NSObject
   IMAGE_MIMES = ["image/png", "img/jpeg", "image/jpg", "image/gif", "img/bmp"]
   ELEMENTS = {
-    :blame => 'blame',
-    :list  => 'blame-list'
+    :blame        => 'blame',
+    :list         => 'blame-list',
+    :wrapper      => 'blame-view',
+    :content      => 'content',
+    :placeholder  => 'place-holder'
   }
   
   ib_outlet :tree_outline
@@ -30,6 +33,7 @@ class TreeController < OSX::NSObject
     @tree_outline.setDataSource(dsource)
     @tree_outline.setDelegate(dsource)
     @tree_outline.expandItem(@tree_outline.itemAtRow(0))
+    
   	NSNotificationCenter.defaultCenter.objc_send(:addObserver, self,
   		:selector, :item_was_selected,
   		:name, "NSOutlineViewSelectionDidChangeNotification",
@@ -53,13 +57,17 @@ class TreeController < OSX::NSObject
         commit = app.repo.commit(branch)
         blob   = commit.tree/file
         
+        doc.getElementById(ELEMENTS[:wrapper]).setAttribute__('style', 'background:#fff')
+        doc.getElementById(ELEMENTS[:placeholder]).setAttribute__('style', 'display:none')
+        content = doc.getElementById(ELEMENTS[:content])
+        content.setAttribute__('style', 'display:block')
         set_html('title', File.basename(file))
         element = doc.getElementById(ELEMENTS[:blame])
         element.setInnerHTML("")
+        element.setInnerHTML('<span id="loading">Loading...</span>')
         
         unless blob.nil?
           set_html('hash', blob.id)
-          puts blob.mime_type
           last_commit_html(app, branch, file)
           
           if IMAGE_MIMES.include?(blob.mime_type)
@@ -77,18 +85,20 @@ class TreeController < OSX::NSObject
               line = line.empty? ? "&nbsp;" : line.escapeHTML
               li = doc.createElement('li')
               img = doc.createElement('img')
-              url = gravatar_url(commit.author.email, 16).to_s
+              url = gravatar_url(commit.author.email, 16, '').to_s
               img.setAttribute__('src', url)
               img.setAttribute__('class', 'gravatar')
               img.setAttribute__('title', commit.author.email)
-              li.setInnerHTML(%(<span class="linenum">#{i}</span><pre><code>#{line.chomp}</code></pre>))
+              li.setInnerHTML(%(<span class="linenum">#{i}</span><span class="sha">#{commit.sha}</span><pre><code>#{line.chomp}</code></pre>))
               li.appendChild(img)
               blame_list.appendChild(li)
               i += 1
             end
           end
+          element.setInnerHTML("")
           element.appendChild(blame_list)
         else 
+          element.setInnerHTML("")
           set_html('hash', 'Untracked or ignored file')
         end
       end
